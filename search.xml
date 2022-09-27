@@ -1,6 +1,48 @@
 <?xml version="1.0" encoding="utf-8"?>
 <search>
   <entry>
+    <title>how to deploy django to heroku</title>
+    <url>/2022/09/27/django_to_heroku/</url>
+    <content><![CDATA[<p>1.<img src="/images/image.jpg"></p>
+<p>winget heroku CLI</p>
+<p>example:專案名稱 my_blog_project</p>
+<p>先把專案env裏頭的pip list 寫出來 <strong>pip freeze &gt; requirements.txt</strong></p>
+<p>heroku官網 create new app</p>
+<p>桌面直接py -m venv herokuenv</p>
+<p>把專案資料夾複製進herokuenv 裏頭 改名my_blog_projecthero</p>
+<p>把my_blog_projecthero的.git資料夾刪掉</p>
+<p>進入herokuenv虛擬環境 pip install gunicorn</p>
+<p>並把my_blog_project的<strong>requirements.txt 通通載入安裝 pip install -r requirements.txt</strong></p>
+<p>於my_blog_projecthero新增「Procfile」檔案 並撰寫 web: gunicorn my_blog_project.wsgi</p>
+<p>於settings.py檔新增 STATIC_ROOT &#x3D; os.path.join(BASE_DIR, ‘static’)</p>
+<p>接著執行 python manage.py collectstatic</p>
+<p>接著 pip install whitenoise</p>
+<ul>
+<li><p>接著，開啟Django專案的settings.py，在MIDDLEWARE串列的地方，加入WhiteNoiseMiddleware，如下範例：</p>
+  <figure class="highlight python"><table><tr><td class="code"><pre><span class="line">MIDDLEWARE = [</span><br><span class="line">    <span class="string">&#x27;django.middleware.security.SecurityMiddleware&#x27;</span>,</span><br><span class="line">    <span class="string">&#x27;whitenoise.middleware.WhiteNoiseMiddleware&#x27;</span>,</span><br><span class="line">    <span class="string">&#x27;django.contrib.sessions.middleware.SessionMiddleware&#x27;</span>,</span><br><span class="line">    <span class="string">&#x27;django.middleware.common.CommonMiddleware&#x27;</span>,</span><br><span class="line">    <span class="string">&#x27;django.middleware.csrf.CsrfViewMiddleware&#x27;</span>,</span><br><span class="line">    <span class="string">&#x27;django.contrib.auth.middleware.AuthenticationMiddleware&#x27;</span>,</span><br><span class="line">    <span class="string">&#x27;django.contrib.messages.middleware.MessageMiddleware&#x27;</span>,</span><br><span class="line">    <span class="string">&#x27;django.middleware.clickjacking.XFrameOptionsMiddleware&#x27;</span>,</span><br><span class="line">]</span><br></pre></td></tr></table></figure></li>
+</ul>
+<p>把舊的<strong>requirements.txt 刪除</strong></p>
+<p>接著<strong>pip freeze &gt; requirements.txt 把最新的requirements導出來(包含gunicorn與whitenoise)</strong></p>
+<p>把settings.py的 ALLOWED_HOSTS &#x3D; [‘*’]</p>
+<p>退出虛擬環境 deactivate</p>
+<p>heroku login</p>
+<p>git init</p>
+<p>heroku git:remote -a <app_name></p>
+<p>git add .</p>
+<p>git commit -m “first commit”</p>
+<p>git push heroku master</p>
+]]></content>
+      <tags>
+        <tag>django</tag>
+        <tag>heroku</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>123</title>
+    <url>/2022/09/27/123/</url>
+    <content><![CDATA[]]></content>
+  </entry>
+  <entry>
     <title>pandas organize</title>
     <url>/2022/09/27/pandas-regex/</url>
     <content><![CDATA[<h3 id="regex-related"><a href="#regex-related" class="headerlink" title="regex related"></a>regex related</h3><p>之二十二 -&gt;  之二二</p>
@@ -79,37 +121,9 @@
 
 <p>add new column by combine another column </p>
 <figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">df[&#x27;使照提取&#x27;]= df[&#x27;完工日&#x27;].str[:3] +&#x27;-&#x27;+ df[&#x27;使照提取&#x27;]</span><br></pre></td></tr></table></figure>]]></content>
-  </entry>
-  <entry>
-    <title>how to deploy django to heroku</title>
-    <url>/2022/09/27/django_to_heroku/</url>
-    <content><![CDATA[<p>winget heroku CLI</p>
-<p>example:專案名稱 my_blog_project</p>
-<p>先把專案env裏頭的pip list 寫出來 <strong>pip freeze &gt; requirements.txt</strong></p>
-<p>heroku官網 create new app</p>
-<p>桌面直接py -m venv herokuenv</p>
-<p>把專案資料夾複製進herokuenv 裏頭 改名my_blog_projecthero</p>
-<p>把my_blog_projecthero的.git資料夾刪掉</p>
-<p>進入herokuenv虛擬環境 pip install gunicorn</p>
-<p>並把my_blog_project的<strong>requirements.txt 通通載入安裝 pip install -r requirements.txt</strong></p>
-<p>於my_blog_projecthero新增「Procfile」檔案 並撰寫 web: gunicorn my_blog_project.wsgi</p>
-<p>於settings.py檔新增 STATIC_ROOT &#x3D; os.path.join(BASE_DIR, ‘static’)</p>
-<p>接著執行 python manage.py collectstatic</p>
-<p>接著 pip install whitenoise</p>
-<ul>
-<li><p>接著，開啟Django專案的settings.py，在MIDDLEWARE串列的地方，加入WhiteNoiseMiddleware，如下範例：</p>
-  <figure class="highlight python"><table><tr><td class="code"><pre><span class="line">MIDDLEWARE = [</span><br><span class="line">    <span class="string">&#x27;django.middleware.security.SecurityMiddleware&#x27;</span>,</span><br><span class="line">    <span class="string">&#x27;whitenoise.middleware.WhiteNoiseMiddleware&#x27;</span>,</span><br><span class="line">    <span class="string">&#x27;django.contrib.sessions.middleware.SessionMiddleware&#x27;</span>,</span><br><span class="line">    <span class="string">&#x27;django.middleware.common.CommonMiddleware&#x27;</span>,</span><br><span class="line">    <span class="string">&#x27;django.middleware.csrf.CsrfViewMiddleware&#x27;</span>,</span><br><span class="line">    <span class="string">&#x27;django.contrib.auth.middleware.AuthenticationMiddleware&#x27;</span>,</span><br><span class="line">    <span class="string">&#x27;django.contrib.messages.middleware.MessageMiddleware&#x27;</span>,</span><br><span class="line">    <span class="string">&#x27;django.middleware.clickjacking.XFrameOptionsMiddleware&#x27;</span>,</span><br><span class="line">]</span><br></pre></td></tr></table></figure></li>
-</ul>
-<p>把舊的<strong>requirements.txt 刪除</strong></p>
-<p>接著<strong>pip freeze &gt; requirements.txt 把最新的requirements導出來(包含gunicorn與whitenoise)</strong></p>
-<p>把settings.py的 ALLOWED_HOSTS &#x3D; [‘*’]</p>
-<p>退出虛擬環境 deactivate</p>
-<p>heroku login</p>
-<p>git init</p>
-<p>heroku git:remote -a <app_name></p>
-<p>git add .</p>
-<p>git commit -m “first commit”</p>
-<p>git push heroku master</p>
-]]></content>
+      <tags>
+        <tag>pandas</tag>
+        <tag>regex</tag>
+      </tags>
   </entry>
 </search>
