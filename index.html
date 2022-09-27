@@ -151,7 +151,7 @@
   <nav class="site-state">
       <div class="site-state-item site-state-posts">
         <a href="/archives/">
-          <span class="site-state-item-count">1</span>
+          <span class="site-state-item-count">2</span>
           <span class="site-state-item-name">posts</span>
         </a>
       </div>
@@ -190,7 +190,7 @@
   
 
   <article itemscope itemtype="http://schema.org/Article" class="post-content" lang="">
-    <link itemprop="mainEntityOfPage" href="http://example.com/2022/09/26/django_to_heroku/">
+    <link itemprop="mainEntityOfPage" href="http://example.com/2022/09/27/pandas-regex/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="image" content="/images/avatar.gif">
@@ -208,7 +208,7 @@
     </span>
       <header class="post-header">
         <h2 class="post-title" itemprop="name headline">
-          <a href="/2022/09/26/django_to_heroku/" class="post-title-link" itemprop="url">how to deploy django to heroku</a>
+          <a href="/2022/09/27/pandas-regex/" class="post-title-link" itemprop="url">pandas_regex</a>
         </h2>
 
         <div class="post-meta-container">
@@ -218,15 +218,99 @@
         <i class="far fa-calendar"></i>
       </span>
       <span class="post-meta-item-text">Posted on</span>
+      
 
-      <time title="Created: 2022-09-26 11:17:57" itemprop="dateCreated datePublished" datetime="2022-09-26T11:17:57+08:00">2022-09-26</time>
+      <time title="Created: 2022-09-27 13:32:34 / Modified: 13:33:50" itemprop="dateCreated datePublished" datetime="2022-09-27T13:32:34+08:00">2022-09-27</time>
     </span>
+
+  
+</div>
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+          <p>之二十二 -&gt;  之二二<br>df[‘回傳門牌’] &#x3D;  df.回傳門牌.replace({r’(之.)十(.)’ : r’\1\2’}, regex&#x3D;True)</p>
+<p>段小小 -&gt; 段小<br>df[‘地號_小段’]&#x3D;df[‘地號_小段’].str.replace(r’小$’, ‘’, regex&#x3D;True)</p>
+<p>蔦松路56巷46號五樓之一 get 五樓之一<br>df[‘號之後’] &#x3D; df[‘回傳門牌’].str.extract(‘(?&lt;&#x3D;號)(.*)’)</p>
+<p>蔦松路56巷46號五樓之一 get  蔦松路56巷46號<br>df[‘號之前包含號’]&#x3D; df[‘回傳門牌’].str.extract(‘(.*號)’)</p>
+<p>七樓之七 -&gt; 7樓之7<br>dict1 &#x3D; {“一” : ‘1’,”二” : ‘2’,”三” : ‘3’,”四” : ‘4’,”五” : ‘5’<br>,”六” : ‘6’,”七” : ‘7’,”八” : ‘8’,”九” : ‘9’}<br>df[“號之後”]&#x3D; df[“號之後”].replace( dict1,regex&#x3D;True)</p>
+<p>df[‘號之後’] &#x3D;  df.號之後.replace({r’(\d)十’ : r’\1@0’}, regex&#x3D;True)</p>
+<p>df[‘號之後’] &#x3D;  df.號之後.replace({r’十(\d)’ : r‘1@\1’}, regex&#x3D;True)</p>
+<p>res &#x3D; pd.merge(df1,df2, on&#x3D;[‘行政區’,’縣市’,’地址’],how&#x3D;’left’)</p>
+<p>df&#x3D; df[res[“bkey”].str.contains(‘查’)&#x3D;&#x3D;False]</p>
+<p>res[res[‘地號_小段’].str.contains(‘小’)&#x3D;&#x3D;True]</p>
+<p>res[res[‘地號_小段’].notna()]</p>
+<p>df[‘地號_段_小段’] &#x3D; np.where(df[‘地號_小段’].isnull(), df[‘地號_段_小段’], df[‘地號_段_小段’]+df[‘地號_小段’]+”小段”)</p>
+<p>df[‘完成日’] &#x3D; np.where(df[‘完成日’].str.contains(‘民國’), df[‘完成日’], “民國”+df[‘完成日’])</p>
+<p>df[‘地址’] &#x3D; df[‘地址’].str.replace(‘(?&lt;&#x3D;\d號).*’,’’, regex&#x3D;True)</p>
+<p>df&#x3D; df[~df[“bkey”].str.contains(“查”)]</p>
+<p>res[‘使照號’].fillna(method&#x3D;’ffill’, inplace&#x3D;True)</p>
+<p>df[‘地址’]&#x3D;df[‘地址’].str.replace(r’^..里’, ‘’, regex&#x3D;True)</p>
+<p>df[df[‘地址’].str.contains(“里”,na&#x3D; False) ]</p>
+<p>df[‘使照提取’] &#x3D; df[‘使照相關’].str.extract(‘(\d{1,5})(?&#x3D;號)’)</p>
+<p>df[‘使照提取’] &#x3D; df[‘使照提取’].str.zfill(5)</p>
+<p>df[‘使照提取’]&#x3D; df[‘完工日’].str[:3] +’-‘+ df[‘使照提取’]</p>
+
+      
+    </div>
+
+    
+    
+    
+
+    <footer class="post-footer">
+        <div class="post-eof"></div>
+      
+    </footer>
+  </article>
+</div>
+
+
+
+
+    
+
+
+<div class="post-block">
+  
+  
+
+  <article itemscope itemtype="http://schema.org/Article" class="post-content" lang="">
+    <link itemprop="mainEntityOfPage" href="http://example.com/2022/09/27/django_to_heroku/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/images/avatar.gif">
+      <meta itemprop="name" content="jacklin">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="jacklin murmur">
+      <meta itemprop="description" content="">
+    </span>
+
+    <span hidden itemprop="post" itemscope itemtype="http://schema.org/CreativeWork">
+      <meta itemprop="name" content="undefined | jacklin murmur">
+      <meta itemprop="description" content="">
+    </span>
+      <header class="post-header">
+        <h2 class="post-title" itemprop="name headline">
+          <a href="/2022/09/27/django_to_heroku/" class="post-title-link" itemprop="url">how to deploy django to heroku</a>
+        </h2>
+
+        <div class="post-meta-container">
+          <div class="post-meta">
     <span class="post-meta-item">
       <span class="post-meta-item-icon">
-        <i class="far fa-calendar-check"></i>
+        <i class="far fa-calendar"></i>
       </span>
-      <span class="post-meta-item-text">Edited on</span>
-      <time title="Modified: 2022-09-27 11:51:24" itemprop="dateModified" datetime="2022-09-27T11:51:24+08:00">2022-09-27</time>
+      <span class="post-meta-item-text">Posted on</span>
+      
+
+      <time title="Created: 2022-09-27 11:32:35 / Modified: 13:32:58" itemprop="dateCreated datePublished" datetime="2022-09-27T11:32:35+08:00">2022-09-27</time>
     </span>
 
   
