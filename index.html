@@ -220,7 +220,7 @@
       <span class="post-meta-item-text">Posted on</span>
       
 
-      <time title="Created: 2022-09-27 13:32:34 / Modified: 16:43:30" itemprop="dateCreated datePublished" datetime="2022-09-27T13:32:34+08:00">2022-09-27</time>
+      <time title="Created: 2022-09-27 13:32:34 / Modified: 16:45:34" itemprop="dateCreated datePublished" datetime="2022-09-27T13:32:34+08:00">2022-09-27</time>
     </span>
 
   
@@ -233,7 +233,7 @@
     
     
     <div class="post-body" itemprop="articleBody">
-          <h3 id="regex相關"><a href="#regex相關" class="headerlink" title="regex相關"></a>regex相關</h3><p>之二十二 -&gt;  之二二</p>
+          <h3 id="regex-related"><a href="#regex-related" class="headerlink" title="regex related"></a>regex related</h3><p>之二十二 -&gt;  之二二</p>
 <figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">df[&#x27;回傳門牌&#x27;] =  df.回傳門牌.replace(&#123;r&#x27;(之.)十(.)&#x27; : r&#x27;\1\2&#x27;&#125;, regex=True)</span><br></pre></td></tr></table></figure>
 
 
@@ -261,7 +261,7 @@
 <p>十1 -&gt; 1@1</p>
 <figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">df[&#x27;號之後&#x27;] =  df.號之後.replace(&#123;r&#x27;十(\d)&#x27; : r&#x27;1@\1&#x27;&#125;, regex=True)</span><br></pre></td></tr></table></figure>
 
-<h3 id="filter相關"><a href="#filter相關" class="headerlink" title="filter相關"></a>filter相關</h3><p>left join two dataframe</p>
+<h3 id="filter-related"><a href="#filter-related" class="headerlink" title="filter related"></a>filter related</h3><p>left join two dataframe</p>
 <figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">res = pd.merge(df1,df2, on=[&#x27;行政區&#x27;,&#x27;縣市&#x27;,&#x27;地址&#x27;],how=&#x27;left&#x27;)</span><br></pre></td></tr></table></figure>
 
 
