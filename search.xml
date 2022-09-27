@@ -33,29 +33,83 @@
 ]]></content>
   </entry>
   <entry>
-    <title>pandas_regex</title>
+    <title>pandas organize</title>
     <url>/2022/09/27/pandas-regex/</url>
-    <content><![CDATA[<p>之二十二 -&gt;  之二二<br>df[‘回傳門牌’] &#x3D;  df.回傳門牌.replace({r’(之.)十(.)’ : r’\1\2’}, regex&#x3D;True)</p>
-<p>段小小 -&gt; 段小<br>df[‘地號_小段’]&#x3D;df[‘地號_小段’].str.replace(r’小$’, ‘’, regex&#x3D;True)</p>
-<p>蔦松路56巷46號五樓之一 get 五樓之一<br>df[‘號之後’] &#x3D; df[‘回傳門牌’].str.extract(‘(?&lt;&#x3D;號)(.*)’)</p>
-<p>蔦松路56巷46號五樓之一 get  蔦松路56巷46號<br>df[‘號之前包含號’]&#x3D; df[‘回傳門牌’].str.extract(‘(.*號)’)</p>
-<p>七樓之七 -&gt; 7樓之7<br>dict1 &#x3D; {“一” : ‘1’,”二” : ‘2’,”三” : ‘3’,”四” : ‘4’,”五” : ‘5’<br>,”六” : ‘6’,”七” : ‘7’,”八” : ‘8’,”九” : ‘9’}<br>df[“號之後”]&#x3D; df[“號之後”].replace( dict1,regex&#x3D;True)</p>
-<p>df[‘號之後’] &#x3D;  df.號之後.replace({r’(\d)十’ : r’\1@0’}, regex&#x3D;True)</p>
-<p>df[‘號之後’] &#x3D;  df.號之後.replace({r’十(\d)’ : r‘1@\1’}, regex&#x3D;True)</p>
-<p>res &#x3D; pd.merge(df1,df2, on&#x3D;[‘行政區’,’縣市’,’地址’],how&#x3D;’left’)</p>
-<p>df&#x3D; df[res[“bkey”].str.contains(‘查’)&#x3D;&#x3D;False]</p>
-<p>res[res[‘地號_小段’].str.contains(‘小’)&#x3D;&#x3D;True]</p>
-<p>res[res[‘地號_小段’].notna()]</p>
-<p>df[‘地號_段_小段’] &#x3D; np.where(df[‘地號_小段’].isnull(), df[‘地號_段_小段’], df[‘地號_段_小段’]+df[‘地號_小段’]+”小段”)</p>
-<p>df[‘完成日’] &#x3D; np.where(df[‘完成日’].str.contains(‘民國’), df[‘完成日’], “民國”+df[‘完成日’])</p>
-<p>df[‘地址’] &#x3D; df[‘地址’].str.replace(‘(?&lt;&#x3D;\d號).*’,’’, regex&#x3D;True)</p>
-<p>df&#x3D; df[~df[“bkey”].str.contains(“查”)]</p>
-<p>res[‘使照號’].fillna(method&#x3D;’ffill’, inplace&#x3D;True)</p>
-<p>df[‘地址’]&#x3D;df[‘地址’].str.replace(r’^..里’, ‘’, regex&#x3D;True)</p>
-<p>df[df[‘地址’].str.contains(“里”,na&#x3D; False) ]</p>
-<p>df[‘使照提取’] &#x3D; df[‘使照相關’].str.extract(‘(\d{1,5})(?&#x3D;號)’)</p>
-<p>df[‘使照提取’] &#x3D; df[‘使照提取’].str.zfill(5)</p>
-<p>df[‘使照提取’]&#x3D; df[‘完工日’].str[:3] +’-‘+ df[‘使照提取’]</p>
-]]></content>
+    <content><![CDATA[<h3 id="regex相關"><a href="#regex相關" class="headerlink" title="regex相關"></a>regex相關</h3><p>之二十二 -&gt;  之二二</p>
+<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">df[&#x27;回傳門牌&#x27;] =  df.回傳門牌.replace(&#123;r&#x27;(之.)十(.)&#x27; : r&#x27;\1\2&#x27;&#125;, regex=True)</span><br></pre></td></tr></table></figure>
+
+
+<p>段小小 -&gt; 段小</p>
+<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">df[&#x27;地號_小段&#x27;]=df[&#x27;地號_小段&#x27;].str.replace(r&#x27;小$&#x27;, &#x27;&#x27;, regex=True)</span><br></pre></td></tr></table></figure>
+
+
+<p>蔦松路56巷46號五樓之一 get 五樓之一</p>
+<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">df[&#x27;號之後&#x27;] = df[&#x27;回傳門牌&#x27;].str.extract(&#x27;(?&lt;=號)(.*)&#x27;)</span><br></pre></td></tr></table></figure>
+
+
+<p>蔦松路56巷46號五樓之一 get  蔦松路56巷46號</p>
+<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">df[&#x27;號之前包含號&#x27;]= df[&#x27;回傳門牌&#x27;].str.extract(&#x27;(.*號)&#x27;)</span><br></pre></td></tr></table></figure>
+
+
+<p>七樓之七 -&gt; 7樓之7</p>
+<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">dict1 = &#123;&quot;一&quot; : &#x27;1&#x27;,&quot;二&quot; : &#x27;2&#x27;,&quot;三&quot; : &#x27;3&#x27;,&quot;四&quot; : &#x27;4&#x27;,&quot;五&quot; : &#x27;5&#x27;</span><br><span class="line">,&quot;六&quot; : &#x27;6&#x27;,&quot;七&quot; : &#x27;7&#x27;,&quot;八&quot; : &#x27;8&#x27;,&quot;九&quot; : &#x27;9&#x27;&#125;</span><br><span class="line">df[&quot;號之後&quot;]= df[&quot;號之後&quot;].replace( dict1,regex=True)</span><br></pre></td></tr></table></figure>
+
+<p>忠孝里忠孝東路 -&gt; 忠孝東路</p>
+<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">df[&#x27;地址&#x27;]=df[&#x27;地址&#x27;].str.replace(r&#x27;^..里&#x27;, &#x27;&#x27;, regex=True)</span><br></pre></td></tr></table></figure>
+
+<p>2十 -&gt; 2@0</p>
+<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">df[&#x27;號之後&#x27;] =  df.號之後.replace(&#123;r&#x27;(\d)十&#x27; : r&#x27;\1@0&#x27;&#125;, regex=True)</span><br></pre></td></tr></table></figure>
+
+<p>十1 -&gt; 1@1</p>
+<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">df[&#x27;號之後&#x27;] =  df.號之後.replace(&#123;r&#x27;十(\d)&#x27; : r&#x27;1@\1&#x27;&#125;, regex=True)</span><br></pre></td></tr></table></figure>
+
+<h3 id="filter相關"><a href="#filter相關" class="headerlink" title="filter相關"></a>filter相關</h3><p>left join two dataframe</p>
+<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">res = pd.merge(df1,df2, on=[&#x27;行政區&#x27;,&#x27;縣市&#x27;,&#x27;地址&#x27;],how=&#x27;left&#x27;)</span><br></pre></td></tr></table></figure>
+
+
+<p>column ‘bkey’ filter contains ‘查’</p>
+<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">df= df[res[&quot;bkey&quot;].str.contains(&#x27;查&#x27;)==False]</span><br></pre></td></tr></table></figure>
+
+
+
+<p>column ‘bkey’ filter not contains ‘查’</p>
+<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">df= df[~df[&quot;bkey&quot;].str.contains(&quot;查&quot;)]</span><br></pre></td></tr></table></figure>
+
+
+<p>column ‘地號_小段’ filter not NaN</p>
+<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">res[res[&#x27;地號_小段&#x27;].notna()]</span><br></pre></td></tr></table></figure>
+
+
+<p>Change the value of ‘地號_段_小段’ condition based on whether ‘地號_小段’ is null  </p>
+<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">df[&#x27;地號_段_小段&#x27;] = np.where(df[&#x27;地號_小段&#x27;].isnull(), df[&#x27;地號_段_小段&#x27;], df[&#x27;地號_段_小段&#x27;]+df[&#x27;地號_小段&#x27;]+&quot;小段&quot;)</span><br></pre></td></tr></table></figure>
+
+
+<p>Change the value of ‘完成日’ condition based on whether ‘完成日’ contains(‘民國’)</p>
+<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">df[&#x27;完成日&#x27;] = np.where(df[&#x27;完成日&#x27;].str.contains(&#x27;民國&#x27;), df[&#x27;完成日&#x27;], &quot;民國&quot;+df[&#x27;完成日&#x27;])</span><br></pre></td></tr></table></figure>
+
+
+<p>15號二樓之1 -&gt; 15號<br>13號3樓     -&gt; 13號</p>
+<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">df[&#x27;地址&#x27;] = df[&#x27;地址&#x27;].str.replace(&#x27;(?&lt;=\d號).*&#x27;,&#x27;&#x27;, regex=True)</span><br></pre></td></tr></table></figure>
+
+
+<p>fill in the blanks in order</p>
+<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">res[&#x27;使照號&#x27;].fillna(method=&#x27;ffill&#x27;, inplace=True)</span><br></pre></td></tr></table></figure>
+
+
+
+<p>column ‘地址’ filter contains’里’ not NaN</p>
+<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">df[df[&#x27;地址&#x27;].str.contains(&quot;里&quot;,na= False)]</span><br></pre></td></tr></table></figure>
+
+
+<p>00000號  -&gt; 00000<br>0001號 -&gt; 0001</p>
+<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">df[&#x27;使照提取&#x27;] = df[&#x27;使照相關&#x27;].str.extract(&#x27;(\d&#123;1,5&#125;)(?=號)&#x27;)</span><br></pre></td></tr></table></figure>
+
+
+<p>005 -&gt; 00005</p>
+<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">df[&#x27;使照提取&#x27;] = df[&#x27;使照提取&#x27;].str.zfill(5)</span><br></pre></td></tr></table></figure>
+
+
+<p>add new column by combine another column </p>
+<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">df[&#x27;使照提取&#x27;]= df[&#x27;完工日&#x27;].str[:3] +&#x27;-&#x27;+ df[&#x27;使照提取&#x27;]</span><br></pre></td></tr></table></figure>]]></content>
   </entry>
 </search>
