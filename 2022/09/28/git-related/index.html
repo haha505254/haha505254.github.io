@@ -1,0 +1,439 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+<meta name="viewport" content="width=device-width">
+<meta name="theme-color" content="#222"><meta name="generator" content="Hexo 6.3.0">
+
+
+  <link rel="apple-touch-icon" sizes="180x180" href="/images/apple-touch-icon-next.png">
+  <link rel="icon" type="image/png" sizes="32x32" href="/images/favicon-32x32-next.png">
+  <link rel="icon" type="image/png" sizes="16x16" href="/images/favicon-16x16-next.png">
+  <link rel="mask-icon" href="/images/logo.svg" color="#222">
+
+<link rel="stylesheet" href="/css/main.css">
+
+
+
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.2.0/css/all.min.css" integrity="sha256-AbA177XfpSnFEvgpYu1jMygiLabzPCJCRIBtR5jGc0k=" crossorigin="anonymous">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/3.1.1/animate.min.css" integrity="sha256-PR7ttpcvz8qrF57fur/yAx1qXMFJeJFiA6pSzWi0OIE=" crossorigin="anonymous">
+
+<script class="next-config" data-name="main" type="application/json">{"hostname":"example.com","root":"/","images":"/images","scheme":"Pisces","darkmode":false,"version":"8.13.0","exturl":false,"sidebar":{"position":"left","display":"post","padding":18,"offset":12},"copycode":{"enable":false,"style":null},"bookmark":{"enable":false,"color":"#222","save":"auto"},"mediumzoom":false,"lazyload":false,"pangu":false,"comments":{"style":"tabs","active":null,"storage":true,"lazyload":false,"nav":null},"stickytabs":false,"motion":{"enable":true,"async":false,"transition":{"post_block":"fadeIn","post_header":"fadeInDown","post_body":"fadeInDown","coll_header":"fadeInLeft","sidebar":"fadeInUp"}},"prism":false,"i18n":{"placeholder":"Searching...","empty":"We didn't find any results for the search: ${query}","hits_time":"${hits} results found in ${time} ms","hits":"${hits} results found"},"path":"/search.xml","localsearch":{"enable":true,"trigger":"auto","top_n_per_article":1,"unescape":false,"preload":false}}</script><script src="/js/config.js"></script>
+
+    <meta name="description" content="gitlab github 相關指令整理環境設定gitlab github 都是版本控制平台 設定 SSH 金鑰在 push 或是 clone 時，為了要讓 gitlab 或 github 認得這台電腦就是此帳號的使用者，所以我們可以透過設定 SSH 來當成認證的憑據。   12345＃ 建立ssh-keygen -t rsa＃ 查看金鑰cat ~&#x2F;.ssh&#x2F;id_rsa.pub  新增至 git">
+<meta property="og:type" content="article">
+<meta property="og:title" content="git-related">
+<meta property="og:url" content="http://example.com/2022/09/28/git-related/index.html">
+<meta property="og:site_name" content="jacklin murmur">
+<meta property="og:description" content="gitlab github 相關指令整理環境設定gitlab github 都是版本控制平台 設定 SSH 金鑰在 push 或是 clone 時，為了要讓 gitlab 或 github 認得這台電腦就是此帳號的使用者，所以我們可以透過設定 SSH 來當成認證的憑據。   12345＃ 建立ssh-keygen -t rsa＃ 查看金鑰cat ~&#x2F;.ssh&#x2F;id_rsa.pub  新增至 git">
+<meta property="og:locale" content="en_US">
+<meta property="article:published_time" content="2022-09-28T06:26:03.000Z">
+<meta property="article:modified_time" content="2022-09-28T06:26:44.445Z">
+<meta property="article:author" content="jacklin">
+<meta property="article:tag" content="git">
+<meta property="article:tag" content="gitlab">
+<meta property="article:tag" content="github">
+<meta name="twitter:card" content="summary">
+
+
+<link rel="canonical" href="http://example.com/2022/09/28/git-related/">
+
+
+
+<script class="next-config" data-name="page" type="application/json">{"sidebar":"","isHome":false,"isPost":true,"lang":"en","comments":true,"permalink":"http://example.com/2022/09/28/git-related/","path":"2022/09/28/git-related/","title":"git-related"}</script>
+
+<script class="next-config" data-name="calendar" type="application/json">""</script>
+<title>git-related | jacklin murmur</title>
+  
+
+
+
+
+
+
+  <noscript>
+    <link rel="stylesheet" href="/css/noscript.css">
+  </noscript>
+</head>
+
+<body itemscope itemtype="http://schema.org/WebPage" class="use-motion">
+  <div class="headband"></div>
+
+  <main class="main">
+    <header class="header" itemscope itemtype="http://schema.org/WPHeader">
+      <div class="header-inner"><div class="site-brand-container">
+  <div class="site-nav-toggle">
+    <div class="toggle" aria-label="Toggle navigation bar" role="button">
+        <span class="toggle-line"></span>
+        <span class="toggle-line"></span>
+        <span class="toggle-line"></span>
+    </div>
+  </div>
+
+  <div class="site-meta">
+
+    <a href="/" class="brand" rel="start">
+      <i class="logo-line"></i>
+      <p class="site-title">jacklin murmur</p>
+      <i class="logo-line"></i>
+    </a>
+  </div>
+
+  <div class="site-nav-right">
+    <div class="toggle popup-trigger">
+        <i class="fa fa-search fa-fw fa-lg"></i>
+    </div>
+  </div>
+</div>
+
+
+
+<nav class="site-nav">
+  <ul class="main-menu menu"><li class="menu-item menu-item-home"><a href="/" rel="section"><i class="fa fa-home fa-fw"></i>Home</a></li><li class="menu-item menu-item-about"><a href="/about/" rel="section"><i class="fa fa-user fa-fw"></i>About</a></li><li class="menu-item menu-item-tags"><a href="/tags/" rel="section"><i class="fa fa-tags fa-fw"></i>Tags</a></li><li class="menu-item menu-item-archives"><a href="/archives/" rel="section"><i class="fa fa-archive fa-fw"></i>Archives</a></li>
+      <li class="menu-item menu-item-search">
+        <a role="button" class="popup-trigger"><i class="fa fa-search fa-fw"></i>Search
+        </a>
+      </li>
+  </ul>
+</nav>
+
+
+
+  <div class="search-pop-overlay">
+    <div class="popup search-popup"><div class="search-header">
+  <span class="search-icon">
+    <i class="fa fa-search"></i>
+  </span>
+  <div class="search-input-container">
+    <input autocomplete="off" autocapitalize="off" maxlength="80"
+           placeholder="Searching..." spellcheck="false"
+           type="search" class="search-input">
+  </div>
+  <span class="popup-btn-close" role="button">
+    <i class="fa fa-times-circle"></i>
+  </span>
+</div>
+<div class="search-result-container no-result">
+  <div class="search-result-icon">
+    <i class="fa fa-spinner fa-pulse fa-5x"></i>
+  </div>
+</div>
+
+    </div>
+  </div>
+
+</div>
+        
+  
+  <div class="toggle sidebar-toggle" role="button">
+    <span class="toggle-line"></span>
+    <span class="toggle-line"></span>
+    <span class="toggle-line"></span>
+  </div>
+
+  <aside class="sidebar">
+
+    <div class="sidebar-inner sidebar-nav-active sidebar-toc-active">
+      <ul class="sidebar-nav">
+        <li class="sidebar-nav-toc">
+          Table of Contents
+        </li>
+        <li class="sidebar-nav-overview">
+          Overview
+        </li>
+      </ul>
+
+      <div class="sidebar-panel-container">
+        <!--noindex-->
+        <div class="post-toc-wrap sidebar-panel">
+            <div class="post-toc animated"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#gitlab-github-%E7%9B%B8%E9%97%9C%E6%8C%87%E4%BB%A4%E6%95%B4%E7%90%86"><span class="nav-number">1.</span> <span class="nav-text">gitlab github 相關指令整理</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#%E7%92%B0%E5%A2%83%E8%A8%AD%E5%AE%9A"><span class="nav-number">1.1.</span> <span class="nav-text">環境設定</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#%E8%A8%AD%E5%AE%9A-SSH-%E9%87%91%E9%91%B0"><span class="nav-number">1.1.1.</span> <span class="nav-text">設定 SSH 金鑰</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E6%96%B0%E5%BB%BA%E5%B0%88%E6%A1%88%E6%B5%81%E7%A8%8B"><span class="nav-number">1.2.</span> <span class="nav-text">新建專案流程</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#%E5%9F%BA%E6%9C%AC%E9%96%8B%E7%99%BC%E6%B5%81%E7%A8%8B"><span class="nav-number">1.2.1.</span> <span class="nav-text">基本開發流程</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E9%96%8B%E7%99%BC%E5%B8%B8%E7%94%A8%E6%8C%87%E4%BB%A4"><span class="nav-number">1.3.</span> <span class="nav-text">開發常用指令</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#%E5%90%8D%E8%A9%9E%E8%AA%AA%E6%98%8E"><span class="nav-number">1.3.1.</span> <span class="nav-text">名詞說明</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E5%B8%B8%E7%94%A8%E6%8C%87%E4%BB%A4"><span class="nav-number">1.3.2.</span> <span class="nav-text">常用指令</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E5%81%B6%E7%88%BE%E6%9C%89%E7%94%A8%E7%9A%84%E6%8C%87%E4%BB%A4"><span class="nav-number">1.3.3.</span> <span class="nav-text">偶爾有用的指令</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#commit"><span class="nav-number">1.4.</span> <span class="nav-text">commit</span></a></li></ol></li></ol></div>
+        </div>
+        <!--/noindex-->
+
+        <div class="site-overview-wrap sidebar-panel">
+          <div class="site-author site-overview-item animated" itemprop="author" itemscope itemtype="http://schema.org/Person">
+  <p class="site-author-name" itemprop="name">jacklin</p>
+  <div class="site-description" itemprop="description"></div>
+</div>
+<div class="site-state-wrap site-overview-item animated">
+  <nav class="site-state">
+      <div class="site-state-item site-state-posts">
+        <a href="/archives/">
+          <span class="site-state-item-count">4</span>
+          <span class="site-state-item-name">posts</span>
+        </a>
+      </div>
+      <div class="site-state-item site-state-tags">
+          <a href="/tags/">
+        <span class="site-state-item-count">8</span>
+        <span class="site-state-item-name">tags</span></a>
+      </div>
+  </nav>
+</div>
+
+
+
+        </div>
+      </div>
+    </div>
+  </aside>
+  <div class="sidebar-dimmer"></div>
+
+
+    </header>
+
+    
+  <div class="back-to-top" role="button" aria-label="Back to top">
+    <i class="fa fa-arrow-up"></i>
+    <span>0%</span>
+  </div>
+
+<noscript>
+  <div class="noscript-warning">Theme NexT works best with JavaScript enabled</div>
+</noscript>
+
+
+    <div class="main-inner post posts-expand">
+
+
+  
+
+
+<div class="post-block">
+  
+  
+
+  <article itemscope itemtype="http://schema.org/Article" class="post-content" lang="en">
+    <link itemprop="mainEntityOfPage" href="http://example.com/2022/09/28/git-related/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/images/avatar.gif">
+      <meta itemprop="name" content="jacklin">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="jacklin murmur">
+      <meta itemprop="description" content="">
+    </span>
+
+    <span hidden itemprop="post" itemscope itemtype="http://schema.org/CreativeWork">
+      <meta itemprop="name" content="git-related | jacklin murmur">
+      <meta itemprop="description" content="">
+    </span>
+      <header class="post-header">
+        <h1 class="post-title" itemprop="name headline">
+          git-related
+        </h1>
+
+        <div class="post-meta-container">
+          <div class="post-meta">
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-calendar"></i>
+      </span>
+      <span class="post-meta-item-text">Posted on</span>
+      
+
+      <time title="Created: 2022-09-28 14:26:03 / Modified: 14:26:44" itemprop="dateCreated datePublished" datetime="2022-09-28T14:26:03+08:00">2022-09-28</time>
+    </span>
+
+  
+</div>
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+        <h1 id="gitlab-github-相關指令整理"><a href="#gitlab-github-相關指令整理" class="headerlink" title="gitlab github 相關指令整理"></a>gitlab github 相關指令整理</h1><h2 id="環境設定"><a href="#環境設定" class="headerlink" title="環境設定"></a>環境設定</h2><p>gitlab github 都是版本控制平台</p>
+<h3 id="設定-SSH-金鑰"><a href="#設定-SSH-金鑰" class="headerlink" title="設定 SSH 金鑰"></a>設定 SSH 金鑰</h3><p>在 push 或是 clone 時，為了要讓 gitlab 或 github 認得這台電腦就是此帳號的使用者，所以我們可以透過設定 SSH 來當成認證的憑據。  </p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">＃ 建立</span><br><span class="line">ssh-keygen -t rsa</span><br><span class="line"></span><br><span class="line">＃ 查看金鑰</span><br><span class="line"><span class="built_in">cat</span> ~/.ssh/id_rsa.pub</span><br></pre></td></tr></table></figure>
+
+<p>新增至 gitLab</p>
+<blockquote>
+<p>gitLab 首頁右上角 &gt; setting &gt; SSH Keys &gt; 貼上金鑰</p>
+</blockquote>
+<p>新增至 github</p>
+<blockquote>
+<p>github 首頁右上角 &gt; settings &gt; SSH and GPG keys &gt; New SSH key &gt; 貼上金鑰</p>
+</blockquote>
+<h2 id="新建專案流程"><a href="#新建專案流程" class="headerlink" title="新建專案流程"></a>新建專案流程</h2><p>新建專案有分個人和組織，若要多人開發的話可以選擇組織專案</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># 在儲存庫先建立專案</span></span><br><span class="line"><span class="comment"># 複製專案內的 ssh連結</span></span><br><span class="line"></span><br><span class="line">git <span class="built_in">clone</span> ssh連結</span><br><span class="line"></span><br><span class="line"><span class="comment"># 這樣就可以在剛建立的專案開發了</span></span><br></pre></td></tr></table></figure>
+
+<h3 id="基本開發流程"><a href="#基本開發流程" class="headerlink" title="基本開發流程"></a>基本開發流程</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># ~~單人開發~~</span></span><br><span class="line">git <span class="built_in">clone</span> 專案連結</span><br><span class="line"><span class="built_in">cd</span> 專案</span><br><span class="line"><span class="comment"># 編輯專案</span></span><br><span class="line">git add 檔案.py</span><br><span class="line">git commit -m <span class="string">&#x27;簡短的說明&#x27;</span></span><br><span class="line">git push</span><br><span class="line"></span><br><span class="line"><span class="comment"># ~~多人開發~~</span></span><br><span class="line">git <span class="built_in">clone</span> 專案連結</span><br><span class="line"><span class="built_in">cd</span> 專案</span><br><span class="line">git remote add mainline 組織專案連結</span><br><span class="line"><span class="comment"># 編輯專案</span></span><br><span class="line">git add 檔案.py</span><br><span class="line">git commit -m <span class="string">&#x27;簡短的說明&#x27;</span></span><br><span class="line">git push</span><br><span class="line">git pull mainline master <span class="comment"># for gitlab</span></span><br><span class="line"><span class="comment"># 解決衝突 &gt; add &gt; commit</span></span><br><span class="line">git push</span><br></pre></td></tr></table></figure>
+
+<h2 id="開發常用指令"><a href="#開發常用指令" class="headerlink" title="開發常用指令"></a>開發常用指令</h2><h3 id="名詞說明"><a href="#名詞說明" class="headerlink" title="名詞說明"></a>名詞說明</h3><table>
+<thead>
+<tr>
+<th>名詞</th>
+<th>說明</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>本地專案</td>
+<td>已經clone到自己電腦的專案</td>
+</tr>
+<tr>
+<td>個人專案</td>
+<td>分支會建立在個人底下的專案</td>
+</tr>
+<tr>
+<td>組織專案</td>
+<td>在組織裡的專案</td>
+</tr>
+<tr>
+<td>遠端</td>
+<td>在網路上，這裡只版本控制平台</td>
+</tr>
+<tr>
+<td>分支(fork)</td>
+<td>組織專案要可以編輯就需要建立自己的分支</td>
+</tr>
+</tbody></table>
+<h3 id="常用指令"><a href="#常用指令" class="headerlink" title="常用指令"></a>常用指令</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br></pre></td><td class="code"><pre><span class="line">git <span class="built_in">clone</span> 專案連結</span><br><span class="line"><span class="comment"># 把專案克隆到本地(記得要 cd 進去專案內喔)</span></span><br><span class="line"></span><br><span class="line">git status</span><br><span class="line"><span class="comment">#查看當前狀況</span></span><br><span class="line"></span><br><span class="line">git pull</span><br><span class="line"><span class="comment"># 把專案的更新拉到本地</span></span><br><span class="line"></span><br><span class="line">git add 檔案.py</span><br><span class="line"><span class="comment"># 新增你要添加進本地專案的檔案</span></span><br><span class="line"><span class="comment"># 也可以使用 git add . 加入全部的檔案</span></span><br><span class="line"></span><br><span class="line">git commit -m <span class="string">&#x27;簡短的說明&#x27;</span></span><br><span class="line"><span class="comment"># 為你的變更做個簡短的說明</span></span><br><span class="line"><span class="comment"># 也可以使用 git commit 寫入詳細的說明</span></span><br><span class="line"></span><br><span class="line">git push</span><br><span class="line"><span class="comment"># 把本地的檔案推到個人專案上</span></span><br><span class="line"></span><br><span class="line">git remote add mainline 組織專案連結</span><br><span class="line"><span class="comment"># 本地專案新增 組織專案的連結 設為 mainline</span></span><br><span class="line"></span><br><span class="line">git remote -v</span><br><span class="line"><span class="comment"># 查看遠端專案連結</span></span><br><span class="line"></span><br><span class="line">git pull mainline master <span class="comment"># for gitlab</span></span><br><span class="line">git pull mainline main <span class="comment"># for github</span></span><br><span class="line"><span class="comment"># 組織專案與本地專案合併</span></span><br></pre></td></tr></table></figure>
+
+<h3 id="偶爾有用的指令"><a href="#偶爾有用的指令" class="headerlink" title="偶爾有用的指令"></a>偶爾有用的指令</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br></pre></td><td class="code"><pre><span class="line">git reset --hard</span><br><span class="line"><span class="comment"># 放棄本地專案的變更</span></span><br><span class="line"></span><br><span class="line">git commit --amend</span><br><span class="line"><span class="comment"># 修改最後一次 commit</span></span><br><span class="line"></span><br><span class="line"></span><br><span class="line"><span class="comment"># 當您想記錄工作目錄和索引的當前狀態，但又想回到干淨的工作目錄時，請使用 git stash。該命令保存您的本地修改並恢復</span></span><br><span class="line"></span><br><span class="line">git stash</span><br><span class="line"><span class="comment"># 隱藏變更</span></span><br><span class="line"></span><br><span class="line">git stash list</span><br><span class="line"><span class="comment"># 查看隱藏變更</span></span><br><span class="line"></span><br><span class="line"><span class="comment"># 目前程式碼已經還原到最初階段</span></span><br><span class="line"><span class="comment"># 可以更新程式碼</span></span><br><span class="line"><span class="comment"># 處理緊急事項</span></span><br><span class="line"></span><br><span class="line">git stash pop</span><br><span class="line"><span class="comment"># 還原</span></span><br></pre></td></tr></table></figure>
+
+<h2 id="commit"><a href="#commit" class="headerlink" title="commit"></a>commit</h2><p>建議每次commit開頭都添加類別，方便之後維護</p>
+<p>ex:</p>
+<blockquote>
+<p>🐛 fix: 修正XXX錯誤<br>✨ feat: 增加git教學說明</p>
+</blockquote>
+<table>
+<thead>
+<tr>
+<th>表情符號 類型</th>
+<th>說明</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>📖 docs:</td>
+<td>文檔</td>
+</tr>
+<tr>
+<td>🚧 WIP:</td>
+<td>正在進行的工作(Work In Progress)</td>
+</tr>
+<tr>
+<td>🚨 test:</td>
+<td>測試</td>
+</tr>
+<tr>
+<td>🔒 Security:</td>
+<td>安全修復</td>
+</tr>
+<tr>
+<td>🐛 fix:</td>
+<td>錯誤修正</td>
+</tr>
+<tr>
+<td>✨ feat:</td>
+<td>新功能</td>
+</tr>
+<tr>
+<td>💩 hankey:</td>
+<td>糟糕的代碼</td>
+</tr>
+<tr>
+<td>🗑️ removal:</td>
+<td>拆除</td>
+</tr>
+<tr>
+<td>♻️ refactoring:</td>
+<td>重構</td>
+</tr>
+<tr>
+<td>🐎 Performance:</td>
+<td>性能</td>
+</tr>
+<tr>
+<td>📦 package:</td>
+<td>封裝</td>
+</tr>
+<tr>
+<td>⬆️ Upgrading:</td>
+<td>升級</td>
+</tr>
+<tr>
+<td>⬇️ Downgrading:</td>
+<td>降級</td>
+</tr>
+</tbody></table>
+
+    </div>
+
+    
+    
+    
+
+    <footer class="post-footer">
+          <div class="post-tags">
+              <a href="/tags/git/" rel="tag"># git</a>
+              <a href="/tags/gitlab/" rel="tag"># gitlab</a>
+              <a href="/tags/github/" rel="tag"># github</a>
+          </div>
+
+        
+
+          <div class="post-nav">
+            <div class="post-nav-item">
+                <a href="/2022/09/28/Python-Tutorial/" rel="prev" title="Python Tutorial">
+                  <i class="fa fa-chevron-left"></i> Python Tutorial
+                </a>
+            </div>
+            <div class="post-nav-item">
+            </div>
+          </div>
+    </footer>
+  </article>
+</div>
+
+
+
+
+
+
+</div>
+  </main>
+
+  <footer class="footer">
+    <div class="footer-inner">
+
+
+<div class="copyright">
+  &copy; 
+  <span itemprop="copyrightYear">2022</span>
+  <span class="with-love">
+    <i class="fa fa-heart"></i>
+  </span>
+  <span class="author" itemprop="copyrightHolder">jacklin</span>
+</div>
+  <div class="powered-by">Powered by <a href="https://hexo.io/" rel="noopener" target="_blank">Hexo</a> & <a href="https://theme-next.js.org/pisces/" rel="noopener" target="_blank">NexT.Pisces</a>
+  </div>
+
+    </div>
+  </footer>
+
+  
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/animejs/3.2.1/anime.min.js" integrity="sha256-XL2inqUJaslATFnHdJOi9GfQ60on8Wx1C2H8DYiN1xY=" crossorigin="anonymous"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/next-theme-pjax/0.5.0/pjax.min.js" integrity="sha256-3NkoLDrmHLTYj7csHIZSr0MHAFTXth7Ua/DDt4MRUAg=" crossorigin="anonymous"></script>
+<script src="/js/comments.js"></script><script src="/js/utils.js"></script><script src="/js/motion.js"></script><script src="/js/next-boot.js"></script><script src="/js/pjax.js"></script>
+
+  
+<script src="https://cdnjs.cloudflare.com/ajax/libs/hexo-generator-searchdb/1.4.0/search.js" integrity="sha256-vXZMYLEqsROAXkEw93GGIvaB2ab+QW6w3+1ahD9nXXA=" crossorigin="anonymous"></script>
+<script src="/js/third-party/search/local-search.js"></script>
+
+
+
+
+
+  
+
+
+
+
+
+</body>
+</html>

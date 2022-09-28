@@ -39,6 +39,130 @@
       </tags>
   </entry>
   <entry>
+    <title>git-related</title>
+    <url>/2022/09/28/git-related/</url>
+    <content><![CDATA[<h1 id="gitlab-github-相關指令整理"><a href="#gitlab-github-相關指令整理" class="headerlink" title="gitlab github 相關指令整理"></a>gitlab github 相關指令整理</h1><h2 id="環境設定"><a href="#環境設定" class="headerlink" title="環境設定"></a>環境設定</h2><p>gitlab github 都是版本控制平台</p>
+<h3 id="設定-SSH-金鑰"><a href="#設定-SSH-金鑰" class="headerlink" title="設定 SSH 金鑰"></a>設定 SSH 金鑰</h3><p>在 push 或是 clone 時，為了要讓 gitlab 或 github 認得這台電腦就是此帳號的使用者，所以我們可以透過設定 SSH 來當成認證的憑據。  </p>
+<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">＃ 建立</span><br><span class="line">ssh-keygen -t rsa</span><br><span class="line"></span><br><span class="line">＃ 查看金鑰</span><br><span class="line"><span class="built_in">cat</span> ~/.ssh/id_rsa.pub</span><br></pre></td></tr></table></figure>
+
+<p>新增至 gitLab</p>
+<blockquote>
+<p>gitLab 首頁右上角 &gt; setting &gt; SSH Keys &gt; 貼上金鑰</p>
+</blockquote>
+<p>新增至 github</p>
+<blockquote>
+<p>github 首頁右上角 &gt; settings &gt; SSH and GPG keys &gt; New SSH key &gt; 貼上金鑰</p>
+</blockquote>
+<h2 id="新建專案流程"><a href="#新建專案流程" class="headerlink" title="新建專案流程"></a>新建專案流程</h2><p>新建專案有分個人和組織，若要多人開發的話可以選擇組織專案</p>
+<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line"><span class="comment"># 在儲存庫先建立專案</span></span><br><span class="line"><span class="comment"># 複製專案內的 ssh連結</span></span><br><span class="line"></span><br><span class="line">git <span class="built_in">clone</span> ssh連結</span><br><span class="line"></span><br><span class="line"><span class="comment"># 這樣就可以在剛建立的專案開發了</span></span><br></pre></td></tr></table></figure>
+
+<h3 id="基本開發流程"><a href="#基本開發流程" class="headerlink" title="基本開發流程"></a>基本開發流程</h3><figure class="highlight bash"><table><tr><td class="code"><pre><span class="line"><span class="comment"># ~~單人開發~~</span></span><br><span class="line">git <span class="built_in">clone</span> 專案連結</span><br><span class="line"><span class="built_in">cd</span> 專案</span><br><span class="line"><span class="comment"># 編輯專案</span></span><br><span class="line">git add 檔案.py</span><br><span class="line">git commit -m <span class="string">&#x27;簡短的說明&#x27;</span></span><br><span class="line">git push</span><br><span class="line"></span><br><span class="line"><span class="comment"># ~~多人開發~~</span></span><br><span class="line">git <span class="built_in">clone</span> 專案連結</span><br><span class="line"><span class="built_in">cd</span> 專案</span><br><span class="line">git remote add mainline 組織專案連結</span><br><span class="line"><span class="comment"># 編輯專案</span></span><br><span class="line">git add 檔案.py</span><br><span class="line">git commit -m <span class="string">&#x27;簡短的說明&#x27;</span></span><br><span class="line">git push</span><br><span class="line">git pull mainline master <span class="comment"># for gitlab</span></span><br><span class="line"><span class="comment"># 解決衝突 &gt; add &gt; commit</span></span><br><span class="line">git push</span><br></pre></td></tr></table></figure>
+
+<h2 id="開發常用指令"><a href="#開發常用指令" class="headerlink" title="開發常用指令"></a>開發常用指令</h2><h3 id="名詞說明"><a href="#名詞說明" class="headerlink" title="名詞說明"></a>名詞說明</h3><table>
+<thead>
+<tr>
+<th>名詞</th>
+<th>說明</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>本地專案</td>
+<td>已經clone到自己電腦的專案</td>
+</tr>
+<tr>
+<td>個人專案</td>
+<td>分支會建立在個人底下的專案</td>
+</tr>
+<tr>
+<td>組織專案</td>
+<td>在組織裡的專案</td>
+</tr>
+<tr>
+<td>遠端</td>
+<td>在網路上，這裡只版本控制平台</td>
+</tr>
+<tr>
+<td>分支(fork)</td>
+<td>組織專案要可以編輯就需要建立自己的分支</td>
+</tr>
+</tbody></table>
+<h3 id="常用指令"><a href="#常用指令" class="headerlink" title="常用指令"></a>常用指令</h3><figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">git <span class="built_in">clone</span> 專案連結</span><br><span class="line"><span class="comment"># 把專案克隆到本地(記得要 cd 進去專案內喔)</span></span><br><span class="line"></span><br><span class="line">git status</span><br><span class="line"><span class="comment">#查看當前狀況</span></span><br><span class="line"></span><br><span class="line">git pull</span><br><span class="line"><span class="comment"># 把專案的更新拉到本地</span></span><br><span class="line"></span><br><span class="line">git add 檔案.py</span><br><span class="line"><span class="comment"># 新增你要添加進本地專案的檔案</span></span><br><span class="line"><span class="comment"># 也可以使用 git add . 加入全部的檔案</span></span><br><span class="line"></span><br><span class="line">git commit -m <span class="string">&#x27;簡短的說明&#x27;</span></span><br><span class="line"><span class="comment"># 為你的變更做個簡短的說明</span></span><br><span class="line"><span class="comment"># 也可以使用 git commit 寫入詳細的說明</span></span><br><span class="line"></span><br><span class="line">git push</span><br><span class="line"><span class="comment"># 把本地的檔案推到個人專案上</span></span><br><span class="line"></span><br><span class="line">git remote add mainline 組織專案連結</span><br><span class="line"><span class="comment"># 本地專案新增 組織專案的連結 設為 mainline</span></span><br><span class="line"></span><br><span class="line">git remote -v</span><br><span class="line"><span class="comment"># 查看遠端專案連結</span></span><br><span class="line"></span><br><span class="line">git pull mainline master <span class="comment"># for gitlab</span></span><br><span class="line">git pull mainline main <span class="comment"># for github</span></span><br><span class="line"><span class="comment"># 組織專案與本地專案合併</span></span><br></pre></td></tr></table></figure>
+
+<h3 id="偶爾有用的指令"><a href="#偶爾有用的指令" class="headerlink" title="偶爾有用的指令"></a>偶爾有用的指令</h3><figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">git reset --hard</span><br><span class="line"><span class="comment"># 放棄本地專案的變更</span></span><br><span class="line"></span><br><span class="line">git commit --amend</span><br><span class="line"><span class="comment"># 修改最後一次 commit</span></span><br><span class="line"></span><br><span class="line"></span><br><span class="line"><span class="comment"># 當您想記錄工作目錄和索引的當前狀態，但又想回到干淨的工作目錄時，請使用 git stash。該命令保存您的本地修改並恢復</span></span><br><span class="line"></span><br><span class="line">git stash</span><br><span class="line"><span class="comment"># 隱藏變更</span></span><br><span class="line"></span><br><span class="line">git stash list</span><br><span class="line"><span class="comment"># 查看隱藏變更</span></span><br><span class="line"></span><br><span class="line"><span class="comment"># 目前程式碼已經還原到最初階段</span></span><br><span class="line"><span class="comment"># 可以更新程式碼</span></span><br><span class="line"><span class="comment"># 處理緊急事項</span></span><br><span class="line"></span><br><span class="line">git stash pop</span><br><span class="line"><span class="comment"># 還原</span></span><br></pre></td></tr></table></figure>
+
+<h2 id="commit"><a href="#commit" class="headerlink" title="commit"></a>commit</h2><p>建議每次commit開頭都添加類別，方便之後維護</p>
+<p>ex:</p>
+<blockquote>
+<p>🐛 fix: 修正XXX錯誤<br>✨ feat: 增加git教學說明</p>
+</blockquote>
+<table>
+<thead>
+<tr>
+<th>表情符號 類型</th>
+<th>說明</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>📖 docs:</td>
+<td>文檔</td>
+</tr>
+<tr>
+<td>🚧 WIP:</td>
+<td>正在進行的工作(Work In Progress)</td>
+</tr>
+<tr>
+<td>🚨 test:</td>
+<td>測試</td>
+</tr>
+<tr>
+<td>🔒 Security:</td>
+<td>安全修復</td>
+</tr>
+<tr>
+<td>🐛 fix:</td>
+<td>錯誤修正</td>
+</tr>
+<tr>
+<td>✨ feat:</td>
+<td>新功能</td>
+</tr>
+<tr>
+<td>💩 hankey:</td>
+<td>糟糕的代碼</td>
+</tr>
+<tr>
+<td>🗑️ removal:</td>
+<td>拆除</td>
+</tr>
+<tr>
+<td>♻️ refactoring:</td>
+<td>重構</td>
+</tr>
+<tr>
+<td>🐎 Performance:</td>
+<td>性能</td>
+</tr>
+<tr>
+<td>📦 package:</td>
+<td>封裝</td>
+</tr>
+<tr>
+<td>⬆️ Upgrading:</td>
+<td>升級</td>
+</tr>
+<tr>
+<td>⬇️ Downgrading:</td>
+<td>降級</td>
+</tr>
+</tbody></table>
+]]></content>
+      <tags>
+        <tag>git</tag>
+        <tag>gitlab</tag>
+        <tag>github</tag>
+      </tags>
+  </entry>
+  <entry>
     <title>Python Tutorial</title>
     <url>/2022/09/28/Python-Tutorial/</url>
     <content><![CDATA[<ul>
