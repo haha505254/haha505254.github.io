@@ -20,31 +20,27 @@
 
 <script class="next-config" data-name="main" type="application/json">{"hostname":"example.com","root":"/","images":"/images","scheme":"Pisces","darkmode":false,"version":"8.13.0","exturl":false,"sidebar":{"position":"left","display":"post","padding":18,"offset":12},"copycode":{"enable":false,"style":null},"bookmark":{"enable":false,"color":"#222","save":"auto"},"mediumzoom":false,"lazyload":false,"pangu":false,"comments":{"style":"tabs","active":null,"storage":true,"lazyload":false,"nav":null},"stickytabs":false,"motion":{"enable":true,"async":false,"transition":{"post_block":"fadeIn","post_header":"fadeInDown","post_body":"fadeInDown","coll_header":"fadeInLeft","sidebar":"fadeInUp"}},"prism":false,"i18n":{"placeholder":"Searching...","empty":"We didn't find any results for the search: ${query}","hits_time":"${hits} results found in ${time} ms","hits":"${hits} results found"},"path":"/search.xml","localsearch":{"enable":true,"trigger":"auto","top_n_per_article":1,"unescape":false,"preload":false}}</script><script src="/js/config.js"></script>
 
-    <meta name="description" content="winget heroku CLI example:專案名稱 my_blog_project 專案結構應如下圖所示  先把專案env裏頭的pip list 寫出來 pip freeze &gt; requirements.txt heroku官網 create new app 桌面直接py -m venv herokuenv 把專案資料夾複製進herokuenv 裏頭 改名my_blog_proj">
+    <meta name="description" content="crontab crontab排程介紹  指令介紹 語法介紹 範例   網站模擬參考   回主畫面   指令介紹1234567891011121314#列出該使用者擁有的 crontab 指令:crontab -l#編輯該使用者的 crontab 指令:crntab -e#將使用者的 crontab 全部清除:crontab -r#改變排程的執行身分: crontab -u user filena">
 <meta property="og:type" content="article">
-<meta property="og:title" content="how to deploy django to heroku">
-<meta property="og:url" content="http://example.com/2022/09/27/django-to-heroku/index.html">
+<meta property="og:title" content="ubuntu-crontab">
+<meta property="og:url" content="http://example.com/2022/09/28/ubuntu-crontab/index.html">
 <meta property="og:site_name" content="jacklin murmur">
-<meta property="og:description" content="winget heroku CLI example:專案名稱 my_blog_project 專案結構應如下圖所示  先把專案env裏頭的pip list 寫出來 pip freeze &gt; requirements.txt heroku官網 create new app 桌面直接py -m venv herokuenv 把專案資料夾複製進herokuenv 裏頭 改名my_blog_proj">
+<meta property="og:description" content="crontab crontab排程介紹  指令介紹 語法介紹 範例   網站模擬參考   回主畫面   指令介紹1234567891011121314#列出該使用者擁有的 crontab 指令:crontab -l#編輯該使用者的 crontab 指令:crntab -e#將使用者的 crontab 全部清除:crontab -r#改變排程的執行身分: crontab -u user filena">
 <meta property="og:locale" content="en_US">
-<meta property="og:image" content="https://res.cloudinary.com/dqgfa7f03/image/upload/v1664330213/Untitled_mcirk5.png">
-<meta property="article:published_time" content="2022-09-27T03:32:35.000Z">
-<meta property="article:modified_time" content="2022-09-28T01:57:37.570Z">
+<meta property="article:published_time" content="2022-09-28T07:36:10.000Z">
+<meta property="article:modified_time" content="2022-09-28T07:36:18.975Z">
 <meta property="article:author" content="jacklin">
-<meta property="article:tag" content="django">
-<meta property="article:tag" content="heroku">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:image" content="https://res.cloudinary.com/dqgfa7f03/image/upload/v1664330213/Untitled_mcirk5.png">
 
 
-<link rel="canonical" href="http://example.com/2022/09/27/django-to-heroku/">
+<link rel="canonical" href="http://example.com/2022/09/28/ubuntu-crontab/">
 
 
 
-<script class="next-config" data-name="page" type="application/json">{"sidebar":"","isHome":false,"isPost":true,"lang":"en","comments":true,"permalink":"http://example.com/2022/09/27/django-to-heroku/","path":"2022/09/27/django-to-heroku/","title":"how to deploy django to heroku"}</script>
+<script class="next-config" data-name="page" type="application/json">{"sidebar":"","isHome":false,"isPost":true,"lang":"en","comments":true,"permalink":"http://example.com/2022/09/28/ubuntu-crontab/","path":"2022/09/28/ubuntu-crontab/","title":"ubuntu-crontab"}</script>
 
 <script class="next-config" data-name="calendar" type="application/json">""</script>
-<title>how to deploy django to heroku | jacklin murmur</title>
+<title>ubuntu-crontab | jacklin murmur</title>
   
 
 
@@ -134,7 +130,7 @@
 
   <aside class="sidebar">
 
-    <div class="sidebar-inner sidebar-overview-active">
+    <div class="sidebar-inner sidebar-nav-active sidebar-toc-active">
       <ul class="sidebar-nav">
         <li class="sidebar-nav-toc">
           Table of Contents
@@ -147,6 +143,7 @@
       <div class="sidebar-panel-container">
         <!--noindex-->
         <div class="post-toc-wrap sidebar-panel">
+            <div class="post-toc animated"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#crontab"><span class="nav-number">1.</span> <span class="nav-text">crontab</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#%E6%8C%87%E4%BB%A4%E4%BB%8B%E7%B4%B9"><span class="nav-number">1.1.</span> <span class="nav-text">指令介紹</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E8%AA%9E%E6%B3%95%E4%BB%8B%E7%B4%B9"><span class="nav-number">1.2.</span> <span class="nav-text">語法介紹</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E7%AF%84%E4%BE%8B"><span class="nav-number">1.3.</span> <span class="nav-text">範例</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E7%B6%B2%E7%AB%99%E6%A8%A1%E6%93%AC%E5%8F%83%E8%80%83"><span class="nav-number">1.4.</span> <span class="nav-text">網站模擬參考</span></a></li></ol></li></ol></div>
         </div>
         <!--/noindex-->
 
@@ -204,7 +201,7 @@
   
 
   <article itemscope itemtype="http://schema.org/Article" class="post-content" lang="en">
-    <link itemprop="mainEntityOfPage" href="http://example.com/2022/09/27/django-to-heroku/">
+    <link itemprop="mainEntityOfPage" href="http://example.com/2022/09/28/ubuntu-crontab/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="image" content="/images/avatar.gif">
@@ -217,12 +214,12 @@
     </span>
 
     <span hidden itemprop="post" itemscope itemtype="http://schema.org/CreativeWork">
-      <meta itemprop="name" content="how to deploy django to heroku | jacklin murmur">
+      <meta itemprop="name" content="ubuntu-crontab | jacklin murmur">
       <meta itemprop="description" content="">
     </span>
       <header class="post-header">
         <h1 class="post-title" itemprop="name headline">
-          how to deploy django to heroku
+          ubuntu-crontab
         </h1>
 
         <div class="post-meta-container">
@@ -232,15 +229,9 @@
         <i class="far fa-calendar"></i>
       </span>
       <span class="post-meta-item-text">Posted on</span>
+      
 
-      <time title="Created: 2022-09-27 11:32:35" itemprop="dateCreated datePublished" datetime="2022-09-27T11:32:35+08:00">2022-09-27</time>
-    </span>
-    <span class="post-meta-item">
-      <span class="post-meta-item-icon">
-        <i class="far fa-calendar-check"></i>
-      </span>
-      <span class="post-meta-item-text">Edited on</span>
-      <time title="Modified: 2022-09-28 09:57:37" itemprop="dateModified" datetime="2022-09-28T09:57:37+08:00">2022-09-28</time>
+      <time title="Created: 2022-09-28 15:36:10 / Modified: 15:36:18" itemprop="dateCreated datePublished" datetime="2022-09-28T15:36:10+08:00">2022-09-28</time>
     </span>
 
   
@@ -253,35 +244,25 @@
     
     
     <div class="post-body" itemprop="articleBody">
-        <p>winget heroku CLI</p>
-<p>example:專案名稱 my_blog_project</p>
-<p>專案結構應如下圖所示</p>
-<p><img src="https://res.cloudinary.com/dqgfa7f03/image/upload/v1664330213/Untitled_mcirk5.png"></p>
-<p>先把專案env裏頭的pip list 寫出來 <strong>pip freeze &gt; requirements.txt</strong></p>
-<p>heroku官網 create new app</p>
-<p>桌面直接py -m venv herokuenv</p>
-<p>把專案資料夾複製進herokuenv 裏頭 改名my_blog_projecthero</p>
-<p>把my_blog_projecthero的.git資料夾刪掉</p>
-<p>進入herokuenv虛擬環境 pip install gunicorn</p>
-<p>並把my_blog_project的<strong>requirements.txt 通通載入安裝 pip install -r requirements.txt</strong></p>
-<p>於my_blog_projecthero新增「Procfile」檔案 並撰寫 web: gunicorn my_blog_project.wsgi</p>
-<p>於settings.py檔新增 STATIC_ROOT &#x3D; os.path.join(BASE_DIR, ‘static’)</p>
-<p>接著執行 python manage.py collectstatic</p>
-<p>接著 pip install whitenoise</p>
+        <h1 id="crontab"><a href="#crontab" class="headerlink" title="crontab"></a>crontab</h1><ul>
+<li><p>crontab排程介紹</p>
 <ul>
-<li><p>接著，開啟Django專案的settings.py，在MIDDLEWARE串列的地方，加入WhiteNoiseMiddleware，如下範例：</p>
-  <figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line">MIDDLEWARE = [</span><br><span class="line">    <span class="string">&#x27;django.middleware.security.SecurityMiddleware&#x27;</span>,</span><br><span class="line">    <span class="string">&#x27;whitenoise.middleware.WhiteNoiseMiddleware&#x27;</span>,</span><br><span class="line">    <span class="string">&#x27;django.contrib.sessions.middleware.SessionMiddleware&#x27;</span>,</span><br><span class="line">    <span class="string">&#x27;django.middleware.common.CommonMiddleware&#x27;</span>,</span><br><span class="line">    <span class="string">&#x27;django.middleware.csrf.CsrfViewMiddleware&#x27;</span>,</span><br><span class="line">    <span class="string">&#x27;django.contrib.auth.middleware.AuthenticationMiddleware&#x27;</span>,</span><br><span class="line">    <span class="string">&#x27;django.contrib.messages.middleware.MessageMiddleware&#x27;</span>,</span><br><span class="line">    <span class="string">&#x27;django.middleware.clickjacking.XFrameOptionsMiddleware&#x27;</span>,</span><br><span class="line">]</span><br></pre></td></tr></table></figure></li>
+<li><strong><a href="#%E6%8C%87%E4%BB%A4%E4%BB%8B%E7%B4%B9"><code>指令介紹</code></a></strong></li>
+<li><strong><a href="#%E8%AA%9E%E6%B3%95%E4%BB%8B%E7%B4%B9"><code>語法介紹</code></a></strong></li>
+<li><strong><a href="#%E7%AF%84%E4%BE%8B"><code>範例</code></a></strong>  </li>
+<li><strong><a href="#%E7%B6%B2%E7%AB%99%E6%A8%A1%E6%93%AC%E5%8F%83%E8%80%83"><code>網站模擬參考</code></a></strong></li>
 </ul>
-<p>把舊的<strong>requirements.txt 刪除</strong></p>
-<p>接著<strong>pip freeze &gt; requirements.txt 把最新的requirements導出來(包含gunicorn與whitenoise)</strong></p>
-<p>把settings.py的 ALLOWED_HOSTS &#x3D; [‘*’]</p>
-<p>退出虛擬環境 deactivate</p>
-<p>heroku login</p>
-<p>git init</p>
-<p>heroku git:remote -a <app_name></p>
-<p>git add .</p>
-<p>git commit -m “first commit”</p>
-<p>git push heroku master</p>
+</li>
+<li><p><strong><a href="../README.md"><code>回主畫面</code></a></strong></p>
+</li>
+</ul>
+<h2 id="指令介紹"><a href="#指令介紹" class="headerlink" title="指令介紹"></a>指令介紹</h2><figure class="highlight py"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">#列出該使用者擁有的 crontab 指令:</span></span><br><span class="line">crontab -l</span><br><span class="line"></span><br><span class="line"><span class="comment">#編輯該使用者的 crontab 指令:</span></span><br><span class="line">crntab -e</span><br><span class="line"></span><br><span class="line"><span class="comment">#將使用者的 crontab 全部清除:</span></span><br><span class="line">crontab -r</span><br><span class="line"></span><br><span class="line"><span class="comment">#改變排程的執行身分: crontab -u user filename:</span></span><br><span class="line">crontab -u</span><br><span class="line"></span><br><span class="line"><span class="comment">#重啟,更新指令後需要重啟:</span></span><br><span class="line">sudo /etc/init.d/cron restart</span><br></pre></td></tr></table></figure>
+
+<h2 id="語法介紹"><a href="#語法介紹" class="headerlink" title="語法介紹"></a>語法介紹</h2><figure class="highlight py"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">┌───────────── 分鐘   (<span class="number">0</span> - <span class="number">59</span>)</span><br><span class="line">│ ┌─────────── 小時   (<span class="number">0</span> - <span class="number">23</span>)</span><br><span class="line">│ │ ┌───────── 日     (<span class="number">1</span> - <span class="number">31</span>)</span><br><span class="line">│ │ │ ┌─────── 月     (<span class="number">1</span> - <span class="number">12</span>)</span><br><span class="line">│ │ │ │ ┌───── 星期幾 (<span class="number">0</span> - <span class="number">7</span>，<span class="number">0</span> 是週日，<span class="number">6</span> 是週六，<span class="number">7</span> 也是週日)</span><br><span class="line">│ │ │ │ │</span><br><span class="line">* * * * * /path/to/command</span><br></pre></td></tr></table></figure>
+
+<h2 id="範例"><a href="#範例" class="headerlink" title="範例"></a>範例</h2><figure class="highlight sql"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line"></span><br><span class="line">                                    連接符號</span><br><span class="line">                                     │             啟動虛擬環境</span><br><span class="line">時間設定           進入程式資料夾      │               │ </span><br><span class="line">│                    │               │               │  </span><br><span class="line">│                    │               │               │ </span><br><span class="line"><span class="operator">*</span><span class="operator">/</span><span class="number">2</span> <span class="operator">*</span> <span class="operator">*</span> <span class="operator">*</span> <span class="operator">*</span> cd <span class="operator">~</span><span class="operator">/</span>owen<span class="operator">/</span>creaditor_add <span class="operator">&amp;&amp;</span> <span class="operator">/</span>home<span class="operator">/</span>owen<span class="operator">/</span>py36<span class="operator">/</span>bin<span class="operator">/</span>python3 </span><br><span class="line"></span><br><span class="line">┌─── 要執行的py檔</span><br><span class="line">│</span><br><span class="line">creaditors_data.py</span><br></pre></td></tr></table></figure>
+
+<h2 id="網站模擬參考"><a href="#網站模擬參考" class="headerlink" title="網站模擬參考"></a>網站模擬參考</h2><figure class="highlight text"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">https://crontab.guru/#*_*_*/5_*_*</span><br></pre></td></tr></table></figure>
 
     </div>
 
@@ -290,19 +271,18 @@
     
 
     <footer class="post-footer">
-          <div class="post-tags">
-              <a href="/tags/django/" rel="tag"># django</a>
-              <a href="/tags/heroku/" rel="tag"># heroku</a>
-          </div>
 
         
 
           <div class="post-nav">
             <div class="post-nav-item">
+                <a href="/2022/09/28/SQL-tutorial/" rel="prev" title="SQL-tutorial">
+                  <i class="fa fa-chevron-left"></i> SQL-tutorial
+                </a>
             </div>
             <div class="post-nav-item">
-                <a href="/2022/09/27/pandas-regex/" rel="next" title="pandas organize">
-                  pandas organize <i class="fa fa-chevron-right"></i>
+                <a href="/2022/09/28/ubuntu-basic-tutorial/" rel="next" title="ubuntu-basic-tutorial">
+                  ubuntu-basic-tutorial <i class="fa fa-chevron-right"></i>
                 </a>
             </div>
           </div>

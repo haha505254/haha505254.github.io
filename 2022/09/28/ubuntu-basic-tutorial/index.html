@@ -1,0 +1,362 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+<meta name="viewport" content="width=device-width">
+<meta name="theme-color" content="#222"><meta name="generator" content="Hexo 6.3.0">
+
+
+  <link rel="apple-touch-icon" sizes="180x180" href="/images/apple-touch-icon-next.png">
+  <link rel="icon" type="image/png" sizes="32x32" href="/images/favicon-32x32-next.png">
+  <link rel="icon" type="image/png" sizes="16x16" href="/images/favicon-16x16-next.png">
+  <link rel="mask-icon" href="/images/logo.svg" color="#222">
+
+<link rel="stylesheet" href="/css/main.css">
+
+
+
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.2.0/css/all.min.css" integrity="sha256-AbA177XfpSnFEvgpYu1jMygiLabzPCJCRIBtR5jGc0k=" crossorigin="anonymous">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/3.1.1/animate.min.css" integrity="sha256-PR7ttpcvz8qrF57fur/yAx1qXMFJeJFiA6pSzWi0OIE=" crossorigin="anonymous">
+
+<script class="next-config" data-name="main" type="application/json">{"hostname":"example.com","root":"/","images":"/images","scheme":"Pisces","darkmode":false,"version":"8.13.0","exturl":false,"sidebar":{"position":"left","display":"post","padding":18,"offset":12},"copycode":{"enable":false,"style":null},"bookmark":{"enable":false,"color":"#222","save":"auto"},"mediumzoom":false,"lazyload":false,"pangu":false,"comments":{"style":"tabs","active":null,"storage":true,"lazyload":false,"nav":null},"stickytabs":false,"motion":{"enable":true,"async":false,"transition":{"post_block":"fadeIn","post_header":"fadeInDown","post_body":"fadeInDown","coll_header":"fadeInLeft","sidebar":"fadeInUp"}},"prism":false,"i18n":{"placeholder":"Searching...","empty":"We didn't find any results for the search: ${query}","hits_time":"${hits} results found in ${time} ms","hits":"${hits} results found"},"path":"/search.xml","localsearch":{"enable":true,"trigger":"auto","top_n_per_article":1,"unescape":false,"preload":false}}</script><script src="/js/config.js"></script>
+
+    <meta name="description" content="ubuntu ubuntu 設定  軟體安裝更新修復移除 常用軟體安裝 右鍵選項 改變編碼 清空交換記憶體 修改文件權限   回主畫面   ubuntu 設定軟體安裝更新修復移除12345678910111213# 更新應用程式sudo apt update# 修復錯誤sudo apt --fix-broken install -y# 更新sudo apt upgrade -y# 軟體移除sudo">
+<meta property="og:type" content="article">
+<meta property="og:title" content="ubuntu-basic-tutorial">
+<meta property="og:url" content="http://example.com/2022/09/28/ubuntu-basic-tutorial/index.html">
+<meta property="og:site_name" content="jacklin murmur">
+<meta property="og:description" content="ubuntu ubuntu 設定  軟體安裝更新修復移除 常用軟體安裝 右鍵選項 改變編碼 清空交換記憶體 修改文件權限   回主畫面   ubuntu 設定軟體安裝更新修復移除12345678910111213# 更新應用程式sudo apt update# 修復錯誤sudo apt --fix-broken install -y# 更新sudo apt upgrade -y# 軟體移除sudo">
+<meta property="og:locale" content="en_US">
+<meta property="article:published_time" content="2022-09-28T07:37:06.000Z">
+<meta property="article:modified_time" content="2022-09-28T07:37:22.932Z">
+<meta property="article:author" content="jacklin">
+<meta name="twitter:card" content="summary">
+
+
+<link rel="canonical" href="http://example.com/2022/09/28/ubuntu-basic-tutorial/">
+
+
+
+<script class="next-config" data-name="page" type="application/json">{"sidebar":"","isHome":false,"isPost":true,"lang":"en","comments":true,"permalink":"http://example.com/2022/09/28/ubuntu-basic-tutorial/","path":"2022/09/28/ubuntu-basic-tutorial/","title":"ubuntu-basic-tutorial"}</script>
+
+<script class="next-config" data-name="calendar" type="application/json">""</script>
+<title>ubuntu-basic-tutorial | jacklin murmur</title>
+  
+
+
+
+
+
+
+  <noscript>
+    <link rel="stylesheet" href="/css/noscript.css">
+  </noscript>
+</head>
+
+<body itemscope itemtype="http://schema.org/WebPage" class="use-motion">
+  <div class="headband"></div>
+
+  <main class="main">
+    <header class="header" itemscope itemtype="http://schema.org/WPHeader">
+      <div class="header-inner"><div class="site-brand-container">
+  <div class="site-nav-toggle">
+    <div class="toggle" aria-label="Toggle navigation bar" role="button">
+        <span class="toggle-line"></span>
+        <span class="toggle-line"></span>
+        <span class="toggle-line"></span>
+    </div>
+  </div>
+
+  <div class="site-meta">
+
+    <a href="/" class="brand" rel="start">
+      <i class="logo-line"></i>
+      <p class="site-title">jacklin murmur</p>
+      <i class="logo-line"></i>
+    </a>
+  </div>
+
+  <div class="site-nav-right">
+    <div class="toggle popup-trigger">
+        <i class="fa fa-search fa-fw fa-lg"></i>
+    </div>
+  </div>
+</div>
+
+
+
+<nav class="site-nav">
+  <ul class="main-menu menu"><li class="menu-item menu-item-home"><a href="/" rel="section"><i class="fa fa-home fa-fw"></i>Home</a></li><li class="menu-item menu-item-about"><a href="/about/" rel="section"><i class="fa fa-user fa-fw"></i>About</a></li><li class="menu-item menu-item-tags"><a href="/tags/" rel="section"><i class="fa fa-tags fa-fw"></i>Tags</a></li><li class="menu-item menu-item-archives"><a href="/archives/" rel="section"><i class="fa fa-archive fa-fw"></i>Archives</a></li>
+      <li class="menu-item menu-item-search">
+        <a role="button" class="popup-trigger"><i class="fa fa-search fa-fw"></i>Search
+        </a>
+      </li>
+  </ul>
+</nav>
+
+
+
+  <div class="search-pop-overlay">
+    <div class="popup search-popup"><div class="search-header">
+  <span class="search-icon">
+    <i class="fa fa-search"></i>
+  </span>
+  <div class="search-input-container">
+    <input autocomplete="off" autocapitalize="off" maxlength="80"
+           placeholder="Searching..." spellcheck="false"
+           type="search" class="search-input">
+  </div>
+  <span class="popup-btn-close" role="button">
+    <i class="fa fa-times-circle"></i>
+  </span>
+</div>
+<div class="search-result-container no-result">
+  <div class="search-result-icon">
+    <i class="fa fa-spinner fa-pulse fa-5x"></i>
+  </div>
+</div>
+
+    </div>
+  </div>
+
+</div>
+        
+  
+  <div class="toggle sidebar-toggle" role="button">
+    <span class="toggle-line"></span>
+    <span class="toggle-line"></span>
+    <span class="toggle-line"></span>
+  </div>
+
+  <aside class="sidebar">
+
+    <div class="sidebar-inner sidebar-nav-active sidebar-toc-active">
+      <ul class="sidebar-nav">
+        <li class="sidebar-nav-toc">
+          Table of Contents
+        </li>
+        <li class="sidebar-nav-overview">
+          Overview
+        </li>
+      </ul>
+
+      <div class="sidebar-panel-container">
+        <!--noindex-->
+        <div class="post-toc-wrap sidebar-panel">
+            <div class="post-toc animated"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#ubuntu"><span class="nav-number">1.</span> <span class="nav-text">ubuntu</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#ubuntu-%E8%A8%AD%E5%AE%9A"><span class="nav-number">1.1.</span> <span class="nav-text">ubuntu 設定</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#%E8%BB%9F%E9%AB%94%E5%AE%89%E8%A3%9D%E6%9B%B4%E6%96%B0%E4%BF%AE%E5%BE%A9%E7%A7%BB%E9%99%A4"><span class="nav-number">1.1.1.</span> <span class="nav-text">軟體安裝更新修復移除</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E5%B8%B8%E7%94%A8%E8%BB%9F%E9%AB%94%E5%AE%89%E8%A3%9D"><span class="nav-number">1.1.2.</span> <span class="nav-text">常用軟體安裝</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E5%8F%B3%E9%8D%B5%E9%81%B8%E9%A0%85"><span class="nav-number">1.1.3.</span> <span class="nav-text">右鍵選項</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E6%94%B9%E8%AE%8A%E7%B7%A8%E7%A2%BC"><span class="nav-number">1.1.4.</span> <span class="nav-text">改變編碼</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E6%B8%85%E7%A9%BA%E4%BA%A4%E6%8F%9B%E8%A8%98%E6%86%B6%E9%AB%94"><span class="nav-number">1.1.5.</span> <span class="nav-text">清空交換記憶體</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E4%BF%AE%E6%94%B9%E6%96%87%E4%BB%B6%E6%AC%8A%E9%99%90"><span class="nav-number">1.1.6.</span> <span class="nav-text">修改文件權限</span></a></li></ol></li></ol></li></ol></div>
+        </div>
+        <!--/noindex-->
+
+        <div class="site-overview-wrap sidebar-panel">
+          <div class="site-author site-overview-item animated" itemprop="author" itemscope itemtype="http://schema.org/Person">
+  <p class="site-author-name" itemprop="name">jacklin</p>
+  <div class="site-description" itemprop="description"></div>
+</div>
+<div class="site-state-wrap site-overview-item animated">
+  <nav class="site-state">
+      <div class="site-state-item site-state-posts">
+        <a href="/archives/">
+          <span class="site-state-item-count">13</span>
+          <span class="site-state-item-name">posts</span>
+        </a>
+      </div>
+      <div class="site-state-item site-state-tags">
+          <a href="/tags/">
+        <span class="site-state-item-count">8</span>
+        <span class="site-state-item-name">tags</span></a>
+      </div>
+  </nav>
+</div>
+
+
+
+        </div>
+      </div>
+    </div>
+  </aside>
+  <div class="sidebar-dimmer"></div>
+
+
+    </header>
+
+    
+  <div class="back-to-top" role="button" aria-label="Back to top">
+    <i class="fa fa-arrow-up"></i>
+    <span>0%</span>
+  </div>
+
+<noscript>
+  <div class="noscript-warning">Theme NexT works best with JavaScript enabled</div>
+</noscript>
+
+
+    <div class="main-inner post posts-expand">
+
+
+  
+
+
+<div class="post-block">
+  
+  
+
+  <article itemscope itemtype="http://schema.org/Article" class="post-content" lang="en">
+    <link itemprop="mainEntityOfPage" href="http://example.com/2022/09/28/ubuntu-basic-tutorial/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/images/avatar.gif">
+      <meta itemprop="name" content="jacklin">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="jacklin murmur">
+      <meta itemprop="description" content="">
+    </span>
+
+    <span hidden itemprop="post" itemscope itemtype="http://schema.org/CreativeWork">
+      <meta itemprop="name" content="ubuntu-basic-tutorial | jacklin murmur">
+      <meta itemprop="description" content="">
+    </span>
+      <header class="post-header">
+        <h1 class="post-title" itemprop="name headline">
+          ubuntu-basic-tutorial
+        </h1>
+
+        <div class="post-meta-container">
+          <div class="post-meta">
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-calendar"></i>
+      </span>
+      <span class="post-meta-item-text">Posted on</span>
+      
+
+      <time title="Created: 2022-09-28 15:37:06 / Modified: 15:37:22" itemprop="dateCreated datePublished" datetime="2022-09-28T15:37:06+08:00">2022-09-28</time>
+    </span>
+
+  
+</div>
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+        <h1 id="ubuntu"><a href="#ubuntu" class="headerlink" title="ubuntu"></a>ubuntu</h1><ul>
+<li><p>ubuntu 設定</p>
+<ul>
+<li><strong><a href="#%E8%BB%9F%E9%AB%94%E5%AE%89%E8%A3%9D%E6%9B%B4%E6%96%B0%E4%BF%AE%E5%BE%A9%E7%A7%BB%E9%99%A4"><code>軟體安裝更新修復移除</code></a></strong></li>
+<li><strong><a href="#%E5%B8%B8%E7%94%A8%E8%BB%9F%E9%AB%94%E5%AE%89%E8%A3%9D"><code>常用軟體安裝</code></a></strong></li>
+<li><strong><a href="#%E5%8F%B3%E9%8D%B5%E9%81%B8%E9%A0%85"><code>右鍵選項</code></a></strong></li>
+<li><strong><a href="#%E6%94%B9%E8%AE%8A%E7%B7%A8%E7%A2%BC"><code>改變編碼</code></a></strong></li>
+<li><strong><a href="#%E6%B8%85%E7%A9%BA%E4%BA%A4%E6%8F%9B%E8%A8%98%E6%86%B6%E9%AB%94"><code>清空交換記憶體</code></a></strong></li>
+<li><strong><a href="#%E4%BF%AE%E6%94%B9%E6%96%87%E4%BB%B6%E6%AC%8A%E9%99%90"><code>修改文件權限</code></a></strong></li>
+</ul>
+</li>
+<li><p><strong><a href="../README.md"><code>回主畫面</code></a></strong></p>
+</li>
+</ul>
+<h2 id="ubuntu-設定"><a href="#ubuntu-設定" class="headerlink" title="ubuntu 設定"></a>ubuntu 設定</h2><h3 id="軟體安裝更新修復移除"><a href="#軟體安裝更新修復移除" class="headerlink" title="軟體安裝更新修復移除"></a>軟體安裝更新修復移除</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># 更新應用程式</span></span><br><span class="line">sudo apt update</span><br><span class="line"><span class="comment"># 修復錯誤</span></span><br><span class="line">sudo apt --fix-broken install -y</span><br><span class="line"><span class="comment"># 更新</span></span><br><span class="line">sudo apt upgrade -y</span><br><span class="line"><span class="comment"># 軟體移除</span></span><br><span class="line">sudo apt autoremove &lt;name&gt; -y</span><br><span class="line"><span class="comment"># 自動移除</span></span><br><span class="line">sudo apt autoremove -y</span><br><span class="line"></span><br><span class="line"><span class="comment"># deb檔 安裝</span></span><br><span class="line">sudo dpkg -i XXXXXX.deb</span><br></pre></td></tr></table></figure>
+
+<blockquote>
+<p><a href="#ubuntu">↥ TOP</a></p>
+</blockquote>
+<h3 id="常用軟體安裝"><a href="#常用軟體安裝" class="headerlink" title="常用軟體安裝"></a>常用軟體安裝</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># 安裝 神燈 文字編輯器</span></span><br><span class="line">sudo apt install geany -y</span><br><span class="line"></span><br><span class="line"><span class="comment"># 安裝 可分割的終端機</span></span><br><span class="line">sudo apt install terminator -y</span><br><span class="line"></span><br><span class="line"><span class="comment"># 安裝 圖片編輯器</span></span><br><span class="line">sudo apt install gimp</span><br><span class="line"></span><br><span class="line"><span class="comment"># 安裝 文件比較工具</span></span><br><span class="line">sudo apt install meld</span><br></pre></td></tr></table></figure>
+
+<blockquote>
+<p><a href="#ubuntu">↥ TOP</a></p>
+</blockquote>
+<h3 id="右鍵選項"><a href="#右鍵選項" class="headerlink" title="右鍵選項"></a>右鍵選項</h3><p>18.04以上的版本右鍵新增的選單改為手動新增模板</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="built_in">touch</span> ~/模板/<span class="string">&quot;新增文字檔&quot;</span></span><br></pre></td></tr></table></figure>
+
+<blockquote>
+<p><a href="#ubuntu">↥ TOP</a></p>
+</blockquote>
+<h3 id="改變編碼"><a href="#改變編碼" class="headerlink" title="改變編碼"></a>改變編碼</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># 單一檔案</span></span><br><span class="line">iconv -f big5 -t utf8 &lt;filename&gt; -o &lt;filename&gt;</span><br><span class="line"></span><br><span class="line"><span class="comment"># 資料夾內 全部檔案</span></span><br><span class="line">find -<span class="built_in">type</span> f -<span class="built_in">exec</span> iconv --verbose -f BIG-5 -t UTF-8 &#123;&#125; -o &#123;&#125; \;</span><br></pre></td></tr></table></figure>
+
+<blockquote>
+<p><a href="#ubuntu">↥ TOP</a></p>
+</blockquote>
+<h3 id="清空交換記憶體"><a href="#清空交換記憶體" class="headerlink" title="清空交換記憶體"></a>清空交換記憶體</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">swapoff -a &amp;&amp; swapon -a</span><br></pre></td></tr></table></figure>
+
+<blockquote>
+<p><a href="#ubuntu">↥ TOP</a></p>
+</blockquote>
+<h3 id="修改文件權限"><a href="#修改文件權限" class="headerlink" title="修改文件權限"></a>修改文件權限</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">#777為最高權限</span></span><br><span class="line">sudo <span class="built_in">chmod</span> 777 -R &lt;filename&gt;</span><br></pre></td></tr></table></figure>
+
+<blockquote>
+<p><a href="#ubuntu">↥ TOP</a></p>
+</blockquote>
+
+    </div>
+
+    
+    
+    
+
+    <footer class="post-footer">
+
+        
+
+          <div class="post-nav">
+            <div class="post-nav-item">
+                <a href="/2022/09/28/ubuntu-crontab/" rel="prev" title="ubuntu-crontab">
+                  <i class="fa fa-chevron-left"></i> ubuntu-crontab
+                </a>
+            </div>
+            <div class="post-nav-item">
+            </div>
+          </div>
+    </footer>
+  </article>
+</div>
+
+
+
+
+
+
+</div>
+  </main>
+
+  <footer class="footer">
+    <div class="footer-inner">
+
+
+<div class="copyright">
+  &copy; 
+  <span itemprop="copyrightYear">2022</span>
+  <span class="with-love">
+    <i class="fa fa-heart"></i>
+  </span>
+  <span class="author" itemprop="copyrightHolder">jacklin</span>
+</div>
+  <div class="powered-by">Powered by <a href="https://hexo.io/" rel="noopener" target="_blank">Hexo</a> & <a href="https://theme-next.js.org/pisces/" rel="noopener" target="_blank">NexT.Pisces</a>
+  </div>
+
+    </div>
+  </footer>
+
+  
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/animejs/3.2.1/anime.min.js" integrity="sha256-XL2inqUJaslATFnHdJOi9GfQ60on8Wx1C2H8DYiN1xY=" crossorigin="anonymous"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/next-theme-pjax/0.5.0/pjax.min.js" integrity="sha256-3NkoLDrmHLTYj7csHIZSr0MHAFTXth7Ua/DDt4MRUAg=" crossorigin="anonymous"></script>
+<script src="/js/comments.js"></script><script src="/js/utils.js"></script><script src="/js/motion.js"></script><script src="/js/next-boot.js"></script><script src="/js/pjax.js"></script>
+
+  
+<script src="https://cdnjs.cloudflare.com/ajax/libs/hexo-generator-searchdb/1.4.0/search.js" integrity="sha256-vXZMYLEqsROAXkEw93GGIvaB2ab+QW6w3+1ahD9nXXA=" crossorigin="anonymous"></script>
+<script src="/js/third-party/search/local-search.js"></script>
+
+
+
+
+
+  
+
+
+
+
+
+</body>
+</html>
