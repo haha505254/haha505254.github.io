@@ -23,21 +23,23 @@
     <meta name="description" content="thread threading, Queue, lock, Multithreading 線程處理  threading Queue lock   回主畫面   threading建立與運行子執行緒12345678910111213141516171819202122import threadingimport time# 子執行緒使用的函式def job():    for i in rang">
 <meta property="og:type" content="article">
 <meta property="og:title" content="py-thread">
-<meta property="og:url" content="http://example.com/2022/09/28/py-thread/index.html">
+<meta property="og:url" content="http://example.com/2022/09/02/py-thread/index.html">
 <meta property="og:site_name" content="jacklin murmur">
 <meta property="og:description" content="thread threading, Queue, lock, Multithreading 線程處理  threading Queue lock   回主畫面   threading建立與運行子執行緒12345678910111213141516171819202122import threadingimport time# 子執行緒使用的函式def job():    for i in rang">
 <meta property="og:locale" content="en_US">
-<meta property="article:published_time" content="2022-09-28T07:02:45.000Z">
-<meta property="article:modified_time" content="2022-09-28T07:02:55.525Z">
+<meta property="article:published_time" content="2022-09-02T07:02:45.000Z">
+<meta property="article:modified_time" content="2022-09-28T10:09:41.924Z">
 <meta property="article:author" content="jacklin">
+<meta property="article:tag" content="python">
+<meta property="article:tag" content="thread">
 <meta name="twitter:card" content="summary">
 
 
-<link rel="canonical" href="http://example.com/2022/09/28/py-thread/">
+<link rel="canonical" href="http://example.com/2022/09/02/py-thread/">
 
 
 
-<script class="next-config" data-name="page" type="application/json">{"sidebar":"","isHome":false,"isPost":true,"lang":"en","comments":true,"permalink":"http://example.com/2022/09/28/py-thread/","path":"2022/09/28/py-thread/","title":"py-thread"}</script>
+<script class="next-config" data-name="page" type="application/json">{"sidebar":"","isHome":false,"isPost":true,"lang":"en","comments":true,"permalink":"http://example.com/2022/09/02/py-thread/","path":"2022/09/02/py-thread/","title":"py-thread"}</script>
 
 <script class="next-config" data-name="calendar" type="application/json">""</script>
 <title>py-thread | jacklin murmur</title>
@@ -162,7 +164,7 @@
       </div>
       <div class="site-state-item site-state-tags">
           <a href="/tags/">
-        <span class="site-state-item-count">8</span>
+        <span class="site-state-item-count">16</span>
         <span class="site-state-item-name">tags</span></a>
       </div>
   </nav>
@@ -201,7 +203,7 @@
   
 
   <article itemscope itemtype="http://schema.org/Article" class="post-content" lang="en">
-    <link itemprop="mainEntityOfPage" href="http://example.com/2022/09/28/py-thread/">
+    <link itemprop="mainEntityOfPage" href="http://example.com/2022/09/02/py-thread/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="image" content="/images/avatar.gif">
@@ -229,9 +231,15 @@
         <i class="far fa-calendar"></i>
       </span>
       <span class="post-meta-item-text">Posted on</span>
-      
 
-      <time title="Created: 2022-09-28 15:02:45 / Modified: 15:02:55" itemprop="dateCreated datePublished" datetime="2022-09-28T15:02:45+08:00">2022-09-28</time>
+      <time title="Created: 2022-09-02 15:02:45" itemprop="dateCreated datePublished" datetime="2022-09-02T15:02:45+08:00">2022-09-02</time>
+    </span>
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-calendar-check"></i>
+      </span>
+      <span class="post-meta-item-text">Edited on</span>
+      <time title="Modified: 2022-09-28 18:09:41" itemprop="dateModified" datetime="2022-09-28T18:09:41+08:00">2022-09-28</time>
     </span>
 
   
@@ -252,7 +260,7 @@
 <li><strong><a href="#lock"><code>lock</code></a></strong></li>
 </ul>
 </li>
-<li><p><strong><a href="../README.md"><code>回主畫面</code></a></strong></p>
+<li><p><strong><a target="_blank" rel="noopener" href="https://haha505254.github.io/archives/"><code>回主畫面</code></a></strong></p>
 </li>
 </ul>
 <h2 id="threading"><a href="#threading" class="headerlink" title="threading"></a>threading</h2><h3 id="建立與運行子執行緒"><a href="#建立與運行子執行緒" class="headerlink" title="建立與運行子執行緒"></a>建立與運行子執行緒</h3><figure class="highlight py"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">import</span> threading</span><br><span class="line"><span class="keyword">import</span> time</span><br><span class="line"></span><br><span class="line"><span class="comment"># 子執行緒使用的函式</span></span><br><span class="line"><span class="keyword">def</span> <span class="title function_">job</span>():</span><br><span class="line">    <span class="keyword">for</span> i <span class="keyword">in</span> <span class="built_in">range</span>(<span class="number">5</span>):</span><br><span class="line">        <span class="built_in">print</span>(<span class="string">&quot;Child thread:&quot;</span>, i)</span><br><span class="line">        time.sleep(<span class="number">1</span>)</span><br><span class="line"></span><br><span class="line"><span class="comment"># 建立一個子執行緒</span></span><br><span class="line">t = threading.Thread(target = job)</span><br><span class="line"></span><br><span class="line"><span class="comment"># 子執行緒啟動</span></span><br><span class="line">t.start()</span><br><span class="line"></span><br><span class="line"><span class="comment"># 主執行緒作業</span></span><br><span class="line"><span class="keyword">for</span> i <span class="keyword">in</span> <span class="built_in">range</span>(<span class="number">3</span>):</span><br><span class="line">    <span class="built_in">print</span>(<span class="string">&quot;Main thread:&quot;</span>, i)</span><br><span class="line">    time.sleep(<span class="number">1</span>)</span><br><span class="line"></span><br><span class="line"><span class="comment"># 等待子執行緒結束</span></span><br><span class="line">t.join()</span><br></pre></td></tr></table></figure>
@@ -278,18 +286,22 @@
     
 
     <footer class="post-footer">
+          <div class="post-tags">
+              <a href="/tags/python/" rel="tag"># python</a>
+              <a href="/tags/thread/" rel="tag"># thread</a>
+          </div>
 
         
 
           <div class="post-nav">
             <div class="post-nav-item">
-                <a href="/2022/09/28/selenium/" rel="prev" title="selenium">
-                  <i class="fa fa-chevron-left"></i> selenium
+                <a href="/2022/08/30/python-package-related/" rel="prev" title="python package related">
+                  <i class="fa fa-chevron-left"></i> python package related
                 </a>
             </div>
             <div class="post-nav-item">
-                <a href="/2022/09/28/tqdm/" rel="next" title="tqdm">
-                  tqdm <i class="fa fa-chevron-right"></i>
+                <a href="/2022/09/20/py-datetime/" rel="next" title="py-datetime">
+                  py-datetime <i class="fa fa-chevron-right"></i>
                 </a>
             </div>
           </div>

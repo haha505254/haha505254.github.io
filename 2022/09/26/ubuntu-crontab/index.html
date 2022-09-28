@@ -23,21 +23,23 @@
     <meta name="description" content="crontab crontab排程介紹  指令介紹 語法介紹 範例   網站模擬參考   回主畫面   指令介紹1234567891011121314#列出該使用者擁有的 crontab 指令:crontab -l#編輯該使用者的 crontab 指令:crntab -e#將使用者的 crontab 全部清除:crontab -r#改變排程的執行身分: crontab -u user filena">
 <meta property="og:type" content="article">
 <meta property="og:title" content="ubuntu-crontab">
-<meta property="og:url" content="http://example.com/2022/09/28/ubuntu-crontab/index.html">
+<meta property="og:url" content="http://example.com/2022/09/26/ubuntu-crontab/index.html">
 <meta property="og:site_name" content="jacklin murmur">
 <meta property="og:description" content="crontab crontab排程介紹  指令介紹 語法介紹 範例   網站模擬參考   回主畫面   指令介紹1234567891011121314#列出該使用者擁有的 crontab 指令:crontab -l#編輯該使用者的 crontab 指令:crntab -e#將使用者的 crontab 全部清除:crontab -r#改變排程的執行身分: crontab -u user filena">
 <meta property="og:locale" content="en_US">
-<meta property="article:published_time" content="2022-09-28T07:36:10.000Z">
-<meta property="article:modified_time" content="2022-09-28T07:36:18.975Z">
+<meta property="article:published_time" content="2022-09-26T07:36:10.000Z">
+<meta property="article:modified_time" content="2022-09-28T10:12:24.435Z">
 <meta property="article:author" content="jacklin">
+<meta property="article:tag" content="ubuntu">
+<meta property="article:tag" content="crontab">
 <meta name="twitter:card" content="summary">
 
 
-<link rel="canonical" href="http://example.com/2022/09/28/ubuntu-crontab/">
+<link rel="canonical" href="http://example.com/2022/09/26/ubuntu-crontab/">
 
 
 
-<script class="next-config" data-name="page" type="application/json">{"sidebar":"","isHome":false,"isPost":true,"lang":"en","comments":true,"permalink":"http://example.com/2022/09/28/ubuntu-crontab/","path":"2022/09/28/ubuntu-crontab/","title":"ubuntu-crontab"}</script>
+<script class="next-config" data-name="page" type="application/json">{"sidebar":"","isHome":false,"isPost":true,"lang":"en","comments":true,"permalink":"http://example.com/2022/09/26/ubuntu-crontab/","path":"2022/09/26/ubuntu-crontab/","title":"ubuntu-crontab"}</script>
 
 <script class="next-config" data-name="calendar" type="application/json">""</script>
 <title>ubuntu-crontab | jacklin murmur</title>
@@ -162,7 +164,7 @@
       </div>
       <div class="site-state-item site-state-tags">
           <a href="/tags/">
-        <span class="site-state-item-count">8</span>
+        <span class="site-state-item-count">16</span>
         <span class="site-state-item-name">tags</span></a>
       </div>
   </nav>
@@ -201,7 +203,7 @@
   
 
   <article itemscope itemtype="http://schema.org/Article" class="post-content" lang="en">
-    <link itemprop="mainEntityOfPage" href="http://example.com/2022/09/28/ubuntu-crontab/">
+    <link itemprop="mainEntityOfPage" href="http://example.com/2022/09/26/ubuntu-crontab/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="image" content="/images/avatar.gif">
@@ -229,9 +231,15 @@
         <i class="far fa-calendar"></i>
       </span>
       <span class="post-meta-item-text">Posted on</span>
-      
 
-      <time title="Created: 2022-09-28 15:36:10 / Modified: 15:36:18" itemprop="dateCreated datePublished" datetime="2022-09-28T15:36:10+08:00">2022-09-28</time>
+      <time title="Created: 2022-09-26 15:36:10" itemprop="dateCreated datePublished" datetime="2022-09-26T15:36:10+08:00">2022-09-26</time>
+    </span>
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-calendar-check"></i>
+      </span>
+      <span class="post-meta-item-text">Edited on</span>
+      <time title="Modified: 2022-09-28 18:12:24" itemprop="dateModified" datetime="2022-09-28T18:12:24+08:00">2022-09-28</time>
     </span>
 
   
@@ -253,7 +261,7 @@
 <li><strong><a href="#%E7%B6%B2%E7%AB%99%E6%A8%A1%E6%93%AC%E5%8F%83%E8%80%83"><code>網站模擬參考</code></a></strong></li>
 </ul>
 </li>
-<li><p><strong><a href="../README.md"><code>回主畫面</code></a></strong></p>
+<li><p><strong><a target="_blank" rel="noopener" href="https://haha505254.github.io/archives/"><code>回主畫面</code></a></strong></p>
 </li>
 </ul>
 <h2 id="指令介紹"><a href="#指令介紹" class="headerlink" title="指令介紹"></a>指令介紹</h2><figure class="highlight py"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">#列出該使用者擁有的 crontab 指令:</span></span><br><span class="line">crontab -l</span><br><span class="line"></span><br><span class="line"><span class="comment">#編輯該使用者的 crontab 指令:</span></span><br><span class="line">crntab -e</span><br><span class="line"></span><br><span class="line"><span class="comment">#將使用者的 crontab 全部清除:</span></span><br><span class="line">crontab -r</span><br><span class="line"></span><br><span class="line"><span class="comment">#改變排程的執行身分: crontab -u user filename:</span></span><br><span class="line">crontab -u</span><br><span class="line"></span><br><span class="line"><span class="comment">#重啟,更新指令後需要重啟:</span></span><br><span class="line">sudo /etc/init.d/cron restart</span><br></pre></td></tr></table></figure>
@@ -271,18 +279,22 @@
     
 
     <footer class="post-footer">
+          <div class="post-tags">
+              <a href="/tags/ubuntu/" rel="tag"># ubuntu</a>
+              <a href="/tags/crontab/" rel="tag"># crontab</a>
+          </div>
 
         
 
           <div class="post-nav">
             <div class="post-nav-item">
-                <a href="/2022/09/28/SQL-tutorial/" rel="prev" title="SQL-tutorial">
+                <a href="/2022/09/21/SQL-tutorial/" rel="prev" title="SQL-tutorial">
                   <i class="fa fa-chevron-left"></i> SQL-tutorial
                 </a>
             </div>
             <div class="post-nav-item">
-                <a href="/2022/09/28/ubuntu-basic-tutorial/" rel="next" title="ubuntu-basic-tutorial">
-                  ubuntu-basic-tutorial <i class="fa fa-chevron-right"></i>
+                <a href="/2022/09/28/Python-Tutorial/" rel="next" title="Python Tutorial">
+                  Python Tutorial <i class="fa fa-chevron-right"></i>
                 </a>
             </div>
           </div>

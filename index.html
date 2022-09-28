@@ -157,7 +157,7 @@
       </div>
       <div class="site-state-item site-state-tags">
           <a href="/tags/">
-        <span class="site-state-item-count">8</span>
+        <span class="site-state-item-count">16</span>
         <span class="site-state-item-name">tags</span></a>
       </div>
   </nav>
@@ -225,7 +225,7 @@
       <span class="post-meta-item-text">Posted on</span>
       
 
-      <time title="Created: 2022-09-28 15:37:06 / Modified: 15:53:14" itemprop="dateCreated datePublished" datetime="2022-09-28T15:37:06+08:00">2022-09-28</time>
+      <time title="Created: 2022-09-28 15:37:06 / Modified: 18:12:50" itemprop="dateCreated datePublished" datetime="2022-09-28T15:37:06+08:00">2022-09-28</time>
     </span>
 
   
@@ -238,9 +238,8 @@
     
     
     <div class="post-body" itemprop="articleBody">
-          <h1 id="ubuntu"><a href="#ubuntu" class="headerlink" title="ubuntu"></a>ubuntu</h1><ul>
-<li><p>ubuntu 設定</p>
-<ul>
+          <ul>
+<li><h1 id="ubuntu"><a href="#ubuntu" class="headerlink" title="ubuntu"></a>ubuntu</h1><ul>
 <li><strong><a href="#%E8%BB%9F%E9%AB%94%E5%AE%89%E8%A3%9D%E6%9B%B4%E6%96%B0%E4%BF%AE%E5%BE%A9%E7%A7%BB%E9%99%A4"><code>軟體安裝更新修復移除</code></a></strong></li>
 <li><strong><a href="#%E5%B8%B8%E7%94%A8%E8%BB%9F%E9%AB%94%E5%AE%89%E8%A3%9D"><code>常用軟體安裝</code></a></strong></li>
 <li><strong><a href="#%E5%8F%B3%E9%8D%B5%E9%81%B8%E9%A0%85"><code>右鍵選項</code></a></strong></li>
@@ -309,7 +308,7 @@
   
 
   <article itemscope itemtype="http://schema.org/Article" class="post-content" lang="">
-    <link itemprop="mainEntityOfPage" href="http://example.com/2022/09/28/ubuntu-crontab/">
+    <link itemprop="mainEntityOfPage" href="http://example.com/2022/09/28/tqdm/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="image" content="/images/avatar.gif">
@@ -327,7 +326,7 @@
     </span>
       <header class="post-header">
         <h2 class="post-title" itemprop="name headline">
-          <a href="/2022/09/28/ubuntu-crontab/" class="post-title-link" itemprop="url">ubuntu-crontab</a>
+          <a href="/2022/09/28/tqdm/" class="post-title-link" itemprop="url">tqdm</a>
         </h2>
 
         <div class="post-meta-container">
@@ -339,7 +338,339 @@
       <span class="post-meta-item-text">Posted on</span>
       
 
-      <time title="Created: 2022-09-28 15:36:10 / Modified: 15:36:18" itemprop="dateCreated datePublished" datetime="2022-09-28T15:36:10+08:00">2022-09-28</time>
+      <time title="Created: 2022-09-28 15:04:03 / Modified: 18:10:28" itemprop="dateCreated datePublished" datetime="2022-09-28T15:04:03+08:00">2022-09-28</time>
+    </span>
+
+  
+</div>
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+          <h1 id="進度條"><a href="#進度條" class="headerlink" title="進度條"></a>進度條</h1><h2 id="目錄"><a href="#目錄" class="headerlink" title="目錄"></a>目錄</h2><ul>
+<li>tqdm, rich 進度條 <ul>
+<li><strong><a href="#%E9%80%B2%E5%BA%A6%E6%A2%9Dtqdm"><code>進度條tqdm</code></a></strong></li>
+<li><strong><a href="#%E9%80%B2%E5%BA%A6%E6%A2%9Drich"><code>進度條rich</code></a></strong></li>
+</ul>
+</li>
+<li><strong><a target="_blank" rel="noopener" href="https://haha505254.github.io/archives/"><code>回主畫面</code></a></strong></li>
+</ul>
+<h2 id="進度條tqdm"><a href="#進度條tqdm" class="headerlink" title="進度條tqdm"></a>進度條tqdm</h2><figure class="highlight py"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">from</span> tqdm <span class="keyword">import</span> tqdm, trange</span><br><span class="line"><span class="keyword">import</span> time</span><br><span class="line"></span><br><span class="line"><span class="comment"># 進度條使用tqdm的函式 (t帶筆數)</span></span><br><span class="line"><span class="keyword">def</span> <span class="title function_">job1</span>(<span class="params">t</span>):</span><br><span class="line">    <span class="keyword">for</span> i <span class="keyword">in</span> tqdm(<span class="built_in">range</span>(t)):</span><br><span class="line">        <span class="comment"># 每筆執行程式段碼</span></span><br><span class="line">        time.sleep(<span class="number">0.01</span>)</span><br><span class="line"></span><br><span class="line"><span class="comment"># 進度條使用trange的函式 (t帶筆數)</span></span><br><span class="line"><span class="keyword">def</span> <span class="title function_">job2</span>(<span class="params">t</span>):</span><br><span class="line">    <span class="keyword">for</span> i <span class="keyword">in</span> trange(t):</span><br><span class="line">        <span class="comment"># 每筆執行程式段碼</span></span><br><span class="line">        time.sleep(<span class="number">0.01</span>)</span><br><span class="line"><span class="comment"># 範例 (job1和job2效果一樣)</span></span><br><span class="line">job1(<span class="number">1000</span>)</span><br><span class="line"><span class="comment"># output：100%|██████████| 1000/1000 [00:10&lt;00:00, 96.76it/s]</span></span><br></pre></td></tr></table></figure>
+
+<h2 id="進度條rich"><a href="#進度條rich" class="headerlink" title="進度條rich"></a>進度條rich</h2><figure class="highlight py"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">from</span> rich.progress <span class="keyword">import</span> (</span><br><span class="line">    BarColumn,</span><br><span class="line">    DownloadColumn,</span><br><span class="line">    Progress,</span><br><span class="line">    TimeRemainingColumn,</span><br><span class="line">    TimeElapsedColumn,</span><br><span class="line">)</span><br><span class="line"></span><br><span class="line"><span class="comment"># 進度條使用rich的函式 (t帶筆數)</span></span><br><span class="line"><span class="keyword">def</span> <span class="title function_">rich</span>(<span class="params">t</span>):</span><br><span class="line">    <span class="comment"># 可設定樣式</span></span><br><span class="line">    progress = Progress(</span><br><span class="line">        <span class="comment"># 標題</span></span><br><span class="line">        <span class="string">&quot;[progress.description]&#123;task.description&#125;&quot;</span>,</span><br><span class="line">        <span class="comment"># 進度百分比</span></span><br><span class="line">        <span class="string">&quot;[progress.percentage]&#123;task.percentage:&gt;3.1f&#125;%&quot;</span>,</span><br><span class="line">        <span class="comment"># 顯示條</span></span><br><span class="line">        BarColumn(),</span><br><span class="line">        <span class="comment"># 下載進度</span></span><br><span class="line">        DownloadColumn(),</span><br><span class="line">        <span class="string">&quot;[&quot;</span>,</span><br><span class="line">        <span class="comment"># 經過的時間</span></span><br><span class="line">        TimeElapsedColumn(),</span><br><span class="line">        <span class="string">&quot;&lt;&quot;</span>,</span><br><span class="line">        <span class="comment"># 估計的剩餘時間</span></span><br><span class="line">        TimeRemainingColumn(),</span><br><span class="line">        <span class="string">&quot;]&quot;</span>,</span><br><span class="line">    )</span><br><span class="line">    <span class="keyword">with</span> progress <span class="keyword">as</span> pro:</span><br><span class="line">        task = pro.add_task(<span class="string">&quot;[green]進度條&quot;</span>, total=t)</span><br><span class="line">        <span class="keyword">for</span> step <span class="keyword">in</span> <span class="built_in">range</span>(t):</span><br><span class="line">            <span class="comment"># 程式區段</span></span><br><span class="line">            pro.update(task, advance=<span class="number">1</span>)</span><br><span class="line">            time.sleep(<span class="number">0.01</span>)</span><br><span class="line"><span class="comment"># 範例</span></span><br><span class="line">rich(<span class="number">666</span>)</span><br><span class="line"><span class="comment"># output：進度條 100.0% ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ 666/666 bytes [ 0:00:06 &lt; 0:00:00 ]</span></span><br></pre></td></tr></table></figure>
+
+<p><a href="#%E9%80%B2%E5%BA%A6%E6%A2%9D">↥ TOP</a></p>
+
+      
+    </div>
+
+    
+    
+    
+
+    <footer class="post-footer">
+        <div class="post-eof"></div>
+      
+    </footer>
+  </article>
+</div>
+
+
+
+
+    
+
+
+<div class="post-block">
+  
+  
+
+  <article itemscope itemtype="http://schema.org/Article" class="post-content" lang="">
+    <link itemprop="mainEntityOfPage" href="http://example.com/2022/09/28/selenium/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/images/avatar.gif">
+      <meta itemprop="name" content="jacklin">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="jacklin murmur">
+      <meta itemprop="description" content="">
+    </span>
+
+    <span hidden itemprop="post" itemscope itemtype="http://schema.org/CreativeWork">
+      <meta itemprop="name" content="undefined | jacklin murmur">
+      <meta itemprop="description" content="">
+    </span>
+      <header class="post-header">
+        <h2 class="post-title" itemprop="name headline">
+          <a href="/2022/09/28/selenium/" class="post-title-link" itemprop="url">selenium</a>
+        </h2>
+
+        <div class="post-meta-container">
+          <div class="post-meta">
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-calendar"></i>
+      </span>
+      <span class="post-meta-item-text">Posted on</span>
+      
+
+      <time title="Created: 2022-09-28 15:01:16 / Modified: 17:57:40" itemprop="dateCreated datePublished" datetime="2022-09-28T15:01:16+08:00">2022-09-28</time>
+    </span>
+
+  
+</div>
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+          <h1 id="python"><a href="#python" class="headerlink" title="python"></a>python</h1><ul>
+<li><p>selenium 環境建制</p>
+<ul>
+<li><strong><a href="#%E7%92%B0%E5%A2%83%E5%BB%BA%E5%88%B6"><code>環境建制</code></a></strong></li>
+<li><strong><a href="#%E6%9B%B4%E6%96%B0ubuntu-chrome%E7%89%88%E6%9C%AC"><code>更新ubuntu-chrome版本</code></a></strong></li>
+<li><strong><a href="#%E7%A7%BB%E5%85%A5%E7%92%B0%E5%A2%83%E8%AE%8A%E6%95%B8%E8%B3%87%E6%96%99%E5%A4%BE%EF%BC%86%E6%9B%B4%E8%AE%8A%E6%AC%8A%E9%99%90"><code>移入環境變數資料夾＆更變權限</code></a></strong></li>
+</ul>
+</li>
+<li><p>selenium 使用</p>
+<ul>
+<li><strong><a href="#%E9%96%8B%E5%95%9F"><code>開啟</code></a></strong></li>
+<li><strong><a href="#%E6%9F%A5%E6%89%BE%E5%85%83%E7%B4%A0"><code>查找元素</code></a></strong></li>
+</ul>
+</li>
+<li><p><strong><a target="_blank" rel="noopener" href="https://haha505254.github.io/archives/"><code>回主畫面</code></a></strong></p>
+</li>
+</ul>
+<h2 id="環境建制"><a href="#環境建制" class="headerlink" title="環境建制"></a>環境建制</h2><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">#使用chrome</span></span><br><span class="line"><span class="comment">#確認chrome版本,下載對應chromedriver</span></span><br><span class="line"><span class="comment">#將chromedriver移入到有環境變數的資料夾並變更使用權限</span></span><br></pre></td></tr></table></figure>
+
+<h2 id="更新ubuntu-chrome版本"><a href="#更新ubuntu-chrome版本" class="headerlink" title="更新ubuntu-chrome版本"></a>更新ubuntu-chrome版本</h2><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># 從Google Linux取得金鑰</span></span><br><span class="line">wget -q -O - https://dl-ssl.google.com/linux/linux_signing_key.pub | sudo apt-key add -</span><br><span class="line">sudo sh -c <span class="string">&#x27;echo &quot;deb http://dl.google.com/linux/chrome/deb/ stable main&quot; &gt;&gt; /etc/apt/sources.list.d/google-chrome.list&#x27;</span></span><br><span class="line">sudo apt-get update</span><br><span class="line"><span class="comment"># 更新chrome版本</span></span><br><span class="line">sudo apt-get --only-upgrade install google-chrome-stable</span><br><span class="line"><span class="comment"># 下載最新chrome</span></span><br><span class="line">sudo apt-get install google-chrome-beta</span><br></pre></td></tr></table></figure>
+
+<h2 id="移入環境變數資料夾＆更變權限"><a href="#移入環境變數資料夾＆更變權限" class="headerlink" title="移入環境變數資料夾＆更變權限"></a>移入環境變數資料夾＆更變權限</h2><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">#將chromedriver移入到有環境變數的資料夾並變更使用權限</span></span><br><span class="line">sudo <span class="built_in">cp</span> chromedriver /usr/local/bin/</span><br><span class="line">sudo <span class="built_in">chmod</span> a+x /usr/local/bin/chromedriver</span><br><span class="line"></span><br></pre></td></tr></table></figure>
+
+<blockquote>
+<p><a href="#python">↥ TOP</a></p>
+</blockquote>
+<h2 id="開啟"><a href="#開啟" class="headerlink" title="開啟"></a>開啟</h2><figure class="highlight py"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">#啟動chrome</span></span><br><span class="line">driver = webdriver.Chrome(executable_path=<span class="string">&#x27;/usr/local/bin/chromedriver&#x27;</span>)</span><br><span class="line"><span class="comment">#開啟網頁</span></span><br><span class="line">driver.get(<span class="string">&#x27;https://google.com&#x27;</span>)</span><br></pre></td></tr></table></figure>
+
+<h2 id="查找元素"><a href="#查找元素" class="headerlink" title="查找元素"></a>查找元素</h2><ul>
+<li>方法1 單一元素find_element_by_</li>
+</ul>
+<figure class="highlight py"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">driver.find_element_by_name()<span class="comment">#回傳字串</span></span><br></pre></td></tr></table></figure>
+
+<ul>
+<li>方法2 複數元素find_elements_by_</li>
+</ul>
+<figure class="highlight py"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">driver.find_elements_by_name()<span class="comment">#回傳list</span></span><br></pre></td></tr></table></figure>
+
+<blockquote>
+<p><a href="#python">↥ TOP</a></p>
+</blockquote>
+
+      
+    </div>
+
+    
+    
+    
+
+    <footer class="post-footer">
+        <div class="post-eof"></div>
+      
+    </footer>
+  </article>
+</div>
+
+
+
+
+    
+
+
+<div class="post-block">
+  
+  
+
+  <article itemscope itemtype="http://schema.org/Article" class="post-content" lang="">
+    <link itemprop="mainEntityOfPage" href="http://example.com/2022/09/28/Python-Tutorial/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/images/avatar.gif">
+      <meta itemprop="name" content="jacklin">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="jacklin murmur">
+      <meta itemprop="description" content="">
+    </span>
+
+    <span hidden itemprop="post" itemscope itemtype="http://schema.org/CreativeWork">
+      <meta itemprop="name" content="undefined | jacklin murmur">
+      <meta itemprop="description" content="">
+    </span>
+      <header class="post-header">
+        <h2 class="post-title" itemprop="name headline">
+          <a href="/2022/09/28/Python-Tutorial/" class="post-title-link" itemprop="url">Python Tutorial</a>
+        </h2>
+
+        <div class="post-meta-container">
+          <div class="post-meta">
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-calendar"></i>
+      </span>
+      <span class="post-meta-item-text">Posted on</span>
+      
+
+      <time title="Created: 2022-09-28 11:43:56 / Modified: 17:11:42" itemprop="dateCreated datePublished" datetime="2022-09-28T11:43:56+08:00">2022-09-28</time>
+    </span>
+
+  
+</div>
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+          <ul>
+<li><p>Python Tutorial</p>
+<ul>
+<li><strong><a href="#%E8%AE%8A%E6%95%B8"><code>變數</code></a></strong></li>
+<li><strong><a href="#%E5%AD%97%E4%B8%B2"><code>字串</code></a></strong></li>
+<li><strong><a href="#%E6%95%B8%E5%AD%97"><code>數字</code></a></strong></li>
+<li><strong><a href="#%E7%B0%A1%E6%98%93%E8%A8%88%E7%AE%97%E6%A9%9F(%E8%BC%B8%E5%85%A5%E6%95%B8%E5%AD%97)"><code>簡易計算機(輸入數字)</code></a></strong></li>
+<li><strong><a href="#%E5%88%97%E8%A1%A8"><code>列表</code></a></strong></li>
+<li><strong><a href="#%E5%85%83%E7%A5%96"><code>元祖</code></a></strong></li>
+<li><strong><a href="#%E5%87%BD%E5%BC%8F"><code>函式</code></a></strong></li>
+<li><strong><a href="#if-%E5%88%A4%E6%96%B7"><code>if-判斷</code></a></strong></li>
+<li><strong><a href="#%E5%AD%97%E5%85%B8Dictionary"><code>字典Dictionary</code></a></strong></li>
+<li><strong><a href="#while%E8%BF%B4%E5%9C%88"><code>while迴圈</code></a></strong></li>
+<li><strong><a href="#%E7%8C%9C%E6%95%B8%E5%AD%97%E9%81%8A%E6%88%B2"><code>猜數字遊戲</code></a></strong></li>
+<li><strong><a href="#for%E8%BF%B4%E5%9C%88"><code>for迴圈</code></a></strong></li>
+<li><strong><a href="#for+%E5%87%BD%E5%BC%8F%E9%80%A0%E6%AC%A1%E6%96%B9%E7%AE%97%E5%BC%8F"><code>for+函式造次方算式</code></a></strong></li>
+<li><strong><a href="#%E4%BA%8C%E7%B6%AD%E5%88%97%E8%A1%A8-%E5%B7%A2%E7%8B%80%E8%BF%B4%E5%9C%88"><code>二維列表-巢狀迴圈</code></a></strong></li>
+<li><strong><a href="#%E6%AA%94%E6%A1%88%E8%AE%80%E5%8F%96-%E5%AF%AB%E5%85%A5"><code>檔案讀取-寫入</code></a></strong></li>
+<li><strong><a href="#%E9%A1%9E%E5%88%A5"><code>類別</code></a></strong></li>
+<li><strong><a href="#%E7%B9%BC%E6%89%BF"><code>繼承</code></a></strong></li>
+</ul>
+</li>
+<li><p><strong><a target="_blank" rel="noopener" href="https://haha505254.github.io/archives/"><code>回主畫面</code></a></strong></p>
+</li>
+</ul>
+<h2 id="變數"><a href="#變數" class="headerlink" title="變數"></a>變數</h2><pre><code><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line">name = ”小白”</span><br><span class="line"></span><br><span class="line">age = <span class="number">87</span></span><br><span class="line"></span><br><span class="line">is_male = <span class="literal">True</span></span><br><span class="line"></span><br><span class="line">字串+變數</span><br><span class="line"></span><br><span class="line">name = <span class="string">&quot;小白&quot;</span></span><br><span class="line"><span class="built_in">print</span>(<span class="string">&quot;Hello world!Python&quot;</span>+name)</span><br></pre></td></tr></table></figure>
+</code></pre>
+<h2 id="字串"><a href="#字串" class="headerlink" title="字串"></a>字串</h2><pre><code><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br></pre></td><td class="code"><pre><span class="line">換行\n</span><br><span class="line"></span><br><span class="line"><span class="built_in">print</span>(<span class="string">&quot;Hello world!  \n  Python&quot;</span>)</span><br><span class="line"></span><br><span class="line">如何印出 hello”world</span><br><span class="line"></span><br><span class="line"><span class="built_in">print</span>(”hello\”world”)</span><br><span class="line"></span><br><span class="line">字串函式</span><br><span class="line"></span><br><span class="line">phrase = “HELLO”</span><br><span class="line"></span><br><span class="line"><span class="built_in">print</span>(phrase.lower()) 轉小寫</span><br><span class="line"></span><br><span class="line">判斷是否大寫 是則回傳<span class="literal">True</span></span><br><span class="line"></span><br><span class="line">phrase = <span class="string">&quot;HELLO&quot;</span></span><br><span class="line"></span><br><span class="line"><span class="built_in">print</span>(phrase.isupper())</span><br><span class="line"></span><br><span class="line">中括號用法(擷取字串數字)</span><br><span class="line"></span><br><span class="line">phrase = <span class="string">&quot;HELLO&quot;</span></span><br><span class="line"></span><br><span class="line"><span class="built_in">print</span>(phrase[<span class="number">1</span>])</span><br><span class="line"></span><br><span class="line">ans:E</span><br><span class="line"></span><br><span class="line">尋找字元位於字串的第幾位</span><br><span class="line"></span><br><span class="line">phrase = <span class="string">&quot;HELOL&quot;</span></span><br><span class="line"></span><br><span class="line"><span class="built_in">print</span>(phrase.index(<span class="string">&quot;L&quot;</span>))</span><br><span class="line"></span><br><span class="line">ans:<span class="number">2</span></span><br><span class="line"></span><br><span class="line">在字串中替換字元</span><br><span class="line"></span><br><span class="line">phrase = <span class="string">&quot;HELOL&quot;</span></span><br><span class="line"></span><br><span class="line"><span class="built_in">print</span>(phrase.replace(<span class="string">&quot;L&quot;</span>,<span class="string">&quot;A&quot;</span>))</span><br><span class="line"></span><br><span class="line">ans:HEAOA</span><br><span class="line"></span><br><span class="line">字串轉數字</span><br><span class="line"></span><br><span class="line">s = <span class="string">&quot;123&quot;</span></span><br><span class="line"><span class="built_in">print</span>(<span class="built_in">int</span>(s))</span><br></pre></td></tr></table></figure>
+</code></pre>
+<h2 id="數字"><a href="#數字" class="headerlink" title="數字"></a>數字</h2><pre><code><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br><span class="line">59</span><br><span class="line">60</span><br><span class="line">61</span><br><span class="line">62</span><br><span class="line">63</span><br><span class="line">64</span><br></pre></td><td class="code"><pre><span class="line"><span class="built_in">print</span>(<span class="number">77.2</span>)</span><br><span class="line"></span><br><span class="line"><span class="built_in">print</span>(-<span class="number">77.2</span>)</span><br><span class="line"></span><br><span class="line"><span class="built_in">print</span>(<span class="number">8</span>+<span class="number">5</span>)</span><br><span class="line"></span><br><span class="line"><span class="built_in">print</span>(<span class="number">8</span>*<span class="number">5</span>)</span><br><span class="line"></span><br><span class="line">除法有兩種 一般除法與整數除法</span><br><span class="line"></span><br><span class="line"><span class="built_in">print</span>(<span class="number">8</span>/<span class="number">5</span>)  ans:<span class="number">1.6</span></span><br><span class="line"></span><br><span class="line"><span class="built_in">print</span>(<span class="number">8</span>//<span class="number">5</span>) ans:<span class="number">1</span></span><br><span class="line"></span><br><span class="line">變數計算</span><br><span class="line"></span><br><span class="line">number = <span class="number">8</span></span><br><span class="line"></span><br><span class="line"><span class="built_in">print</span>(number*<span class="number">5</span>)</span><br><span class="line"></span><br><span class="line">取餘數</span><br><span class="line"></span><br><span class="line">number = <span class="number">8</span></span><br><span class="line"></span><br><span class="line"><span class="built_in">print</span>(number%<span class="number">5</span>)</span><br><span class="line"></span><br><span class="line">數字轉字串</span><br><span class="line"></span><br><span class="line">n = <span class="number">123</span></span><br><span class="line"><span class="built_in">print</span>(<span class="built_in">str</span>(n))</span><br><span class="line"></span><br><span class="line">取絕對值</span><br><span class="line"></span><br><span class="line">num = -<span class="number">123</span></span><br><span class="line"></span><br><span class="line"><span class="built_in">print</span>(<span class="built_in">abs</span>(num))</span><br><span class="line"></span><br><span class="line">次方函式</span><br><span class="line"></span><br><span class="line"><span class="built_in">print</span>(<span class="built_in">pow</span>(<span class="number">2</span>,<span class="number">4</span>))</span><br><span class="line"></span><br><span class="line">取最大值</span><br><span class="line"></span><br><span class="line"><span class="built_in">print</span>(<span class="built_in">max</span>(<span class="number">1</span>,<span class="number">3</span>,<span class="number">4</span>,<span class="number">1</span>,<span class="number">6</span>))</span><br><span class="line"></span><br><span class="line">取最小值</span><br><span class="line"></span><br><span class="line"><span class="built_in">print</span>(<span class="built_in">min</span>(<span class="number">1</span>,<span class="number">2</span>,<span class="number">3</span>,<span class="number">4</span>,<span class="number">5</span>))</span><br><span class="line"></span><br><span class="line">取四捨五入</span><br><span class="line"></span><br><span class="line"><span class="built_in">print</span>(<span class="built_in">round</span>(<span class="number">4.4</span>))</span><br><span class="line"></span><br><span class="line">無條件捨去</span><br><span class="line"></span><br><span class="line"><span class="built_in">print</span>(floor(<span class="number">4.6</span>))</span><br><span class="line"></span><br><span class="line">無條件進位</span><br><span class="line"></span><br><span class="line"><span class="built_in">print</span>(ceil(<span class="number">5.8</span>))</span><br><span class="line"></span><br><span class="line">開根號</span><br><span class="line"></span><br><span class="line"><span class="built_in">print</span>(sqrt(<span class="number">64</span>))</span><br></pre></td></tr></table></figure>
+</code></pre>
+<h2 id="簡易計算機-輸入數字"><a href="#簡易計算機-輸入數字" class="headerlink" title="簡易計算機(輸入數字)"></a>簡易計算機(輸入數字)</h2><pre><code><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">num1 = <span class="built_in">input</span>(”請輸入第一個數字:”)</span><br><span class="line"></span><br><span class="line">num2 = <span class="built_in">input</span>(”請輸入第二個數字:”)</span><br><span class="line"></span><br><span class="line"><span class="built_in">print</span>(<span class="built_in">float</span>(num1)+<span class="built_in">float</span>(num2))</span><br></pre></td></tr></table></figure>
+</code></pre>
+<h2 id="列表"><a href="#列表" class="headerlink" title="列表"></a>列表</h2><pre><code><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br><span class="line">59</span><br><span class="line">60</span><br><span class="line">61</span><br><span class="line">62</span><br><span class="line">63</span><br><span class="line">64</span><br><span class="line">65</span><br><span class="line">66</span><br><span class="line">67</span><br><span class="line">68</span><br><span class="line">69</span><br><span class="line">70</span><br><span class="line">71</span><br><span class="line">72</span><br><span class="line">73</span><br><span class="line">74</span><br><span class="line">75</span><br><span class="line">76</span><br><span class="line">77</span><br><span class="line">78</span><br><span class="line">79</span><br><span class="line">80</span><br><span class="line">81</span><br><span class="line">82</span><br><span class="line">83</span><br><span class="line">84</span><br><span class="line">85</span><br><span class="line">86</span><br><span class="line">87</span><br><span class="line">88</span><br><span class="line">89</span><br><span class="line">90</span><br><span class="line">91</span><br><span class="line">92</span><br><span class="line">93</span><br><span class="line">94</span><br><span class="line">95</span><br><span class="line">96</span><br><span class="line">97</span><br><span class="line">98</span><br><span class="line">99</span><br><span class="line">100</span><br><span class="line">101</span><br><span class="line">102</span><br><span class="line">103</span><br><span class="line">104</span><br><span class="line">105</span><br></pre></td><td class="code"><pre><span class="line">數字</span><br><span class="line"></span><br><span class="line">score = [<span class="number">50</span>,<span class="number">60</span>,<span class="number">70</span>,<span class="number">80</span>]</span><br><span class="line"></span><br><span class="line">字串</span><br><span class="line"></span><br><span class="line">friends = [”小黑”,”小黃”,”小綠”]</span><br><span class="line"></span><br><span class="line">多種形態</span><br><span class="line"></span><br><span class="line">things = [<span class="number">90</span>,”小黑”,<span class="literal">True</span>]</span><br><span class="line"></span><br><span class="line">取得列表某一數字</span><br><span class="line"></span><br><span class="line">score = [<span class="number">50</span>,<span class="number">60</span>,<span class="number">70</span>,<span class="number">80</span>]</span><br><span class="line"></span><br><span class="line"><span class="built_in">print</span>(score[-<span class="number">1</span>])    ans:<span class="number">80</span></span><br><span class="line"></span><br><span class="line">取列表中間數字</span><br><span class="line"></span><br><span class="line">score = [<span class="number">50</span>,<span class="number">60</span>,<span class="number">70</span>,<span class="number">80</span>]</span><br><span class="line"></span><br><span class="line"><span class="built_in">print</span>(score[<span class="number">0</span>:<span class="number">2</span>])  第<span class="number">0</span>開始取 取到<span class="number">2</span>之前(不包含<span class="number">2</span>)</span><br><span class="line"></span><br><span class="line">改列表間的數字</span><br><span class="line"></span><br><span class="line">score = [<span class="number">50</span>,<span class="number">60</span>,<span class="number">70</span>,<span class="number">80</span>]</span><br><span class="line"></span><br><span class="line">score[<span class="number">0</span>]=<span class="number">30</span></span><br><span class="line"></span><br><span class="line">把陣列相加</span><br><span class="line"></span><br><span class="line">score = [<span class="number">50</span>,<span class="number">60</span>,<span class="number">70</span>,<span class="number">80</span>]</span><br><span class="line"></span><br><span class="line">things = [<span class="number">90</span>,<span class="string">&quot;小黑&quot;</span>,<span class="literal">True</span>]</span><br><span class="line"></span><br><span class="line">score.extend(things)</span><br><span class="line"></span><br><span class="line"><span class="built_in">print</span>(score)</span><br><span class="line"></span><br><span class="line">ans : [<span class="number">30</span>, <span class="number">60</span>, <span class="number">70</span>, <span class="number">80</span>, <span class="number">90</span>, <span class="string">&#x27;小黑&#x27;</span>, <span class="literal">True</span>]</span><br><span class="line"></span><br><span class="line">把陣列最後方加新的值</span><br><span class="line"></span><br><span class="line">score = [<span class="number">50</span>,<span class="number">60</span>,<span class="number">70</span>,<span class="number">80</span>]</span><br><span class="line"></span><br><span class="line">score.append(<span class="number">30</span>)</span><br><span class="line"></span><br><span class="line">ans : [<span class="number">50</span>,<span class="number">60</span>,<span class="number">70</span>,<span class="number">80</span>,<span class="number">30</span>]</span><br><span class="line"></span><br><span class="line">陣列中間插入新的值</span><br><span class="line"></span><br><span class="line">score = [<span class="number">50</span>,<span class="number">60</span>,<span class="number">70</span>,<span class="number">80</span>]</span><br><span class="line"></span><br><span class="line">score.insert(<span class="number">2</span>,<span class="number">30</span>)</span><br><span class="line"></span><br><span class="line">ans : [<span class="number">50</span>,<span class="number">60</span>,<span class="number">30</span>,<span class="number">70</span>,<span class="number">80</span>]</span><br><span class="line"></span><br><span class="line">刪掉陣列特定的值</span><br><span class="line"></span><br><span class="line">score = [<span class="number">50</span>,<span class="number">60</span>,<span class="number">70</span>,<span class="number">80</span>]</span><br><span class="line"></span><br><span class="line">score.remove(<span class="number">50</span>)</span><br><span class="line"></span><br><span class="line">清空陣列</span><br><span class="line"></span><br><span class="line">score = [<span class="number">50</span>,<span class="number">60</span>,<span class="number">70</span>,<span class="number">80</span>]</span><br><span class="line"></span><br><span class="line">score.clear()</span><br><span class="line"></span><br><span class="line">直接移除陣列最後一個</span><br><span class="line"></span><br><span class="line">score = [<span class="number">50</span>,<span class="number">60</span>,<span class="number">70</span>,<span class="number">80</span>]</span><br><span class="line"></span><br><span class="line">score.pop()</span><br><span class="line"></span><br><span class="line">ans :  [<span class="number">50</span>,<span class="number">60</span>,<span class="number">70</span>]</span><br><span class="line"></span><br><span class="line">由小到大排列</span><br><span class="line"></span><br><span class="line">score.sort()</span><br><span class="line"></span><br><span class="line">反轉陣列</span><br><span class="line"></span><br><span class="line">score = [<span class="number">50</span>,<span class="number">60</span>,<span class="number">70</span>,<span class="number">80</span>,<span class="number">30</span>,<span class="number">50</span>,<span class="number">100</span>,<span class="number">10</span>]</span><br><span class="line"></span><br><span class="line"> score.reverse()</span><br><span class="line"></span><br><span class="line">ans : [<span class="number">10</span>, <span class="number">100</span>, <span class="number">50</span>, <span class="number">30</span>, <span class="number">80</span>, <span class="number">70</span>, <span class="number">60</span>, <span class="number">50</span>]</span><br><span class="line"></span><br><span class="line">查陣列中的元素位於第幾位</span><br><span class="line"></span><br><span class="line">score = [<span class="number">50</span>,<span class="number">60</span>,<span class="number">70</span>,<span class="number">80</span>,<span class="number">30</span>,<span class="number">50</span>,<span class="number">100</span>,<span class="number">10</span>]</span><br><span class="line"></span><br><span class="line"><span class="built_in">print</span>(score.index(<span class="number">60</span>))</span><br><span class="line"></span><br><span class="line">ans: <span class="number">1</span></span><br><span class="line"></span><br><span class="line">數元素有幾個</span><br><span class="line"></span><br><span class="line">score = [<span class="number">50</span>,<span class="number">60</span>,<span class="number">70</span>,<span class="number">80</span>,<span class="number">30</span>,<span class="number">50</span>,<span class="number">100</span>,<span class="number">10</span>]</span><br><span class="line"></span><br><span class="line"><span class="built_in">print</span>(score.count(<span class="number">50</span>))</span><br><span class="line"></span><br><span class="line">ans:<span class="number">2</span></span><br></pre></td></tr></table></figure>
+</code></pre>
+<h2 id="元祖"><a href="#元祖" class="headerlink" title="元祖"></a>元祖</h2><pre><code><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">與列表的差別在 一旦創建了元祖 就不能新增修改刪除</span><br><span class="line"></span><br><span class="line">score = (<span class="number">90.80</span>,<span class="number">70</span>,<span class="number">60</span>,<span class="number">50</span>)</span><br><span class="line"></span><br><span class="line">元祖用在不會被更動的元素e.g.經緯度</span><br><span class="line"></span><br><span class="line">data = (<span class="number">123456</span>,<span class="number">456789</span>)</span><br></pre></td></tr></table></figure>
+</code></pre>
+<h2 id="函式"><a href="#函式" class="headerlink" title="函式"></a>函式</h2><pre><code><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br></pre></td><td class="code"><pre><span class="line">定義一個函示名稱為hello 功能是say hello</span><br><span class="line"></span><br><span class="line"><span class="keyword">def</span> <span class="title function_">hello</span>(<span class="params">name,age</span>):</span><br><span class="line"></span><br><span class="line"><span class="built_in">print</span>(<span class="string">&quot;hello&quot;</span>+name+age+<span class="string">&quot;歲&quot;</span>)</span><br><span class="line"></span><br><span class="line">hello(<span class="string">&quot;aaa&quot;</span>,<span class="string">&quot;55&quot;</span>)</span><br><span class="line"></span><br><span class="line">須注意 數字無法與字串相連</span><br><span class="line"></span><br><span class="line"><span class="keyword">def</span> <span class="title function_">hello</span>(<span class="params">name,age</span>):</span><br><span class="line"></span><br><span class="line"><span class="built_in">print</span>(<span class="string">&quot;hello&quot;</span>+name+<span class="built_in">str</span>(age)+<span class="string">&quot;歲&quot;</span>)</span><br><span class="line"></span><br><span class="line">hello(<span class="string">&quot;aaa&quot;</span>,<span class="number">5</span>)</span><br><span class="line"></span><br><span class="line">ans : helloaaa55歲</span><br><span class="line"></span><br><span class="line"><span class="keyword">return</span>用法</span><br><span class="line"></span><br><span class="line"><span class="keyword">def</span> <span class="title function_">add</span>(<span class="params">num1,num2</span>):</span><br><span class="line"></span><br><span class="line"><span class="built_in">print</span>(num1+num2)</span><br><span class="line"></span><br><span class="line"><span class="keyword">return</span> <span class="number">10</span></span><br><span class="line"></span><br><span class="line"><span class="built_in">print</span>(add(<span class="number">2</span>,<span class="number">3</span>))</span><br><span class="line"></span><br><span class="line">ans:</span><br><span class="line"></span><br><span class="line"><span class="number">5</span></span><br><span class="line"></span><br><span class="line"><span class="number">10</span></span><br></pre></td></tr></table></figure>
+</code></pre>
+<h2 id="if-判斷"><a href="#if-判斷" class="headerlink" title="if-判斷"></a>if-判斷</h2><pre><code><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line">score = <span class="number">70</span></span><br><span class="line"></span><br><span class="line"><span class="keyword">if</span> score ==<span class="number">100</span>:</span><br><span class="line">    <span class="built_in">print</span>(<span class="string">&quot;100&quot;</span>)</span><br><span class="line"><span class="keyword">elif</span> score&gt;=<span class="number">80</span>:</span><br><span class="line">    <span class="built_in">print</span>(<span class="string">&quot;80&quot;</span>)</span><br><span class="line"><span class="keyword">elif</span> score&gt;=<span class="number">60</span>:</span><br><span class="line">    <span class="built_in">print</span>(<span class="string">&quot;60&quot;</span>)</span><br><span class="line"><span class="keyword">else</span>:</span><br><span class="line">    <span class="built_in">print</span>(<span class="string">&quot;-100&quot;</span>)</span><br><span class="line"></span><br><span class="line">ans:-<span class="number">100</span></span><br></pre></td></tr></table></figure>
+
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line">score = <span class="number">100</span></span><br><span class="line">rainy = <span class="literal">False</span></span><br><span class="line"><span class="keyword">if</span> score==<span class="number">100</span> <span class="keyword">and</span> rainy:</span><br><span class="line">	<span class="built_in">print</span>(<span class="string">&quot;100&quot;</span>)</span><br><span class="line"><span class="keyword">else</span>:</span><br><span class="line">	<span class="built_in">print</span>(<span class="string">&quot;10&quot;</span>)</span><br><span class="line"></span><br><span class="line">ans:<span class="number">10</span></span><br></pre></td></tr></table></figure>
+</code></pre>
+<h2 id="字典Dictionary"><a href="#字典Dictionary" class="headerlink" title="字典Dictionary"></a>字典Dictionary</h2><pre><code><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">含有 key 鍵 value 值</span><br><span class="line"></span><br><span class="line">dic = &#123;<span class="string">&quot;蘋果&quot;</span>:<span class="string">&quot;apple&quot;</span>,<span class="string">&quot;香蕉&quot;</span>:<span class="string">&quot;banana&quot;</span>&#125;</span><br><span class="line"></span><br><span class="line"><span class="built_in">print</span>(dic[<span class="string">&quot;蘋果&quot;</span>])</span><br><span class="line"></span><br><span class="line">ans: apple</span><br></pre></td></tr></table></figure>
+</code></pre>
+<h2 id="while迴圈"><a href="#while迴圈" class="headerlink" title="while迴圈"></a>while迴圈</h2><pre><code><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br></pre></td><td class="code"><pre><span class="line">i = <span class="number">1</span></span><br><span class="line"><span class="keyword">while</span> i&lt;=<span class="number">5</span>:</span><br><span class="line">    <span class="built_in">print</span>(i)</span><br><span class="line">    i += <span class="number">1</span></span><br><span class="line"><span class="built_in">print</span>(i)</span><br><span class="line"></span><br><span class="line">ans:</span><br><span class="line"><span class="number">1</span></span><br><span class="line"><span class="number">2</span></span><br><span class="line"><span class="number">3</span></span><br><span class="line"><span class="number">4</span></span><br><span class="line"><span class="number">5</span></span><br><span class="line"><span class="number">6</span></span><br><span class="line"></span><br></pre></td></tr></table></figure>
+</code></pre>
+<h2 id="猜數字遊戲"><a href="#猜數字遊戲" class="headerlink" title="猜數字遊戲"></a>猜數字遊戲</h2><pre><code><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">while</span> secret!=guess:</span><br><span class="line">    guess = <span class="built_in">int</span>(<span class="built_in">input</span>(<span class="string">&quot;請輸入&quot;</span>))</span><br><span class="line">    <span class="keyword">if</span> guess&lt;secret:</span><br><span class="line">        <span class="built_in">print</span>(<span class="string">&quot;大一點&quot;</span>)</span><br><span class="line">    <span class="keyword">elif</span> guess&gt;secret:</span><br><span class="line">        <span class="built_in">print</span>(<span class="string">&quot;小一點&quot;</span>)</span><br><span class="line"><span class="built_in">print</span>(<span class="string">&quot;恭喜&quot;</span>)</span><br></pre></td></tr></table></figure>
+</code></pre>
+<h2 id="for迴圈"><a href="#for迴圈" class="headerlink" title="for迴圈"></a>for迴圈</h2><pre><code><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">for</span> 變數 <span class="keyword">in</span> 字串<span class="keyword">or</span>列表</span><br><span class="line"><span class="keyword">for</span> letter <span class="keyword">in</span> <span class="string">&quot;小白你好&quot;</span>:</span><br><span class="line">    <span class="built_in">print</span>(letter)</span><br><span class="line"></span><br><span class="line">ans:</span><br><span class="line">小</span><br><span class="line">白</span><br><span class="line">你</span><br><span class="line">好</span><br><span class="line"></span><br><span class="line"><span class="keyword">for</span> num <span class="keyword">in</span> [<span class="number">0</span>,<span class="number">2</span>,<span class="number">4</span>,<span class="number">5</span>]:</span><br><span class="line">    <span class="built_in">print</span>(num)</span><br><span class="line"></span><br><span class="line">ans:</span><br><span class="line"><span class="number">0</span></span><br><span class="line"><span class="number">2</span></span><br><span class="line"><span class="number">4</span></span><br><span class="line"><span class="number">5</span></span><br><span class="line"></span><br><span class="line"><span class="keyword">for</span> num <span class="keyword">in</span> <span class="built_in">range</span>(<span class="number">5</span>):</span><br><span class="line">    <span class="built_in">print</span>(num)</span><br><span class="line">ans:</span><br><span class="line"><span class="number">0</span></span><br><span class="line"><span class="number">1</span></span><br><span class="line"><span class="number">2</span></span><br><span class="line"><span class="number">3</span></span><br><span class="line"><span class="number">4</span></span><br><span class="line"></span><br><span class="line"><span class="keyword">for</span> num <span class="keyword">in</span> <span class="built_in">range</span>(<span class="number">2</span>,<span class="number">7</span>):</span><br><span class="line">    <span class="built_in">print</span>(num)</span><br><span class="line">ans:</span><br><span class="line"><span class="number">2</span></span><br><span class="line"><span class="number">3</span></span><br><span class="line"><span class="number">4</span></span><br><span class="line"><span class="number">5</span></span><br><span class="line"><span class="number">6</span></span><br><span class="line"></span><br></pre></td></tr></table></figure>
+</code></pre>
+<h2 id="for-函式造次方算式"><a href="#for-函式造次方算式" class="headerlink" title="for+函式造次方算式"></a>for+函式造次方算式</h2><pre><code><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">def</span> <span class="title function_">power</span>(<span class="params">num,pow_num</span>):</span><br><span class="line">    result = num</span><br><span class="line">    <span class="keyword">for</span> i <span class="keyword">in</span> <span class="built_in">range</span>(pow_num-<span class="number">1</span>):</span><br><span class="line">        result = result * num</span><br><span class="line">    <span class="keyword">return</span> result</span><br><span class="line"><span class="built_in">print</span>(power(<span class="number">2</span>,<span class="number">3</span>))</span><br><span class="line"></span><br></pre></td></tr></table></figure>
+</code></pre>
+<h2 id="二維列表-巢狀迴圈"><a href="#二維列表-巢狀迴圈" class="headerlink" title="二維列表-巢狀迴圈"></a>二維列表-巢狀迴圈</h2><pre><code><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br></pre></td><td class="code"><pre><span class="line">num = [</span><br><span class="line">    [<span class="number">1</span>,<span class="number">3</span>],</span><br><span class="line">    [<span class="number">3</span>,<span class="number">4</span>]</span><br><span class="line">]</span><br><span class="line"></span><br><span class="line">若是要取得<span class="number">4</span>這個數字</span><br><span class="line"><span class="built_in">print</span>(num[<span class="number">1</span>][<span class="number">1</span>])</span><br><span class="line"></span><br><span class="line">row = 行 (橫)</span><br><span class="line">column = 列 (直) 柱子</span><br><span class="line">在繁體中文版的Excel <span class="number">2003</span>裡面，row叫做「列」，column叫做「欄」</span><br><span class="line"></span><br><span class="line"><span class="keyword">for</span> row <span class="keyword">in</span> num:</span><br><span class="line">    <span class="keyword">for</span> col <span class="keyword">in</span> row:</span><br><span class="line">        <span class="built_in">print</span>(col)</span><br><span class="line">ans:</span><br><span class="line"><span class="number">1</span></span><br><span class="line"><span class="number">3</span></span><br><span class="line"><span class="number">3</span></span><br><span class="line"><span class="number">4</span></span><br><span class="line"></span><br></pre></td></tr></table></figure>
+</code></pre>
+<h2 id="檔案讀取-寫入"><a href="#檔案讀取-寫入" class="headerlink" title="檔案讀取-寫入"></a>檔案讀取-寫入</h2><pre><code><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br></pre></td><td class="code"><pre><span class="line">檔案讀取 相對路徑(以當下的py檔案路徑為準)</span><br><span class="line"></span><br><span class="line">file = <span class="built_in">open</span>(<span class="string">&quot;test.txt&quot;</span>,mode=<span class="string">&quot;r&quot;</span>)</span><br><span class="line"><span class="built_in">print</span>(file.read())</span><br><span class="line">file.close</span><br><span class="line"></span><br><span class="line">只讀一行</span><br><span class="line">file = <span class="built_in">open</span>(<span class="string">&quot;test.txt&quot;</span>,mode=<span class="string">&quot;r&quot;</span>)</span><br><span class="line"><span class="built_in">print</span>(file.readline())</span><br><span class="line">file.close</span><br><span class="line"></span><br><span class="line">逐行讀取</span><br><span class="line">file = <span class="built_in">open</span>(<span class="string">&quot;test.txt&quot;</span>,mode=<span class="string">&quot;r&quot;</span>)</span><br><span class="line"><span class="keyword">for</span> line <span class="keyword">in</span> file:</span><br><span class="line">    <span class="built_in">print</span>(line)</span><br><span class="line">file.close</span><br><span class="line"></span><br><span class="line">把每行放到陣列裡面</span><br><span class="line">file = <span class="built_in">open</span>(<span class="string">&quot;test.txt&quot;</span>,mode=<span class="string">&quot;r&quot;</span>)</span><br><span class="line"><span class="built_in">print</span>(file.readlines())</span><br><span class="line">file.close</span><br></pre></td></tr></table></figure>
+
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br></pre></td><td class="code"><pre><span class="line">檔案覆寫</span><br><span class="line"></span><br><span class="line">file = <span class="built_in">open</span>(<span class="string">&quot;test.txt&quot;</span>,mode=<span class="string">&quot;w&quot;</span>)</span><br><span class="line">file.write(<span class="string">&quot;ok&quot;</span>)</span><br><span class="line">file.close</span><br><span class="line"></span><br><span class="line">檔案寫入 不覆蓋</span><br><span class="line">file = <span class="built_in">open</span>(<span class="string">&quot;test.txt&quot;</span>,mode=<span class="string">&quot;a&quot;</span>)</span><br><span class="line">file.write(<span class="string">&quot;\nok&quot;</span>)</span><br><span class="line">file.close</span><br><span class="line"></span><br><span class="line">若要輸入中文 則需加入編碼utf-<span class="number">8</span></span><br><span class="line"></span><br><span class="line">file = <span class="built_in">open</span>(<span class="string">&quot;test.txt&quot;</span>,mode=<span class="string">&quot;a&quot;</span>,encoding=<span class="string">&quot;utf-8&quot;</span>)</span><br><span class="line">file.write(<span class="string">&quot;\nok你好&quot;</span>)</span><br><span class="line">file.close</span><br></pre></td></tr></table></figure>
+
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line">推薦寫法 可避免忘記關閉file</span><br><span class="line"></span><br><span class="line">檔案寫入</span><br><span class="line"><span class="keyword">with</span> <span class="built_in">open</span>(<span class="string">&quot;test.txt&quot;</span>,mode=<span class="string">&quot;a&quot;</span>,encoding=<span class="string">&quot;utf-8&quot;</span>) <span class="keyword">as</span> file:</span><br><span class="line">    file.write(<span class="string">&quot;\nokwith&quot;</span>)</span><br><span class="line"></span><br><span class="line">檔案讀取</span><br><span class="line"><span class="keyword">with</span> <span class="built_in">open</span>(<span class="string">&quot;test.txt&quot;</span>,mode=<span class="string">&quot;r&quot;</span>,encoding=<span class="string">&quot;utf-8&quot;</span>,errors=<span class="string">&#x27;ignore&#x27;</span>) <span class="keyword">as</span> file:</span><br><span class="line">    <span class="built_in">print</span>(file.read())</span><br></pre></td></tr></table></figure>
+</code></pre>
+<h2 id="類別"><a href="#類別" class="headerlink" title="類別"></a>類別</h2><pre><code><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># 汽車類別</span></span><br><span class="line"><span class="keyword">class</span> <span class="title class_">Cars</span>:</span><br><span class="line">    <span class="comment"># 建構式</span></span><br><span class="line">    <span class="keyword">def</span> <span class="title function_">__init__</span>(<span class="params">self, color, seat</span>):</span><br><span class="line">        self.color = color  <span class="comment"># 顏色屬性</span></span><br><span class="line">        self.seat = seat  <span class="comment"># 座位屬性</span></span><br><span class="line">    <span class="comment"># 方法(Method)</span></span><br><span class="line">    <span class="keyword">def</span> <span class="title function_">drive</span>(<span class="params">self</span>):</span><br><span class="line">        <span class="built_in">print</span>(<span class="string">f&quot;My car is <span class="subst">&#123;self.color&#125;</span> and <span class="subst">&#123;self.seat&#125;</span> seats.&quot;</span>)</span><br><span class="line"></span><br><span class="line">car1 = Cars(<span class="string">&quot;red&quot;</span>,<span class="string">&quot;blue&quot;</span>)</span><br><span class="line">car1.drive()</span><br></pre></td></tr></table></figure>
+</code></pre>
+<h2 id="繼承"><a href="#繼承" class="headerlink" title="繼承"></a>繼承</h2><pre><code><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># 交通工具(基底類別)</span></span><br><span class="line"><span class="keyword">class</span> <span class="title class_">Transportation</span>:</span><br><span class="line">    <span class="comment"># 建構式</span></span><br><span class="line">    <span class="keyword">def</span> <span class="title function_">__init__</span>(<span class="params">self</span>):</span><br><span class="line">        self.color = <span class="string">&quot;white&quot;</span>  <span class="comment">#顏色屬性</span></span><br><span class="line">    <span class="comment"># 駕駛方法</span></span><br><span class="line">    <span class="keyword">def</span> <span class="title function_">drive</span>(<span class="params">self</span>):</span><br><span class="line">        <span class="built_in">print</span>(<span class="string">&quot;drive method is called.&quot;</span>)</span><br><span class="line"><span class="comment"># 汽車子類別</span></span><br><span class="line"><span class="keyword">class</span> <span class="title class_">Car</span>(<span class="title class_ inherited__">Transportation</span>):</span><br><span class="line">    <span class="comment"># 加速方法</span></span><br><span class="line">    <span class="keyword">def</span> <span class="title function_">accelerate</span>(<span class="params">self</span>):</span><br><span class="line">        <span class="built_in">print</span>(<span class="string">&quot;accelerate is method called.&quot;</span>)</span><br><span class="line"><span class="comment"># 飛機子類別</span></span><br><span class="line"><span class="keyword">class</span> <span class="title class_">Airplane</span>(<span class="title class_ inherited__">Transportation</span>):</span><br><span class="line">    <span class="comment"># 飛行方法</span></span><br><span class="line">    <span class="keyword">def</span> <span class="title function_">fly</span>(<span class="params">self</span>):</span><br><span class="line">        <span class="built_in">print</span>(<span class="string">&quot;fly method is called.&quot;</span>)</span><br><span class="line"></span><br><span class="line">mazda = Car()</span><br><span class="line">mazda.drive()</span><br><span class="line">mazda.accelerate()</span><br><span class="line"><span class="built_in">print</span>(mazda.color)</span><br></pre></td></tr></table></figure>
+</code></pre>
+
+      
+    </div>
+
+    
+    
+    
+
+    <footer class="post-footer">
+        <div class="post-eof"></div>
+      
+    </footer>
+  </article>
+</div>
+
+
+
+
+    
+
+
+<div class="post-block">
+  
+  
+
+  <article itemscope itemtype="http://schema.org/Article" class="post-content" lang="">
+    <link itemprop="mainEntityOfPage" href="http://example.com/2022/09/26/ubuntu-crontab/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/images/avatar.gif">
+      <meta itemprop="name" content="jacklin">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="jacklin murmur">
+      <meta itemprop="description" content="">
+    </span>
+
+    <span hidden itemprop="post" itemscope itemtype="http://schema.org/CreativeWork">
+      <meta itemprop="name" content="undefined | jacklin murmur">
+      <meta itemprop="description" content="">
+    </span>
+      <header class="post-header">
+        <h2 class="post-title" itemprop="name headline">
+          <a href="/2022/09/26/ubuntu-crontab/" class="post-title-link" itemprop="url">ubuntu-crontab</a>
+        </h2>
+
+        <div class="post-meta-container">
+          <div class="post-meta">
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-calendar"></i>
+      </span>
+      <span class="post-meta-item-text">Posted on</span>
+
+      <time title="Created: 2022-09-26 15:36:10" itemprop="dateCreated datePublished" datetime="2022-09-26T15:36:10+08:00">2022-09-26</time>
+    </span>
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-calendar-check"></i>
+      </span>
+      <span class="post-meta-item-text">Edited on</span>
+      <time title="Modified: 2022-09-28 18:12:24" itemprop="dateModified" datetime="2022-09-28T18:12:24+08:00">2022-09-28</time>
     </span>
 
   
@@ -361,7 +692,7 @@
 <li><strong><a href="#%E7%B6%B2%E7%AB%99%E6%A8%A1%E6%93%AC%E5%8F%83%E8%80%83"><code>網站模擬參考</code></a></strong></li>
 </ul>
 </li>
-<li><p><strong><a href="../README.md"><code>回主畫面</code></a></strong></p>
+<li><p><strong><a target="_blank" rel="noopener" href="https://haha505254.github.io/archives/"><code>回主畫面</code></a></strong></p>
 </li>
 </ul>
 <h2 id="指令介紹"><a href="#指令介紹" class="headerlink" title="指令介紹"></a>指令介紹</h2><figure class="highlight py"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">#列出該使用者擁有的 crontab 指令:</span></span><br><span class="line">crontab -l</span><br><span class="line"></span><br><span class="line"><span class="comment">#編輯該使用者的 crontab 指令:</span></span><br><span class="line">crntab -e</span><br><span class="line"></span><br><span class="line"><span class="comment">#將使用者的 crontab 全部清除:</span></span><br><span class="line">crontab -r</span><br><span class="line"></span><br><span class="line"><span class="comment">#改變排程的執行身分: crontab -u user filename:</span></span><br><span class="line">crontab -u</span><br><span class="line"></span><br><span class="line"><span class="comment">#重啟,更新指令後需要重啟:</span></span><br><span class="line">sudo /etc/init.d/cron restart</span><br></pre></td></tr></table></figure>
@@ -397,7 +728,7 @@
   
 
   <article itemscope itemtype="http://schema.org/Article" class="post-content" lang="">
-    <link itemprop="mainEntityOfPage" href="http://example.com/2022/09/28/SQL-tutorial/">
+    <link itemprop="mainEntityOfPage" href="http://example.com/2022/09/21/SQL-tutorial/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="image" content="/images/avatar.gif">
@@ -415,7 +746,7 @@
     </span>
       <header class="post-header">
         <h2 class="post-title" itemprop="name headline">
-          <a href="/2022/09/28/SQL-tutorial/" class="post-title-link" itemprop="url">SQL-tutorial</a>
+          <a href="/2022/09/21/SQL-tutorial/" class="post-title-link" itemprop="url">SQL-tutorial</a>
         </h2>
 
         <div class="post-meta-container">
@@ -425,9 +756,15 @@
         <i class="far fa-calendar"></i>
       </span>
       <span class="post-meta-item-text">Posted on</span>
-      
 
-      <time title="Created: 2022-09-28 15:34:44 / Modified: 15:34:57" itemprop="dateCreated datePublished" datetime="2022-09-28T15:34:44+08:00">2022-09-28</time>
+      <time title="Created: 2022-09-21 15:34:44" itemprop="dateCreated datePublished" datetime="2022-09-21T15:34:44+08:00">2022-09-21</time>
+    </span>
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-calendar-check"></i>
+      </span>
+      <span class="post-meta-item-text">Edited on</span>
+      <time title="Modified: 2022-09-28 18:12:01" itemprop="dateModified" datetime="2022-09-28T18:12:01+08:00">2022-09-28</time>
     </span>
 
   
@@ -450,7 +787,7 @@
 <li><strong><a href="#%E6%B8%85%E7%A9%BA"><code>清空</code></a></strong></li>
 </ul>
 </li>
-<li><p><strong><a href="../README.md"><code>回主畫面</code></a></strong></p>
+<li><p><strong><a target="_blank" rel="noopener" href="https://haha505254.github.io/archives/"><code>回主畫面</code></a></strong></p>
 </li>
 </ul>
 <h2 id="篩選"><a href="#篩選" class="headerlink" title="篩選"></a>篩選</h2><h3 id="SELECT-FROM"><a href="#SELECT-FROM" class="headerlink" title="SELECT_FROM"></a>SELECT_FROM</h3><p>選取(顯示)欄位，在表格裡</p>
@@ -558,7 +895,7 @@
   
 
   <article itemscope itemtype="http://schema.org/Article" class="post-content" lang="">
-    <link itemprop="mainEntityOfPage" href="http://example.com/2022/09/28/mysql-for-ubuntu-install/">
+    <link itemprop="mainEntityOfPage" href="http://example.com/2022/09/20/mysql-for-ubuntu-install/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="image" content="/images/avatar.gif">
@@ -576,7 +913,7 @@
     </span>
       <header class="post-header">
         <h2 class="post-title" itemprop="name headline">
-          <a href="/2022/09/28/mysql-for-ubuntu-install/" class="post-title-link" itemprop="url">mysql-for-ubuntu-install</a>
+          <a href="/2022/09/20/mysql-for-ubuntu-install/" class="post-title-link" itemprop="url">mysql-for-ubuntu-install</a>
         </h2>
 
         <div class="post-meta-container">
@@ -586,9 +923,15 @@
         <i class="far fa-calendar"></i>
       </span>
       <span class="post-meta-item-text">Posted on</span>
-      
 
-      <time title="Created: 2022-09-28 15:33:52 / Modified: 15:34:07" itemprop="dateCreated datePublished" datetime="2022-09-28T15:33:52+08:00">2022-09-28</time>
+      <time title="Created: 2022-09-20 15:33:52" itemprop="dateCreated datePublished" datetime="2022-09-20T15:33:52+08:00">2022-09-20</time>
+    </span>
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-calendar-check"></i>
+      </span>
+      <span class="post-meta-item-text">Edited on</span>
+      <time title="Modified: 2022-09-28 18:11:40" itemprop="dateModified" datetime="2022-09-28T18:11:40+08:00">2022-09-28</time>
     </span>
 
   
@@ -610,7 +953,7 @@
 <li><strong><a href="#phpmyadmin%E5%AE%89%E8%A3%9D"><code>phpmyadmin安裝</code></a></strong></li>
 </ul>
 </li>
-<li><p><strong><a href="../README.md"><code>回主畫面</code></a></strong></p>
+<li><p><strong><a target="_blank" rel="noopener" href="https://haha505254.github.io/archives/"><code>回主畫面</code></a></strong></p>
 </li>
 </ul>
 <h2 id="前置作業"><a href="#前置作業" class="headerlink" title="前置作業"></a>前置作業</h2><figure class="highlight text"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">更新Ubuntu Server</span><br><span class="line">sudo apt update &amp;&amp; sudo apt upgrade &amp;&amp; sudo apt dist-upgrade</span><br><span class="line"></span><br><span class="line">如果無法更新(yes之後跳出很多無法連接伺服器)</span><br><span class="line">顯示應用程式&gt;軟體更新&gt;設定&gt;標籤:Ubuntu軟體&gt;下載自:改成主要伺服器</span><br></pre></td></tr></table></figure>
@@ -646,7 +989,7 @@
   
 
   <article itemscope itemtype="http://schema.org/Article" class="post-content" lang="">
-    <link itemprop="mainEntityOfPage" href="http://example.com/2022/09/28/py-datetime/">
+    <link itemprop="mainEntityOfPage" href="http://example.com/2022/09/20/py-datetime/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="image" content="/images/avatar.gif">
@@ -664,7 +1007,7 @@
     </span>
       <header class="post-header">
         <h2 class="post-title" itemprop="name headline">
-          <a href="/2022/09/28/py-datetime/" class="post-title-link" itemprop="url">py-datetime</a>
+          <a href="/2022/09/20/py-datetime/" class="post-title-link" itemprop="url">py-datetime</a>
         </h2>
 
         <div class="post-meta-container">
@@ -674,9 +1017,15 @@
         <i class="far fa-calendar"></i>
       </span>
       <span class="post-meta-item-text">Posted on</span>
-      
 
-      <time title="Created: 2022-09-28 15:05:11 / Modified: 15:05:28" itemprop="dateCreated datePublished" datetime="2022-09-28T15:05:11+08:00">2022-09-28</time>
+      <time title="Created: 2022-09-20 15:05:11" itemprop="dateCreated datePublished" datetime="2022-09-20T15:05:11+08:00">2022-09-20</time>
+    </span>
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-calendar-check"></i>
+      </span>
+      <span class="post-meta-item-text">Edited on</span>
+      <time title="Modified: 2022-09-28 18:11:04" itemprop="dateModified" datetime="2022-09-28T18:11:04+08:00">2022-09-28</time>
     </span>
 
   
@@ -724,7 +1073,7 @@
   
 
   <article itemscope itemtype="http://schema.org/Article" class="post-content" lang="">
-    <link itemprop="mainEntityOfPage" href="http://example.com/2022/09/28/tqdm/">
+    <link itemprop="mainEntityOfPage" href="http://example.com/2022/09/02/py-thread/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="image" content="/images/avatar.gif">
@@ -742,7 +1091,7 @@
     </span>
       <header class="post-header">
         <h2 class="post-title" itemprop="name headline">
-          <a href="/2022/09/28/tqdm/" class="post-title-link" itemprop="url">tqdm</a>
+          <a href="/2022/09/02/py-thread/" class="post-title-link" itemprop="url">py-thread</a>
         </h2>
 
         <div class="post-meta-container">
@@ -752,91 +1101,15 @@
         <i class="far fa-calendar"></i>
       </span>
       <span class="post-meta-item-text">Posted on</span>
-      
 
-      <time title="Created: 2022-09-28 15:04:03 / Modified: 15:04:13" itemprop="dateCreated datePublished" datetime="2022-09-28T15:04:03+08:00">2022-09-28</time>
+      <time title="Created: 2022-09-02 15:02:45" itemprop="dateCreated datePublished" datetime="2022-09-02T15:02:45+08:00">2022-09-02</time>
     </span>
-
-  
-</div>
-
-        </div>
-      </header>
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-          <h1 id="進度條"><a href="#進度條" class="headerlink" title="進度條"></a>進度條</h1><h2 id="目錄"><a href="#目錄" class="headerlink" title="目錄"></a>目錄</h2><ul>
-<li>tqdm, rich 進度條 <ul>
-<li><strong><a href="#%E9%80%B2%E5%BA%A6%E6%A2%9D(tqdm)"><code>進度條(tqdm)</code></a></strong></li>
-<li><strong><a href="#%E9%80%B2%E5%BA%A6%E6%A2%9D(rich)"><code>進度條(rich)</code></a></strong></li>
-</ul>
-</li>
-<li><strong><a href="../README.md"><code>回主畫面</code></a></strong></li>
-</ul>
-<h2 id="進度條-tqdm"><a href="#進度條-tqdm" class="headerlink" title="進度條(tqdm)"></a>進度條(tqdm)</h2><figure class="highlight py"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">from</span> tqdm <span class="keyword">import</span> tqdm, trange</span><br><span class="line"><span class="keyword">import</span> time</span><br><span class="line"></span><br><span class="line"><span class="comment"># 進度條使用tqdm的函式 (t帶筆數)</span></span><br><span class="line"><span class="keyword">def</span> <span class="title function_">job1</span>(<span class="params">t</span>):</span><br><span class="line">    <span class="keyword">for</span> i <span class="keyword">in</span> tqdm(<span class="built_in">range</span>(t)):</span><br><span class="line">        <span class="comment"># 每筆執行程式段碼</span></span><br><span class="line">        time.sleep(<span class="number">0.01</span>)</span><br><span class="line"></span><br><span class="line"><span class="comment"># 進度條使用trange的函式 (t帶筆數)</span></span><br><span class="line"><span class="keyword">def</span> <span class="title function_">job2</span>(<span class="params">t</span>):</span><br><span class="line">    <span class="keyword">for</span> i <span class="keyword">in</span> trange(t):</span><br><span class="line">        <span class="comment"># 每筆執行程式段碼</span></span><br><span class="line">        time.sleep(<span class="number">0.01</span>)</span><br><span class="line"><span class="comment"># 範例 (job1和job2效果一樣)</span></span><br><span class="line">job1(<span class="number">1000</span>)</span><br><span class="line"><span class="comment"># output：100%|██████████| 1000/1000 [00:10&lt;00:00, 96.76it/s]</span></span><br></pre></td></tr></table></figure>
-
-<h2 id="進度條-rich"><a href="#進度條-rich" class="headerlink" title="進度條(rich)"></a>進度條(rich)</h2><figure class="highlight py"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">from</span> rich.progress <span class="keyword">import</span> (</span><br><span class="line">    BarColumn,</span><br><span class="line">    DownloadColumn,</span><br><span class="line">    Progress,</span><br><span class="line">    TimeRemainingColumn,</span><br><span class="line">    TimeElapsedColumn,</span><br><span class="line">)</span><br><span class="line"></span><br><span class="line"><span class="comment"># 進度條使用rich的函式 (t帶筆數)</span></span><br><span class="line"><span class="keyword">def</span> <span class="title function_">rich</span>(<span class="params">t</span>):</span><br><span class="line">    <span class="comment"># 可設定樣式</span></span><br><span class="line">    progress = Progress(</span><br><span class="line">        <span class="comment"># 標題</span></span><br><span class="line">        <span class="string">&quot;[progress.description]&#123;task.description&#125;&quot;</span>,</span><br><span class="line">        <span class="comment"># 進度百分比</span></span><br><span class="line">        <span class="string">&quot;[progress.percentage]&#123;task.percentage:&gt;3.1f&#125;%&quot;</span>,</span><br><span class="line">        <span class="comment"># 顯示條</span></span><br><span class="line">        BarColumn(),</span><br><span class="line">        <span class="comment"># 下載進度</span></span><br><span class="line">        DownloadColumn(),</span><br><span class="line">        <span class="string">&quot;[&quot;</span>,</span><br><span class="line">        <span class="comment"># 經過的時間</span></span><br><span class="line">        TimeElapsedColumn(),</span><br><span class="line">        <span class="string">&quot;&lt;&quot;</span>,</span><br><span class="line">        <span class="comment"># 估計的剩餘時間</span></span><br><span class="line">        TimeRemainingColumn(),</span><br><span class="line">        <span class="string">&quot;]&quot;</span>,</span><br><span class="line">    )</span><br><span class="line">    <span class="keyword">with</span> progress <span class="keyword">as</span> pro:</span><br><span class="line">        task = pro.add_task(<span class="string">&quot;[green]進度條&quot;</span>, total=t)</span><br><span class="line">        <span class="keyword">for</span> step <span class="keyword">in</span> <span class="built_in">range</span>(t):</span><br><span class="line">            <span class="comment"># 程式區段</span></span><br><span class="line">            pro.update(task, advance=<span class="number">1</span>)</span><br><span class="line">            time.sleep(<span class="number">0.01</span>)</span><br><span class="line"><span class="comment"># 範例</span></span><br><span class="line">rich(<span class="number">666</span>)</span><br><span class="line"><span class="comment"># output：進度條 100.0% ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ 666/666 bytes [ 0:00:06 &lt; 0:00:00 ]</span></span><br></pre></td></tr></table></figure>
-
-<p><a href="#%E9%80%B2%E5%BA%A6%E6%A2%9D">↥ TOP</a></p>
-
-      
-    </div>
-
-    
-    
-    
-
-    <footer class="post-footer">
-        <div class="post-eof"></div>
-      
-    </footer>
-  </article>
-</div>
-
-
-
-
-    
-
-
-<div class="post-block">
-  
-  
-
-  <article itemscope itemtype="http://schema.org/Article" class="post-content" lang="">
-    <link itemprop="mainEntityOfPage" href="http://example.com/2022/09/28/py-thread/">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="image" content="/images/avatar.gif">
-      <meta itemprop="name" content="jacklin">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="jacklin murmur">
-      <meta itemprop="description" content="">
-    </span>
-
-    <span hidden itemprop="post" itemscope itemtype="http://schema.org/CreativeWork">
-      <meta itemprop="name" content="undefined | jacklin murmur">
-      <meta itemprop="description" content="">
-    </span>
-      <header class="post-header">
-        <h2 class="post-title" itemprop="name headline">
-          <a href="/2022/09/28/py-thread/" class="post-title-link" itemprop="url">py-thread</a>
-        </h2>
-
-        <div class="post-meta-container">
-          <div class="post-meta">
     <span class="post-meta-item">
       <span class="post-meta-item-icon">
-        <i class="far fa-calendar"></i>
+        <i class="far fa-calendar-check"></i>
       </span>
-      <span class="post-meta-item-text">Posted on</span>
-      
-
-      <time title="Created: 2022-09-28 15:02:45 / Modified: 15:02:55" itemprop="dateCreated datePublished" datetime="2022-09-28T15:02:45+08:00">2022-09-28</time>
+      <span class="post-meta-item-text">Edited on</span>
+      <time title="Modified: 2022-09-28 18:09:41" itemprop="dateModified" datetime="2022-09-28T18:09:41+08:00">2022-09-28</time>
     </span>
 
   
@@ -857,7 +1130,7 @@
 <li><strong><a href="#lock"><code>lock</code></a></strong></li>
 </ul>
 </li>
-<li><p><strong><a href="../README.md"><code>回主畫面</code></a></strong></p>
+<li><p><strong><a target="_blank" rel="noopener" href="https://haha505254.github.io/archives/"><code>回主畫面</code></a></strong></p>
 </li>
 </ul>
 <h2 id="threading"><a href="#threading" class="headerlink" title="threading"></a>threading</h2><h3 id="建立與運行子執行緒"><a href="#建立與運行子執行緒" class="headerlink" title="建立與運行子執行緒"></a>建立與運行子執行緒</h3><figure class="highlight py"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">import</span> threading</span><br><span class="line"><span class="keyword">import</span> time</span><br><span class="line"></span><br><span class="line"><span class="comment"># 子執行緒使用的函式</span></span><br><span class="line"><span class="keyword">def</span> <span class="title function_">job</span>():</span><br><span class="line">    <span class="keyword">for</span> i <span class="keyword">in</span> <span class="built_in">range</span>(<span class="number">5</span>):</span><br><span class="line">        <span class="built_in">print</span>(<span class="string">&quot;Child thread:&quot;</span>, i)</span><br><span class="line">        time.sleep(<span class="number">1</span>)</span><br><span class="line"></span><br><span class="line"><span class="comment"># 建立一個子執行緒</span></span><br><span class="line">t = threading.Thread(target = job)</span><br><span class="line"></span><br><span class="line"><span class="comment"># 子執行緒啟動</span></span><br><span class="line">t.start()</span><br><span class="line"></span><br><span class="line"><span class="comment"># 主執行緒作業</span></span><br><span class="line"><span class="keyword">for</span> i <span class="keyword">in</span> <span class="built_in">range</span>(<span class="number">3</span>):</span><br><span class="line">    <span class="built_in">print</span>(<span class="string">&quot;Main thread:&quot;</span>, i)</span><br><span class="line">    time.sleep(<span class="number">1</span>)</span><br><span class="line"></span><br><span class="line"><span class="comment"># 等待子執行緒結束</span></span><br><span class="line">t.join()</span><br></pre></td></tr></table></figure>
@@ -901,7 +1174,7 @@
   
 
   <article itemscope itemtype="http://schema.org/Article" class="post-content" lang="">
-    <link itemprop="mainEntityOfPage" href="http://example.com/2022/09/28/selenium/">
+    <link itemprop="mainEntityOfPage" href="http://example.com/2022/08/30/python-package-related/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="image" content="/images/avatar.gif">
@@ -919,7 +1192,7 @@
     </span>
       <header class="post-header">
         <h2 class="post-title" itemprop="name headline">
-          <a href="/2022/09/28/selenium/" class="post-title-link" itemprop="url">selenium</a>
+          <a href="/2022/08/30/python-package-related/" class="post-title-link" itemprop="url">python package related</a>
         </h2>
 
         <div class="post-meta-container">
@@ -929,119 +1202,15 @@
         <i class="far fa-calendar"></i>
       </span>
       <span class="post-meta-item-text">Posted on</span>
-      
 
-      <time title="Created: 2022-09-28 15:01:16 / Modified: 15:01:26" itemprop="dateCreated datePublished" datetime="2022-09-28T15:01:16+08:00">2022-09-28</time>
+      <time title="Created: 2022-08-30 14:28:20" itemprop="dateCreated datePublished" datetime="2022-08-30T14:28:20+08:00">2022-08-30</time>
     </span>
-
-  
-</div>
-
-        </div>
-      </header>
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-          <h1 id="python"><a href="#python" class="headerlink" title="python"></a>python</h1><ul>
-<li><p>selenium 環境建制</p>
-<ul>
-<li><strong><a href="#%E7%92%B0%E5%A2%83%E5%BB%BA%E5%88%B6"><code>環境建制</code></a></strong></li>
-<li><strong>[<code>更新ubuntu chrome版本</code>](#更新ubuntu chrome版本)</strong></li>
-<li><strong><a href="#%E7%A7%BB%E5%85%A5%E7%92%B0%E5%A2%83%E8%AE%8A%E6%95%B8%E8%B3%87%E6%96%99%E5%A4%BE%EF%BC%86%E6%9B%B4%E8%AE%8A%E6%AC%8A%E9%99%90"><code>移入環境變數資料夾＆更變權限</code></a></strong></li>
-</ul>
-</li>
-<li><p>selenium 使用</p>
-<ul>
-<li><strong><a href="#%E9%96%8B%E5%95%9F"><code>開啟</code></a></strong></li>
-<li><strong><a href="#%E6%9F%A5%E6%89%BE%E5%85%83%E7%B4%A0"><code>查找元素</code></a></strong></li>
-</ul>
-</li>
-<li><p><strong><a href="../README.md"><code>回主畫面</code></a></strong></p>
-</li>
-</ul>
-<h2 id="環境建制"><a href="#環境建制" class="headerlink" title="環境建制"></a>環境建制</h2><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">#使用chrome</span></span><br><span class="line"><span class="comment">#確認chrome版本,下載對應chromedriver</span></span><br><span class="line"><span class="comment">#將chromedriver移入到有環境變數的資料夾並變更使用權限</span></span><br></pre></td></tr></table></figure>
-
-<h2 id="更新ubuntu-chrome版本"><a href="#更新ubuntu-chrome版本" class="headerlink" title="更新ubuntu chrome版本"></a>更新ubuntu chrome版本</h2><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># 從Google Linux取得金鑰</span></span><br><span class="line">wget -q -O - https://dl-ssl.google.com/linux/linux_signing_key.pub | sudo apt-key add -</span><br><span class="line">sudo sh -c <span class="string">&#x27;echo &quot;deb http://dl.google.com/linux/chrome/deb/ stable main&quot; &gt;&gt; /etc/apt/sources.list.d/google-chrome.list&#x27;</span></span><br><span class="line">sudo apt-get update</span><br><span class="line"><span class="comment"># 更新chrome版本</span></span><br><span class="line">sudo apt-get --only-upgrade install google-chrome-stable</span><br><span class="line"><span class="comment"># 下載最新chrome</span></span><br><span class="line">sudo apt-get install google-chrome-beta</span><br></pre></td></tr></table></figure>
-
-<h2 id="移入環境變數資料夾＆更變權限"><a href="#移入環境變數資料夾＆更變權限" class="headerlink" title="移入環境變數資料夾＆更變權限"></a>移入環境變數資料夾＆更變權限</h2><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">#將chromedriver移入到有環境變數的資料夾並變更使用權限</span></span><br><span class="line">sudo <span class="built_in">cp</span> chromedriver /usr/local/bin/</span><br><span class="line">sudo <span class="built_in">chmod</span> a+x /usr/local/bin/chromedriver</span><br><span class="line"></span><br></pre></td></tr></table></figure>
-
-<blockquote>
-<p><a href="#python">↥ TOP</a></p>
-</blockquote>
-<h2 id="開啟"><a href="#開啟" class="headerlink" title="開啟"></a>開啟</h2><figure class="highlight py"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">#啟動chrome</span></span><br><span class="line">driver = webdriver.Chrome(executable_path=<span class="string">&#x27;/usr/local/bin/chromedriver&#x27;</span>)</span><br><span class="line"><span class="comment">#開啟網頁</span></span><br><span class="line">driver.get(<span class="string">&#x27;https://google.com&#x27;</span>)</span><br></pre></td></tr></table></figure>
-
-<h2 id="查找元素"><a href="#查找元素" class="headerlink" title="查找元素"></a>查找元素</h2><ul>
-<li>方法1 單一元素find_element_by_</li>
-</ul>
-<figure class="highlight py"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">driver.find_element_by_name()<span class="comment">#回傳字串</span></span><br></pre></td></tr></table></figure>
-
-<ul>
-<li>方法2 複數元素find_elements_by_</li>
-</ul>
-<figure class="highlight py"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">driver.find_elements_by_name()<span class="comment">#回傳list</span></span><br></pre></td></tr></table></figure>
-
-<blockquote>
-<p><a href="#python">↥ TOP</a></p>
-</blockquote>
-
-      
-    </div>
-
-    
-    
-    
-
-    <footer class="post-footer">
-        <div class="post-eof"></div>
-      
-    </footer>
-  </article>
-</div>
-
-
-
-
-    
-
-
-<div class="post-block">
-  
-  
-
-  <article itemscope itemtype="http://schema.org/Article" class="post-content" lang="">
-    <link itemprop="mainEntityOfPage" href="http://example.com/2022/09/28/py-related/">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="image" content="/images/avatar.gif">
-      <meta itemprop="name" content="jacklin">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="jacklin murmur">
-      <meta itemprop="description" content="">
-    </span>
-
-    <span hidden itemprop="post" itemscope itemtype="http://schema.org/CreativeWork">
-      <meta itemprop="name" content="undefined | jacklin murmur">
-      <meta itemprop="description" content="">
-    </span>
-      <header class="post-header">
-        <h2 class="post-title" itemprop="name headline">
-          <a href="/2022/09/28/py-related/" class="post-title-link" itemprop="url">py-related</a>
-        </h2>
-
-        <div class="post-meta-container">
-          <div class="post-meta">
     <span class="post-meta-item">
       <span class="post-meta-item-icon">
-        <i class="far fa-calendar"></i>
+        <i class="far fa-calendar-check"></i>
       </span>
-      <span class="post-meta-item-text">Posted on</span>
-      
-
-      <time title="Created: 2022-09-28 14:28:20 / Modified: 14:28:35" itemprop="dateCreated datePublished" datetime="2022-09-28T14:28:20+08:00">2022-09-28</time>
+      <span class="post-meta-item-text">Edited on</span>
+      <time title="Modified: 2022-09-28 18:07:55" itemprop="dateModified" datetime="2022-09-28T18:07:55+08:00">2022-09-28</time>
     </span>
 
   
@@ -1076,7 +1245,7 @@
 <li><strong><a href="#pilow"><code>pilow</code></a></strong></li>
 </ul>
 </li>
-<li><p><strong><a href="../README.md"><code>回主畫面</code></a></strong></p>
+<li><p><strong><a target="_blank" rel="noopener" href="https://haha505254.github.io/archives/"><code>回主畫面</code></a></strong></p>
 </li>
 </ul>
 <h2 id="虛擬環境"><a href="#虛擬環境" class="headerlink" title="虛擬環境"></a>虛擬環境</h2><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># 安裝虛擬環境</span></span><br><span class="line">sudo apt install python3-venv</span><br><span class="line"></span><br><span class="line"><span class="comment"># 建立 py36 環境</span></span><br><span class="line">python3 -m venv py36</span><br><span class="line"></span><br><span class="line"><span class="comment"># 進入 py36 環境</span></span><br><span class="line"><span class="built_in">source</span> /home/bard/venv/py36/bin/activate</span><br><span class="line"></span><br><span class="line"><span class="comment"># 退出虛擬環境</span></span><br><span class="line">deactivate</span><br><span class="line"></span><br><span class="line"><span class="comment"># 若內建沒有 python3.6</span></span><br><span class="line">sudo add-apt-repository ppa:deadsnakes/ppa</span><br><span class="line">sudo apt update</span><br><span class="line">sudo apt install python3.6</span><br><span class="line">sudo apt install python3.6-venv</span><br><span class="line"></span><br><span class="line"><span class="comment"># 若使用TK需注意</span></span><br><span class="line">sudo apt install python3-tk</span><br><span class="line">sudo apt install python3.6-tk</span><br></pre></td></tr></table></figure>
@@ -1145,203 +1314,6 @@
 <blockquote>
 <p><a href="#python">↥ TOP</a></p>
 </blockquote>
-
-      
-    </div>
-
-    
-    
-    
-
-    <footer class="post-footer">
-        <div class="post-eof"></div>
-      
-    </footer>
-  </article>
-</div>
-
-
-
-
-    
-
-
-<div class="post-block">
-  
-  
-
-  <article itemscope itemtype="http://schema.org/Article" class="post-content" lang="">
-    <link itemprop="mainEntityOfPage" href="http://example.com/2022/09/28/git-related/">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="image" content="/images/avatar.gif">
-      <meta itemprop="name" content="jacklin">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="jacklin murmur">
-      <meta itemprop="description" content="">
-    </span>
-
-    <span hidden itemprop="post" itemscope itemtype="http://schema.org/CreativeWork">
-      <meta itemprop="name" content="undefined | jacklin murmur">
-      <meta itemprop="description" content="">
-    </span>
-      <header class="post-header">
-        <h2 class="post-title" itemprop="name headline">
-          <a href="/2022/09/28/git-related/" class="post-title-link" itemprop="url">git-related</a>
-        </h2>
-
-        <div class="post-meta-container">
-          <div class="post-meta">
-    <span class="post-meta-item">
-      <span class="post-meta-item-icon">
-        <i class="far fa-calendar"></i>
-      </span>
-      <span class="post-meta-item-text">Posted on</span>
-      
-
-      <time title="Created: 2022-09-28 14:26:03 / Modified: 15:58:11" itemprop="dateCreated datePublished" datetime="2022-09-28T14:26:03+08:00">2022-09-28</time>
-    </span>
-
-  
-</div>
-
-        </div>
-      </header>
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-          <h1 id="gitlab-github-相關指令整理"><a href="#gitlab-github-相關指令整理" class="headerlink" title="gitlab github 相關指令整理"></a>gitlab github 相關指令整理</h1><ul>
-<li><p>ubuntu 設定</p>
-<ul>
-<li><strong><a href="#%E7%92%B0%E5%A2%83%E8%A8%AD%E5%AE%9A"><code>環境設定</code></a></strong></li>
-<li><strong>[<code>設定 SSH 金鑰</code>](#設定 SSH 金鑰)</strong></li>
-<li><strong><a href="#%E6%96%B0%E5%BB%BA%E5%B0%88%E6%A1%88%E6%B5%81%E7%A8%8B"><code>新建專案流程</code></a></strong></li>
-<li><strong><a href="#%E5%9F%BA%E6%9C%AC%E9%96%8B%E7%99%BC%E6%B5%81%E7%A8%8B"><code>基本開發流程</code></a></strong></li>
-<li><strong><a href="#%E9%96%8B%E7%99%BC%E5%B8%B8%E7%94%A8%E6%8C%87%E4%BB%A4"><code>開發常用指令</code></a></strong></li>
-<li><strong><a href="#%E5%81%B6%E7%88%BE%E6%9C%89%E7%94%A8%E7%9A%84%E6%8C%87%E4%BB%A4"><code>偶爾有用的指令</code></a></strong></li>
-</ul>
-</li>
-<li><p><strong><a target="_blank" rel="noopener" href="https://haha505254.github.io/archives/"><code>回主畫面</code></a></strong></p>
-</li>
-</ul>
-<h2 id="環境設定"><a href="#環境設定" class="headerlink" title="環境設定"></a>環境設定</h2><p>gitlab github 都是版本控制平台</p>
-<h3 id="設定-SSH-金鑰"><a href="#設定-SSH-金鑰" class="headerlink" title="設定 SSH 金鑰"></a>設定 SSH 金鑰</h3><p>在 push 或是 clone 時，為了要讓 gitlab 或 github 認得這台電腦就是此帳號的使用者，所以我們可以透過設定 SSH 來當成認證的憑據。  </p>
-<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">＃ 建立</span><br><span class="line">ssh-keygen -t rsa</span><br><span class="line"></span><br><span class="line">＃ 查看金鑰</span><br><span class="line"><span class="built_in">cat</span> ~/.ssh/id_rsa.pub</span><br></pre></td></tr></table></figure>
-
-<p>新增至 gitLab</p>
-<blockquote>
-<p>gitLab 首頁右上角 &gt; setting &gt; SSH Keys &gt; 貼上金鑰</p>
-</blockquote>
-<p>新增至 github</p>
-<blockquote>
-<p>github 首頁右上角 &gt; settings &gt; SSH and GPG keys &gt; New SSH key &gt; 貼上金鑰</p>
-</blockquote>
-<h2 id="新建專案流程"><a href="#新建專案流程" class="headerlink" title="新建專案流程"></a>新建專案流程</h2><p>新建專案有分個人和組織，若要多人開發的話可以選擇組織專案</p>
-<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># 在儲存庫先建立專案</span></span><br><span class="line"><span class="comment"># 複製專案內的 ssh連結</span></span><br><span class="line"></span><br><span class="line">git <span class="built_in">clone</span> ssh連結</span><br><span class="line"></span><br><span class="line"><span class="comment"># 這樣就可以在剛建立的專案開發了</span></span><br></pre></td></tr></table></figure>
-
-<h3 id="基本開發流程"><a href="#基本開發流程" class="headerlink" title="基本開發流程"></a>基本開發流程</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># ~~單人開發~~</span></span><br><span class="line">git <span class="built_in">clone</span> 專案連結</span><br><span class="line"><span class="built_in">cd</span> 專案</span><br><span class="line"><span class="comment"># 編輯專案</span></span><br><span class="line">git add 檔案.py</span><br><span class="line">git commit -m <span class="string">&#x27;簡短的說明&#x27;</span></span><br><span class="line">git push</span><br><span class="line"></span><br><span class="line"><span class="comment"># ~~多人開發~~</span></span><br><span class="line">git <span class="built_in">clone</span> 專案連結</span><br><span class="line"><span class="built_in">cd</span> 專案</span><br><span class="line">git remote add mainline 組織專案連結</span><br><span class="line"><span class="comment"># 編輯專案</span></span><br><span class="line">git add 檔案.py</span><br><span class="line">git commit -m <span class="string">&#x27;簡短的說明&#x27;</span></span><br><span class="line">git push</span><br><span class="line">git pull mainline master <span class="comment"># for gitlab</span></span><br><span class="line"><span class="comment"># 解決衝突 &gt; add &gt; commit</span></span><br><span class="line">git push</span><br></pre></td></tr></table></figure>
-
-<h2 id="開發常用指令"><a href="#開發常用指令" class="headerlink" title="開發常用指令"></a>開發常用指令</h2><h3 id="名詞說明"><a href="#名詞說明" class="headerlink" title="名詞說明"></a>名詞說明</h3><table>
-<thead>
-<tr>
-<th>名詞</th>
-<th>說明</th>
-</tr>
-</thead>
-<tbody><tr>
-<td>本地專案</td>
-<td>已經clone到自己電腦的專案</td>
-</tr>
-<tr>
-<td>個人專案</td>
-<td>分支會建立在個人底下的專案</td>
-</tr>
-<tr>
-<td>組織專案</td>
-<td>在組織裡的專案</td>
-</tr>
-<tr>
-<td>遠端</td>
-<td>在網路上，這裡只版本控制平台</td>
-</tr>
-<tr>
-<td>分支(fork)</td>
-<td>組織專案要可以編輯就需要建立自己的分支</td>
-</tr>
-</tbody></table>
-<h3 id="常用指令"><a href="#常用指令" class="headerlink" title="常用指令"></a>常用指令</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br></pre></td><td class="code"><pre><span class="line">git <span class="built_in">clone</span> 專案連結</span><br><span class="line"><span class="comment"># 把專案克隆到本地(記得要 cd 進去專案內喔)</span></span><br><span class="line"></span><br><span class="line">git status</span><br><span class="line"><span class="comment">#查看當前狀況</span></span><br><span class="line"></span><br><span class="line">git pull</span><br><span class="line"><span class="comment"># 把專案的更新拉到本地</span></span><br><span class="line"></span><br><span class="line">git add 檔案.py</span><br><span class="line"><span class="comment"># 新增你要添加進本地專案的檔案</span></span><br><span class="line"><span class="comment"># 也可以使用 git add . 加入全部的檔案</span></span><br><span class="line"></span><br><span class="line">git commit -m <span class="string">&#x27;簡短的說明&#x27;</span></span><br><span class="line"><span class="comment"># 為你的變更做個簡短的說明</span></span><br><span class="line"><span class="comment"># 也可以使用 git commit 寫入詳細的說明</span></span><br><span class="line"></span><br><span class="line">git push</span><br><span class="line"><span class="comment"># 把本地的檔案推到個人專案上</span></span><br><span class="line"></span><br><span class="line">git remote add mainline 組織專案連結</span><br><span class="line"><span class="comment"># 本地專案新增 組織專案的連結 設為 mainline</span></span><br><span class="line"></span><br><span class="line">git remote -v</span><br><span class="line"><span class="comment"># 查看遠端專案連結</span></span><br><span class="line"></span><br><span class="line">git pull mainline master <span class="comment"># for gitlab</span></span><br><span class="line">git pull mainline main <span class="comment"># for github</span></span><br><span class="line"><span class="comment"># 組織專案與本地專案合併</span></span><br></pre></td></tr></table></figure>
-
-<h3 id="偶爾有用的指令"><a href="#偶爾有用的指令" class="headerlink" title="偶爾有用的指令"></a>偶爾有用的指令</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br></pre></td><td class="code"><pre><span class="line">git reset --hard</span><br><span class="line"><span class="comment"># 放棄本地專案的變更</span></span><br><span class="line"></span><br><span class="line">git commit --amend</span><br><span class="line"><span class="comment"># 修改最後一次 commit</span></span><br><span class="line"></span><br><span class="line"></span><br><span class="line"><span class="comment"># 當您想記錄工作目錄和索引的當前狀態，但又想回到干淨的工作目錄時，請使用 git stash。該命令保存您的本地修改並恢復</span></span><br><span class="line"></span><br><span class="line">git stash</span><br><span class="line"><span class="comment"># 隱藏變更</span></span><br><span class="line"></span><br><span class="line">git stash list</span><br><span class="line"><span class="comment"># 查看隱藏變更</span></span><br><span class="line"></span><br><span class="line"><span class="comment"># 目前程式碼已經還原到最初階段</span></span><br><span class="line"><span class="comment"># 可以更新程式碼</span></span><br><span class="line"><span class="comment"># 處理緊急事項</span></span><br><span class="line"></span><br><span class="line">git stash pop</span><br><span class="line"><span class="comment"># 還原</span></span><br></pre></td></tr></table></figure>
-
-<h2 id="commit"><a href="#commit" class="headerlink" title="commit"></a>commit</h2><p>建議每次commit開頭都添加類別，方便之後維護</p>
-<p>ex:</p>
-<blockquote>
-<p>🐛 fix: 修正XXX錯誤<br>✨ feat: 增加git教學說明</p>
-</blockquote>
-<table>
-<thead>
-<tr>
-<th>表情符號 類型</th>
-<th>說明</th>
-</tr>
-</thead>
-<tbody><tr>
-<td>📖 docs:</td>
-<td>文檔</td>
-</tr>
-<tr>
-<td>🚧 WIP:</td>
-<td>正在進行的工作(Work In Progress)</td>
-</tr>
-<tr>
-<td>🚨 test:</td>
-<td>測試</td>
-</tr>
-<tr>
-<td>🔒 Security:</td>
-<td>安全修復</td>
-</tr>
-<tr>
-<td>🐛 fix:</td>
-<td>錯誤修正</td>
-</tr>
-<tr>
-<td>✨ feat:</td>
-<td>新功能</td>
-</tr>
-<tr>
-<td>💩 hankey:</td>
-<td>糟糕的代碼</td>
-</tr>
-<tr>
-<td>🗑️ removal:</td>
-<td>拆除</td>
-</tr>
-<tr>
-<td>♻️ refactoring:</td>
-<td>重構</td>
-</tr>
-<tr>
-<td>🐎 Performance:</td>
-<td>性能</td>
-</tr>
-<tr>
-<td>📦 package:</td>
-<td>封裝</td>
-</tr>
-<tr>
-<td>⬆️ Upgrading:</td>
-<td>升級</td>
-</tr>
-<tr>
-<td>⬇️ Downgrading:</td>
-<td>降級</td>
-</tr>
-</tbody></table>
 
       
     </div>
