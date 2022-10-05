@@ -151,13 +151,13 @@
   <nav class="site-state">
       <div class="site-state-item site-state-posts">
         <a href="/archives/">
-          <span class="site-state-item-count">11</span>
+          <span class="site-state-item-count">13</span>
           <span class="site-state-item-name">posts</span>
         </a>
       </div>
       <div class="site-state-item site-state-tags">
           <a href="/tags/">
-        <span class="site-state-item-count">14</span>
+        <span class="site-state-item-count">16</span>
         <span class="site-state-item-name">tags</span></a>
       </div>
   </nav>
@@ -186,6 +186,296 @@
 
 
     <div class="main-inner index posts-expand">
+
+    
+
+
+<div class="post-block">
+  
+  
+
+  <article itemscope itemtype="http://schema.org/Article" class="post-content" lang="">
+    <link itemprop="mainEntityOfPage" href="http://example.com/2022/08/22/git-related/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/images/avatar.gif">
+      <meta itemprop="name" content="jacklin">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="jacklin murmur">
+      <meta itemprop="description" content="">
+    </span>
+
+    <span hidden itemprop="post" itemscope itemtype="http://schema.org/CreativeWork">
+      <meta itemprop="name" content="undefined | jacklin murmur">
+      <meta itemprop="description" content="">
+    </span>
+      <header class="post-header">
+        <h2 class="post-title" itemprop="name headline">
+          <a href="/2022/08/22/git-related/" class="post-title-link" itemprop="url">git-related</a>
+        </h2>
+
+        <div class="post-meta-container">
+          <div class="post-meta">
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-calendar"></i>
+      </span>
+      <span class="post-meta-item-text">Posted on</span>
+
+      <time title="Created: 2022-08-22 14:26:03" itemprop="dateCreated datePublished" datetime="2022-08-22T14:26:03+08:00">2022-08-22</time>
+    </span>
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-calendar-check"></i>
+      </span>
+      <span class="post-meta-item-text">Edited on</span>
+      <time title="Modified: 2022-09-28 18:07:15" itemprop="dateModified" datetime="2022-09-28T18:07:15+08:00">2022-09-28</time>
+    </span>
+
+  
+</div>
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+          <h1 id="gitlab-github-相關指令整理"><a href="#gitlab-github-相關指令整理" class="headerlink" title="gitlab github 相關指令整理"></a>gitlab github 相關指令整理</h1><ul>
+<li><p>ubuntu 設定</p>
+<ul>
+<li><strong><a href="#%E7%92%B0%E5%A2%83%E8%A8%AD%E5%AE%9A"><code>環境設定</code></a></strong></li>
+<li><strong>[<code>設定 SSH 金鑰</code>](#設定 SSH 金鑰)</strong></li>
+<li><strong><a href="#%E6%96%B0%E5%BB%BA%E5%B0%88%E6%A1%88%E6%B5%81%E7%A8%8B"><code>新建專案流程</code></a></strong></li>
+<li><strong><a href="#%E5%9F%BA%E6%9C%AC%E9%96%8B%E7%99%BC%E6%B5%81%E7%A8%8B"><code>基本開發流程</code></a></strong></li>
+<li><strong><a href="#%E9%96%8B%E7%99%BC%E5%B8%B8%E7%94%A8%E6%8C%87%E4%BB%A4"><code>開發常用指令</code></a></strong></li>
+<li><strong><a href="#%E5%81%B6%E7%88%BE%E6%9C%89%E7%94%A8%E7%9A%84%E6%8C%87%E4%BB%A4"><code>偶爾有用的指令</code></a></strong></li>
+</ul>
+</li>
+<li><p><strong><a target="_blank" rel="noopener" href="https://haha505254.github.io/archives/"><code>回主畫面</code></a></strong></p>
+</li>
+</ul>
+<h2 id="環境設定"><a href="#環境設定" class="headerlink" title="環境設定"></a>環境設定</h2><p>gitlab github 都是版本控制平台</p>
+<h3 id="設定-SSH-金鑰"><a href="#設定-SSH-金鑰" class="headerlink" title="設定 SSH 金鑰"></a>設定 SSH 金鑰</h3><p>在 push 或是 clone 時，為了要讓 gitlab 或 github 認得這台電腦就是此帳號的使用者，所以我們可以透過設定 SSH 來當成認證的憑據。  </p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">＃ 建立</span><br><span class="line">ssh-keygen -t rsa</span><br><span class="line"></span><br><span class="line">＃ 查看金鑰</span><br><span class="line"><span class="built_in">cat</span> ~/.ssh/id_rsa.pub</span><br></pre></td></tr></table></figure>
+
+<p>新增至 gitLab</p>
+<blockquote>
+<p>gitLab 首頁右上角 &gt; setting &gt; SSH Keys &gt; 貼上金鑰</p>
+</blockquote>
+<p>新增至 github</p>
+<blockquote>
+<p>github 首頁右上角 &gt; settings &gt; SSH and GPG keys &gt; New SSH key &gt; 貼上金鑰</p>
+</blockquote>
+<h2 id="新建專案流程"><a href="#新建專案流程" class="headerlink" title="新建專案流程"></a>新建專案流程</h2><p>新建專案有分個人和組織，若要多人開發的話可以選擇組織專案</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># 在儲存庫先建立專案</span></span><br><span class="line"><span class="comment"># 複製專案內的 ssh連結</span></span><br><span class="line"></span><br><span class="line">git <span class="built_in">clone</span> ssh連結</span><br><span class="line"></span><br><span class="line"><span class="comment"># 這樣就可以在剛建立的專案開發了</span></span><br></pre></td></tr></table></figure>
+
+<h3 id="基本開發流程"><a href="#基本開發流程" class="headerlink" title="基本開發流程"></a>基本開發流程</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># ~~單人開發~~</span></span><br><span class="line">git <span class="built_in">clone</span> 專案連結</span><br><span class="line"><span class="built_in">cd</span> 專案</span><br><span class="line"><span class="comment"># 編輯專案</span></span><br><span class="line">git add 檔案.py</span><br><span class="line">git commit -m <span class="string">&#x27;簡短的說明&#x27;</span></span><br><span class="line">git push</span><br><span class="line"></span><br><span class="line"><span class="comment"># ~~多人開發~~</span></span><br><span class="line">git <span class="built_in">clone</span> 專案連結</span><br><span class="line"><span class="built_in">cd</span> 專案</span><br><span class="line">git remote add mainline 組織專案連結</span><br><span class="line"><span class="comment"># 編輯專案</span></span><br><span class="line">git add 檔案.py</span><br><span class="line">git commit -m <span class="string">&#x27;簡短的說明&#x27;</span></span><br><span class="line">git push</span><br><span class="line">git pull mainline master <span class="comment"># for gitlab</span></span><br><span class="line"><span class="comment"># 解決衝突 &gt; add &gt; commit</span></span><br><span class="line">git push</span><br></pre></td></tr></table></figure>
+
+<h2 id="開發常用指令"><a href="#開發常用指令" class="headerlink" title="開發常用指令"></a>開發常用指令</h2><h3 id="名詞說明"><a href="#名詞說明" class="headerlink" title="名詞說明"></a>名詞說明</h3><table>
+<thead>
+<tr>
+<th>名詞</th>
+<th>說明</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>本地專案</td>
+<td>已經clone到自己電腦的專案</td>
+</tr>
+<tr>
+<td>個人專案</td>
+<td>分支會建立在個人底下的專案</td>
+</tr>
+<tr>
+<td>組織專案</td>
+<td>在組織裡的專案</td>
+</tr>
+<tr>
+<td>遠端</td>
+<td>在網路上，這裡只版本控制平台</td>
+</tr>
+<tr>
+<td>分支(fork)</td>
+<td>組織專案要可以編輯就需要建立自己的分支</td>
+</tr>
+</tbody></table>
+<h3 id="常用指令"><a href="#常用指令" class="headerlink" title="常用指令"></a>常用指令</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br></pre></td><td class="code"><pre><span class="line">git <span class="built_in">clone</span> 專案連結</span><br><span class="line"><span class="comment"># 把專案克隆到本地(記得要 cd 進去專案內喔)</span></span><br><span class="line"></span><br><span class="line">git status</span><br><span class="line"><span class="comment">#查看當前狀況</span></span><br><span class="line"></span><br><span class="line">git pull</span><br><span class="line"><span class="comment"># 把專案的更新拉到本地</span></span><br><span class="line"></span><br><span class="line">git add 檔案.py</span><br><span class="line"><span class="comment"># 新增你要添加進本地專案的檔案</span></span><br><span class="line"><span class="comment"># 也可以使用 git add . 加入全部的檔案</span></span><br><span class="line"></span><br><span class="line">git commit -m <span class="string">&#x27;簡短的說明&#x27;</span></span><br><span class="line"><span class="comment"># 為你的變更做個簡短的說明</span></span><br><span class="line"><span class="comment"># 也可以使用 git commit 寫入詳細的說明</span></span><br><span class="line"></span><br><span class="line">git push</span><br><span class="line"><span class="comment"># 把本地的檔案推到個人專案上</span></span><br><span class="line"></span><br><span class="line">git remote add mainline 組織專案連結</span><br><span class="line"><span class="comment"># 本地專案新增 組織專案的連結 設為 mainline</span></span><br><span class="line"></span><br><span class="line">git remote -v</span><br><span class="line"><span class="comment"># 查看遠端專案連結</span></span><br><span class="line"></span><br><span class="line">git pull mainline master <span class="comment"># for gitlab</span></span><br><span class="line">git pull mainline main <span class="comment"># for github</span></span><br><span class="line"><span class="comment"># 組織專案與本地專案合併</span></span><br></pre></td></tr></table></figure>
+
+<h3 id="偶爾有用的指令"><a href="#偶爾有用的指令" class="headerlink" title="偶爾有用的指令"></a>偶爾有用的指令</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br></pre></td><td class="code"><pre><span class="line">git reset --hard</span><br><span class="line"><span class="comment"># 放棄本地專案的變更</span></span><br><span class="line"></span><br><span class="line">git commit --amend</span><br><span class="line"><span class="comment"># 修改最後一次 commit</span></span><br><span class="line"></span><br><span class="line"></span><br><span class="line"><span class="comment"># 當您想記錄工作目錄和索引的當前狀態，但又想回到干淨的工作目錄時，請使用 git stash。該命令保存您的本地修改並恢復</span></span><br><span class="line"></span><br><span class="line">git stash</span><br><span class="line"><span class="comment"># 隱藏變更</span></span><br><span class="line"></span><br><span class="line">git stash list</span><br><span class="line"><span class="comment"># 查看隱藏變更</span></span><br><span class="line"></span><br><span class="line"><span class="comment"># 目前程式碼已經還原到最初階段</span></span><br><span class="line"><span class="comment"># 可以更新程式碼</span></span><br><span class="line"><span class="comment"># 處理緊急事項</span></span><br><span class="line"></span><br><span class="line">git stash pop</span><br><span class="line"><span class="comment"># 還原</span></span><br></pre></td></tr></table></figure>
+
+<h2 id="commit"><a href="#commit" class="headerlink" title="commit"></a>commit</h2><p>建議每次commit開頭都添加類別，方便之後維護</p>
+<p>ex:</p>
+<blockquote>
+<p>🐛 fix: 修正XXX錯誤<br>✨ feat: 增加git教學說明</p>
+</blockquote>
+<table>
+<thead>
+<tr>
+<th>表情符號 類型</th>
+<th>說明</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>📖 docs:</td>
+<td>文檔</td>
+</tr>
+<tr>
+<td>🚧 WIP:</td>
+<td>正在進行的工作(Work In Progress)</td>
+</tr>
+<tr>
+<td>🚨 test:</td>
+<td>測試</td>
+</tr>
+<tr>
+<td>🔒 Security:</td>
+<td>安全修復</td>
+</tr>
+<tr>
+<td>🐛 fix:</td>
+<td>錯誤修正</td>
+</tr>
+<tr>
+<td>✨ feat:</td>
+<td>新功能</td>
+</tr>
+<tr>
+<td>💩 hankey:</td>
+<td>糟糕的代碼</td>
+</tr>
+<tr>
+<td>🗑️ removal:</td>
+<td>拆除</td>
+</tr>
+<tr>
+<td>♻️ refactoring:</td>
+<td>重構</td>
+</tr>
+<tr>
+<td>🐎 Performance:</td>
+<td>性能</td>
+</tr>
+<tr>
+<td>📦 package:</td>
+<td>封裝</td>
+</tr>
+<tr>
+<td>⬆️ Upgrading:</td>
+<td>升級</td>
+</tr>
+<tr>
+<td>⬇️ Downgrading:</td>
+<td>降級</td>
+</tr>
+</tbody></table>
+
+      
+    </div>
+
+    
+    
+    
+
+    <footer class="post-footer">
+        <div class="post-eof"></div>
+      
+    </footer>
+  </article>
+</div>
+
+
+
+
+    
+
+
+<div class="post-block">
+  
+  
+
+  <article itemscope itemtype="http://schema.org/Article" class="post-content" lang="">
+    <link itemprop="mainEntityOfPage" href="http://example.com/2022/08/17/pandas-organize/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/images/avatar.gif">
+      <meta itemprop="name" content="jacklin">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="jacklin murmur">
+      <meta itemprop="description" content="">
+    </span>
+
+    <span hidden itemprop="post" itemscope itemtype="http://schema.org/CreativeWork">
+      <meta itemprop="name" content="undefined | jacklin murmur">
+      <meta itemprop="description" content="">
+    </span>
+      <header class="post-header">
+        <h2 class="post-title" itemprop="name headline">
+          <a href="/2022/08/17/pandas-organize/" class="post-title-link" itemprop="url">pandas organize</a>
+        </h2>
+
+        <div class="post-meta-container">
+          <div class="post-meta">
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-calendar"></i>
+      </span>
+      <span class="post-meta-item-text">Posted on</span>
+
+      <time title="Created: 2022-08-17 13:32:34" itemprop="dateCreated datePublished" datetime="2022-08-17T13:32:34+08:00">2022-08-17</time>
+    </span>
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-calendar-check"></i>
+      </span>
+      <span class="post-meta-item-text">Edited on</span>
+      <time title="Modified: 2022-09-28 18:02:40" itemprop="dateModified" datetime="2022-09-28T18:02:40+08:00">2022-09-28</time>
+    </span>
+
+  
+</div>
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+          <h3 id="regex-related"><a href="#regex-related" class="headerlink" title="regex related"></a>regex related</h3><figure class="highlight py"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">#之二十二 -&gt;  之二二</span></span><br><span class="line">df[<span class="string">&#x27;回傳門牌&#x27;</span>] =  df.回傳門牌.replace(&#123;<span class="string">r&#x27;(之.)十(.)&#x27;</span> : <span class="string">r&#x27;\1\2&#x27;</span>&#125;, regex=<span class="literal">True</span>)</span><br><span class="line"></span><br><span class="line"></span><br><span class="line"></span><br><span class="line"><span class="comment">#段小小 -&gt; 段小</span></span><br><span class="line">df[<span class="string">&#x27;地號_小段&#x27;</span>]=df[<span class="string">&#x27;地號_小段&#x27;</span>].<span class="built_in">str</span>.replace(<span class="string">r&#x27;小$&#x27;</span>, <span class="string">&#x27;&#x27;</span>, regex=<span class="literal">True</span>)</span><br><span class="line"></span><br><span class="line"></span><br><span class="line"></span><br><span class="line"><span class="comment">#蔦松路56巷46號五樓之一 get 五樓之一</span></span><br><span class="line">df[<span class="string">&#x27;號之後&#x27;</span>] = df[<span class="string">&#x27;回傳門牌&#x27;</span>].<span class="built_in">str</span>.extract(<span class="string">&#x27;(?&lt;=號)(.*)&#x27;</span>)</span><br><span class="line"></span><br><span class="line"></span><br><span class="line"></span><br><span class="line"><span class="comment">#蔦松路56巷46號五樓之一 get  蔦松路56巷46號</span></span><br><span class="line">df[<span class="string">&#x27;號之前包含號&#x27;</span>]= df[<span class="string">&#x27;回傳門牌&#x27;</span>].<span class="built_in">str</span>.extract(<span class="string">&#x27;(.*號)&#x27;</span>)</span><br><span class="line"></span><br><span class="line"></span><br><span class="line"></span><br><span class="line"><span class="comment">#七樓之七 -&gt; 7樓之7</span></span><br><span class="line">dict1 = &#123;<span class="string">&quot;一&quot;</span> : <span class="string">&#x27;1&#x27;</span>,<span class="string">&quot;二&quot;</span> : <span class="string">&#x27;2&#x27;</span>,<span class="string">&quot;三&quot;</span> : <span class="string">&#x27;3&#x27;</span>,<span class="string">&quot;四&quot;</span> : <span class="string">&#x27;4&#x27;</span>,<span class="string">&quot;五&quot;</span> : <span class="string">&#x27;5&#x27;</span>,</span><br><span class="line"><span class="string">&quot;六&quot;</span> : <span class="string">&#x27;6&#x27;</span>,<span class="string">&quot;七&quot;</span> : <span class="string">&#x27;7&#x27;</span>,<span class="string">&quot;八&quot;</span> : <span class="string">&#x27;8&#x27;</span>,<span class="string">&quot;九&quot;</span> : <span class="string">&#x27;9&#x27;</span>&#125;</span><br><span class="line">df[<span class="string">&quot;號之後&quot;</span>]= df[<span class="string">&quot;號之後&quot;</span>].replace( dict1,regex=<span class="literal">True</span>)</span><br><span class="line"></span><br><span class="line"></span><br><span class="line"></span><br><span class="line"><span class="comment">#忠孝里忠孝東路 -&gt; 忠孝東路</span></span><br><span class="line">df[<span class="string">&#x27;地址&#x27;</span>]=df[<span class="string">&#x27;地址&#x27;</span>].<span class="built_in">str</span>.replace(<span class="string">r&#x27;^..里&#x27;</span>, <span class="string">&#x27;&#x27;</span>, regex=<span class="literal">True</span>)</span><br><span class="line"></span><br><span class="line"></span><br><span class="line"></span><br><span class="line"><span class="comment">#2十 -&gt; 2@0</span></span><br><span class="line">df[<span class="string">&#x27;號之後&#x27;</span>] =  df.號之後.replace(&#123;<span class="string">r&#x27;(\d)十&#x27;</span> : <span class="string">r&#x27;\1@0&#x27;</span>&#125;, regex=<span class="literal">True</span>)</span><br><span class="line"></span><br><span class="line"></span><br><span class="line"></span><br><span class="line"><span class="comment">#十1 -&gt; 1@1</span></span><br><span class="line">df[<span class="string">&#x27;號之後&#x27;</span>] =  df.號之後.replace(&#123;<span class="string">r&#x27;十(\d)&#x27;</span> : <span class="string">r&#x27;1@\1&#x27;</span>&#125;, regex=<span class="literal">True</span>)</span><br><span class="line"></span><br></pre></td></tr></table></figure>
+
+<h3 id="filter-related"><a href="#filter-related" class="headerlink" title="filter related"></a>filter related</h3><figure class="highlight py"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">#left join two dataframe</span></span><br><span class="line">res = pd.merge(df1,df2, on=[<span class="string">&#x27;行政區&#x27;</span>,<span class="string">&#x27;縣市&#x27;</span>,<span class="string">&#x27;地址&#x27;</span>],how=<span class="string">&#x27;left&#x27;</span>)</span><br><span class="line"></span><br><span class="line"></span><br><span class="line"><span class="comment">#column &#x27;bkey&#x27; filter contains &#x27;查&#x27;</span></span><br><span class="line">df= df[res[<span class="string">&quot;bkey&quot;</span>].<span class="built_in">str</span>.contains(<span class="string">&#x27;查&#x27;</span>)==<span class="literal">False</span>]</span><br><span class="line"></span><br><span class="line"></span><br><span class="line"><span class="comment">#column &#x27;bkey&#x27; filter not contains &#x27;查&#x27;</span></span><br><span class="line">df= df[~df[<span class="string">&quot;bkey&quot;</span>].<span class="built_in">str</span>.contains(<span class="string">&quot;查&quot;</span>)]</span><br><span class="line"></span><br><span class="line"></span><br><span class="line"><span class="comment">#column &#x27;地號_小段&#x27; filter not NaN</span></span><br><span class="line">res[res[<span class="string">&#x27;地號_小段&#x27;</span>].notna()]</span><br><span class="line"></span><br><span class="line"></span><br><span class="line"><span class="comment">#Change the value of &#x27;地號_段_小段&#x27; condition based on whether &#x27;地號_小段&#x27; is null  </span></span><br><span class="line">df[<span class="string">&#x27;地號_段_小段&#x27;</span>] = np.where(df[<span class="string">&#x27;地號_小段&#x27;</span>].isnull(), df[<span class="string">&#x27;地號_段_小段&#x27;</span>], df[<span class="string">&#x27;地號_段_小段&#x27;</span>]+df[<span class="string">&#x27;地號_小段&#x27;</span>]+<span class="string">&quot;小段&quot;</span>)</span><br><span class="line"></span><br><span class="line"></span><br><span class="line"><span class="comment">#Change the value of &#x27;完成日&#x27; condition based on whether &#x27;完成日&#x27; contains(&#x27;民國&#x27;)</span></span><br><span class="line">df[<span class="string">&#x27;完成日&#x27;</span>] = np.where(df[<span class="string">&#x27;完成日&#x27;</span>].<span class="built_in">str</span>.contains(<span class="string">&#x27;民國&#x27;</span>), df[<span class="string">&#x27;完成日&#x27;</span>], <span class="string">&quot;民國&quot;</span>+df[<span class="string">&#x27;完成日&#x27;</span>])</span><br><span class="line"></span><br><span class="line"></span><br><span class="line"><span class="comment"># 15號二樓之1 -&gt; 15號  , 13號3樓 -&gt; 13號</span></span><br><span class="line">df[<span class="string">&#x27;地址&#x27;</span>] = df[<span class="string">&#x27;地址&#x27;</span>].<span class="built_in">str</span>.replace(<span class="string">&#x27;(?&lt;=\d號).*&#x27;</span>,<span class="string">&#x27;&#x27;</span>, regex=<span class="literal">True</span>)</span><br><span class="line"></span><br><span class="line"></span><br><span class="line"><span class="comment">#fill in the blanks in order</span></span><br><span class="line">res[<span class="string">&#x27;使照號&#x27;</span>].fillna(method=<span class="string">&#x27;ffill&#x27;</span>, inplace=<span class="literal">True</span>)</span><br><span class="line"></span><br><span class="line"></span><br><span class="line"><span class="comment">#column &#x27;地址&#x27; filter contains&#x27;里&#x27; not NaN</span></span><br><span class="line">df[df[<span class="string">&#x27;地址&#x27;</span>].<span class="built_in">str</span>.contains(<span class="string">&quot;里&quot;</span>,na= <span class="literal">False</span>)]</span><br><span class="line"></span><br><span class="line"></span><br><span class="line"><span class="comment"># 00000號 -&gt; 00000 , 0001號 -&gt; 0001</span></span><br><span class="line"></span><br><span class="line">df[<span class="string">&#x27;使照提取&#x27;</span>] = df[<span class="string">&#x27;使照相關&#x27;</span>].<span class="built_in">str</span>.extract(<span class="string">&#x27;(\d&#123;1,5&#125;)(?=號)&#x27;</span>)</span><br><span class="line"></span><br><span class="line"></span><br><span class="line"><span class="comment"># 005 -&gt; 00005</span></span><br><span class="line">df[<span class="string">&#x27;使照提取&#x27;</span>] = df[<span class="string">&#x27;使照提取&#x27;</span>].<span class="built_in">str</span>.zfill(<span class="number">5</span>)</span><br><span class="line"></span><br><span class="line"></span><br><span class="line"><span class="comment">#add new column by combine another column </span></span><br><span class="line">df[<span class="string">&#x27;使照提取&#x27;</span>]= df[<span class="string">&#x27;完工日&#x27;</span>].<span class="built_in">str</span>[:<span class="number">3</span>] +<span class="string">&#x27;-&#x27;</span>+ df[<span class="string">&#x27;使照提取&#x27;</span>]</span><br><span class="line"></span><br></pre></td></tr></table></figure>
+
+
+<h3 id="建立表單"><a href="#建立表單" class="headerlink" title="建立表單"></a>建立表單</h3><figure class="highlight py"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br></pre></td><td class="code"><pre><span class="line">dates = pd.date_range(<span class="string">&quot;20130101&quot;</span>, periods=<span class="number">6</span>)</span><br><span class="line">df = pd.DataFrame(np.random.randn(<span class="number">6</span>, <span class="number">4</span>), index=dates, columns=<span class="built_in">list</span>(<span class="string">&quot;ABCD&quot;</span>))</span><br><span class="line"></span><br><span class="line"><span class="comment"># 指定欄位寫入清單</span></span><br><span class="line">df2 = df.copy()</span><br><span class="line">df2[<span class="string">&quot;E&quot;</span>] = [<span class="string">&quot;one&quot;</span>, <span class="string">&quot;one&quot;</span>, <span class="string">&quot;two&quot;</span>, <span class="string">&quot;three&quot;</span>, <span class="string">&quot;four&quot;</span>, <span class="string">&quot;three&quot;</span>]</span><br><span class="line"></span><br><span class="line"><span class="comment"># 寫入系列(建立表格 以20130101向後6列 寫入在F欄)</span></span><br><span class="line">s1 = pd.Series([<span class="number">1</span>, <span class="number">2</span>, <span class="number">3</span>, <span class="number">4</span>, <span class="number">5</span>, <span class="number">6</span>], index=pd.date_range(<span class="string">&quot;20130101&quot;</span>, periods=<span class="number">6</span>))</span><br><span class="line">df[<span class="string">&quot;F&quot;</span>] = s1</span><br><span class="line"></span><br><span class="line"><span class="comment"># 標籤寫入</span></span><br><span class="line">df.at[<span class="string">&#x27;2013-01-03&#x27;</span>, <span class="string">&quot;A&quot;</span>] = <span class="number">0</span></span><br><span class="line"></span><br><span class="line"><span class="comment"># 位置寫入</span></span><br><span class="line">df.iat[<span class="number">0</span>, <span class="number">1</span>] = <span class="number">0</span></span><br><span class="line"></span><br><span class="line"><span class="comment"># 用NumPy填滿寫入</span></span><br><span class="line">df.loc[:, <span class="string">&quot;D&quot;</span>] = np.array([<span class="number">5</span>] * <span class="built_in">len</span>(df))</span><br><span class="line"></span><br><span class="line"><span class="comment"># 對表格迴圈寫入(大於0就轉負數)</span></span><br><span class="line">df2 = df.copy()</span><br><span class="line">df2[df2 &gt; <span class="number">0</span>] = -df2</span><br></pre></td></tr></table></figure>
+
+<h3 id="查看資料"><a href="#查看資料" class="headerlink" title="查看資料"></a>查看資料</h3><figure class="highlight py"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># 查看前5筆資料</span></span><br><span class="line">df.head()</span><br><span class="line">df.head(<span class="number">3</span>)</span><br><span class="line"></span><br><span class="line"><span class="comment"># 查看後5筆資料</span></span><br><span class="line">df.tail()</span><br><span class="line">df.tail(<span class="number">3</span>)</span><br><span class="line"></span><br><span class="line"><span class="built_in">print</span>(df.index)</span><br><span class="line"><span class="built_in">print</span>(df.columns)</span><br></pre></td></tr></table></figure>
+
+<h3 id="取得資料"><a href="#取得資料" class="headerlink" title="取得資料"></a>取得資料</h3><figure class="highlight py"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># 取得欄</span></span><br><span class="line">df.A</span><br><span class="line"></span><br><span class="line"><span class="comment"># 取得第0~3列</span></span><br><span class="line">df[:<span class="number">3</span>]</span><br><span class="line"></span><br><span class="line"><span class="comment"># 指定欄</span></span><br><span class="line">df[<span class="string">&quot;A&quot;</span>]</span><br><span class="line"></span><br><span class="line"><span class="comment"># 指定列</span></span><br><span class="line">df.loc[<span class="string">&#x27;2013-01-04&#x27;</span>]</span><br><span class="line"></span><br><span class="line"><span class="comment"># 使用標籤選擇、切片</span></span><br><span class="line"><span class="comment"># [列, 欄]</span></span><br><span class="line">df.loc[:, [<span class="string">&quot;A&quot;</span>, <span class="string">&quot;B&quot;</span>]]</span><br><span class="line">df.loc[<span class="string">&quot;20130102&quot;</span>:<span class="string">&quot;20130104&quot;</span>, [<span class="string">&quot;A&quot;</span>, <span class="string">&quot;B&quot;</span>]]</span><br><span class="line">df.loc[<span class="string">&quot;20130102&quot;</span>, [<span class="string">&quot;A&quot;</span>, <span class="string">&quot;B&quot;</span>]]</span><br><span class="line"></span><br><span class="line"><span class="comment"># 獲取值</span></span><br><span class="line">df.loc[<span class="string">&quot;20130102&quot;</span>, <span class="string">&quot;A&quot;</span>]</span><br><span class="line"></span><br><span class="line"><span class="comment"># 使用位置選擇、切片</span></span><br><span class="line"><span class="comment"># [列, 欄]</span></span><br><span class="line">df.iloc[:, <span class="number">0</span>:<span class="number">2</span>]</span><br><span class="line">df.iloc[<span class="number">3</span>:<span class="number">5</span>, <span class="number">0</span>:<span class="number">2</span>]</span><br><span class="line">df.iloc[<span class="number">1</span>, <span class="number">0</span>:<span class="number">2</span>]</span><br><span class="line"></span><br><span class="line"><span class="comment"># 獲取值</span></span><br><span class="line">df.iloc[<span class="number">1</span>, <span class="number">1</span>]</span><br><span class="line"></span><br><span class="line"><span class="comment"># 更快速</span></span><br><span class="line">df.iat[<span class="number">1</span>, <span class="number">1</span>]</span><br><span class="line"></span><br><span class="line"><span class="comment"># 布林索引</span></span><br><span class="line"><span class="comment"># 指定欄比大小</span></span><br><span class="line">df[df[<span class="string">&quot;A&quot;</span>] &gt; <span class="number">0</span>]</span><br><span class="line">df[df &gt; <span class="number">0</span>]</span><br><span class="line"></span><br><span class="line"><span class="comment"># 指定欄包含</span></span><br><span class="line">df2[df2[<span class="string">&quot;E&quot;</span>].isin([<span class="string">&quot;two&quot;</span>, <span class="string">&quot;four&quot;</span>])]</span><br><span class="line"></span><br><span class="line"></span><br></pre></td></tr></table></figure>
+
+<h2 id="排序"><a href="#排序" class="headerlink" title="排序"></a>排序</h2><figure class="highlight py"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># axis 1欄 0列</span></span><br><span class="line"><span class="comment"># ascending True正序 False反序</span></span><br><span class="line">df.sort_index(axis=<span class="number">0</span>, ascending=<span class="literal">True</span>)</span><br><span class="line"></span><br><span class="line"><span class="comment"># 按照欄位名稱排序</span></span><br><span class="line">df.sort_values(by=<span class="string">&quot;A&quot;</span>)</span><br></pre></td></tr></table></figure>
+
+      
+    </div>
+
+    
+    
+    
+
+    <footer class="post-footer">
+        <div class="post-eof"></div>
+      
+    </footer>
+  </article>
+</div>
+
+
+
 
     
 
